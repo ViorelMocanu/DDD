@@ -20,7 +20,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="@TODO" /><!-- @TODO -->
-  <meta property="article:publisher" content="https://www.facebook.com/ViorelMocanu.ro/" /><!-- @TODO -->
+  <meta property="article:publisher" content="@TODO" /><!-- @TODO -->
   <meta property="article:section" content="@TODO" /><!-- @TODO -->
   <meta property="article:published_time" content="2021-06-13T23:27:55+03:00" /><!-- @TODO -->
   <meta property="article:modified_time" content="2021-06-13T23:27:57+03:00" /><!-- @TODO -->
@@ -44,9 +44,10 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-touch-fullscreen" content="yes" />
   <meta name="theme-color" content="#ffffff" /><!-- @TODO -->
+  <link rel="stylesheet" href="./style.css" media="all" />
 
   <!-- optimize -->
-  <link rel="preload" href="/Inter-roman.var.woff2?v=3.18" as="font" type="font/woff2" crossorigin /><!-- @TODO -->
+  <link rel="preload" href="./Inter-roman.var.woff2?v=3.18" as="font" type="font/woff2" crossorigin /><!-- @TODO -->
 </svelte:head>
 
 <div class="Container">

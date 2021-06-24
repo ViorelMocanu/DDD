@@ -12,6 +12,7 @@
     "dev:server": "nodemon",
     "eslint": "eslint --ext .js .",
     "eslint:fix": "eslint --fix --ext .js .",
+    "serve": "node ./src/cleanPublic.js && npm run build:rollup && NODE_ENV=production node ./src/server.js",
     "prettier:svelte": "prettier --write --plugin-search-dir=. ./**/*.svelte"
   },
   "type": "commonjs",
