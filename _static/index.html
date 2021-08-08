@@ -53,6 +53,10 @@
 			document.documentElement.classList.add('js');
 		</script>
 		<link rel="preload" href="@TODO" as="font" type="font/woff2" crossorigin />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 
 	<body itemscope itemtype="https://schema.org/WebPage">
@@ -199,7 +203,7 @@
 					<h2 class="SectionTitle">Ce spun clienții <strong class="Highlight">dedede</strong>?</h2>
 					<ol class="TestimonialList">
 						<li class="Testimonial">
-							<picture class="SliderImage">
+							<picture class="TestimonialImage">
 								<source type="image/webp" srcset="./images/generic-avatar-mobile.webp" media="(min-width: 750px)" />
 								<source type="image/webp" srcset="./images/generic-avatar-desktop.webp" media="(min-width: 100px)" />
 								<img src="./images/generic-avatar.jpg" alt="Acest testimonial este scris de NUME PRENUME @TODO" width="40" height="40" />
@@ -210,7 +214,7 @@
 							</div>
 						</li>
 						<li class="Testimonial">
-							<picture class="SliderImage">
+							<picture class="TestimonialImage">
 								<source type="image/webp" srcset="./images/generic-avatar-mobile.webp" media="(min-width: 750px)" />
 								<source type="image/webp" srcset="./images/generic-avatar-desktop.webp" media="(min-width: 100px)" />
 								<img src="./images/generic-avatar.jpg" alt="Acest testimonial este scris de NUME PRENUME @TODO" width="40" height="40" />
@@ -221,7 +225,7 @@
 							</div>
 						</li>
 						<li class="Testimonial">
-							<picture class="SliderImage">
+							<picture class="TestimonialImage">
 								<source type="image/webp" srcset="./images/generic-avatar-mobile.webp" media="(min-width: 750px)" />
 								<source type="image/webp" srcset="./images/generic-avatar-desktop.webp" media="(min-width: 100px)" />
 								<img src="./images/generic-avatar.jpg" alt="Acest testimonial este scris de NUME PRENUME @TODO" width="40" height="40" />
@@ -309,78 +313,76 @@
 					</a>
 				</section>
 			</div>
-			<footer class="Footer">
-				<section class="Contact">
-					<div class="ContactContainer">
-						<h2 class="SectionTitle">Cum îl chemi pe <strong class="Highlight">dedede</strong>?</h2>
-						<p class="ContactText">Sunt 3 metode de a-l chema pe dedede la tine acasă. Pe a 4-a i-a împrumutat-o lui Batman și n-a mai primit-o înapoi. :)</p>
+			<section class="Contact">
+				<div class="ContactContainer">
+					<h2 class="SectionTitle">Cum îl chemi pe <strong class="Highlight">dedede</strong>?</h2>
+					<p class="ContactText">Sunt 3 metode de a-l chema pe dedede la tine acasă. Pe a 4-a i-a împrumutat-o lui Batman și n-a mai primit-o înapoi. :)</p>
+				</div>
+				<div class="ContactContainer">
+					<h3 class="FooterSubtitle">Sună-l pe DeDeDe</h3>
+					<p class="ContactText">Răspunde la telefon de luni până sâmbătă de la 09:00 la 20:00</p>
+					<a href="tel:0040749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
+						<span class="ButtonText">0749 263 606</span>
+						<img src="./resources/icon-phone.svg" class="ButtonIcon" width="30" height="30" alt="Sună-l pe dedede pentru dezinsecție, dezinfecție sau deratizare!" />
+					</a>
+					<p class="ContactText">Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp dând click aici!</p>
+					<a href="#" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
+						<span class="ButtonText">Mesaj Whatsapp &rarr;</span>
+						<img src="./resources/icon-whatsapp.svg" class="ButtonIcon" width="30" height="30" alt="Trimite-i un mesaj pe Whatsapp lui dedede chiar acum" />
+					</a>
+				</div>
+				<div class="ContactContainer">
+					<h3 class="FooterSubtitle">Dă-i un email lui DeDede</h3>
+					<p class="ContactText">Dacă nu te grăbești și vrei doar detalii despre o potențială intervenție, trimite mail-ul tău pe adresa:</p>
+					<a href="mailto:contact@dedede.ro" class="FooterButton Button ButtonTertiary" title="Trimite-i un mail lui DeDeDe chiar acum!">
+						<span class="ButtonText">contact@dedede.ro</span>
+						<img src="./resources/icon-mail.svg" class="ButtonIcon" width="30" height="30" alt="Discută cu DeDeDe pe mail" />
+					</a>
+					<p class="ContactText">Cel mai probabil vei primi un răspuns tot pe mail sau un telefon ca răspuns în maxim 48h.</p>
+				</div>
+				<div class="ContactContainer">
+					<h3 class="FooterSubtitle">Dă-i un mesaj rapid lui DeDeDe</h3>
+					<p class="ContactText">Dacă vrei să eviți email-ul, îi poți trimite un mesaj rapid pe pagina de contact.</p>
+					<a href="#" class="FooterButton Button ButtonPrimary" title="Scrie-i un mesaj lui DeDeDe direct pe site!">
+						<span class="ButtonText">Trimite mesajul tău &rarr;</span>
+						<img src="./resources/icon-message.svg" class="ButtonIcon" width="23" height="20" alt="Trimite un mesaj rapid către DeDeDe acum" />
+					</a>
+				</div>
+				<footer class="Conclusion ContactContainer">
+					<div class="ConclusionContainer">
+						<h2 class="SectionTitle">Navighează prin site</h2>
+						<ul class="FooterMenu">
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Prima pagină</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Servicii</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Testimoniale</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Informații utile</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Contact</a>
+							</li>
+						</ul>
+						<ul class="FooterMenu">
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Termeni și condiții</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Politica de confidențialitate</a>
+							</li>
+							<li class="FooterItem">
+								<a href="#" class="FooterLink">Schimbă setările de cookies</a>
+							</li>
+						</ul>
 					</div>
-					<div class="ContactContainer">
-						<h3 class="FooterSubtitle">Sună-l pe DeDeDe</h3>
-						<p class="ContactText">Răspunde la telefon de luni până sâmbătă de la 09:00 la 20:00</p>
-						<a href="tel:0040749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
-							<span class="ButtonText">0749 263 606</span>
-							<img src="./resources/icon-phone.svg" class="ButtonIcon" width="30" height="30" alt="Sună-l pe dedede pentru dezinsecție, dezinfecție sau deratizare!" />
-						</a>
-						<p class="ContactText">Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp dând click aici!</p>
-						<a href="#" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
-							<span class="ButtonText">Mesaj Whatsapp &rarr;</span>
-							<img src="./resources/icon-whatsapp.svg" class="ButtonIcon" width="30" height="30" alt="Trimite-i un mesaj pe Whatsapp lui dedede chiar acum" />
-						</a>
-					</div>
-					<div class="ContactContainer">
-						<h3 class="FooterSubtitle">Dă-i un email lui DeDede</h3>
-						<p class="ContactText">Dacă nu te grăbești și vrei doar detalii despre o potențială intervenție, trimite mail-ul tău pe adresa:</p>
-						<a href="mailto:contact@dedede.ro" class="FooterButton Button ButtonTertiary" title="Trimite-i un mail lui DeDeDe chiar acum!">
-							<span class="ButtonText">contact@dedede.ro</span>
-							<img src="./resources/icon-mail.svg" class="ButtonIcon" width="30" height="30" alt="Discută cu DeDeDe pe mail" />
-						</a>
-						<p class="ContactText">Cel mai probabil vei primi un răspuns tot pe mail sau un telefon ca răspuns în maxim 48h.</p>
-					</div>
-					<div class="ContactContainer">
-						<h3 class="FooterSubtitle">Dă-i un mesaj rapid lui DeDeDe</h3>
-						<p class="ContactText">Dacă vrei să eviți email-ul, îi poți trimite un mesaj rapid pe pagina de contact.</p>
-						<a href="#" class="FooterButton Button ButtonPrimary" title="Scrie-i un mesaj lui DeDeDe direct pe site!">
-							<span class="ButtonText">Trimite mesajul tău &rarr;</span>
-							<img src="./resources/icon-message.svg" class="ButtonIcon" width="23" height="20" alt="Trimite un mesaj rapid către DeDeDe acum" />
-						</a>
-					</div>
-					<section class="FooterConclusion ContactContainer">
-						<div class="ConclusionContainer">
-							<h2 class="SectionTitle">Navighează prin site</h2>
-							<ul class="FooterMenu">
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Prima pagină</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Servicii</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Testimoniale</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Informații utile</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Contact</a>
-								</li>
-							</ul>
-							<ul class="FooterMenu">
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Termeni și condiții</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Politica de confidențialitate</a>
-								</li>
-								<li class="FooterItem">
-									<a href="#" class="FooterLink">Schimbă setările de cookies</a>
-								</li>
-							</ul>
-						</div>
-						<p class="Copyright">Copyright &copy; 2021 @TODO Dedede.ro, toate drepturile rezervate.</p>
-					</section>
-				</section>
-			</footer>
+					<p class="Copyright">Copyright &copy; 2021 @TODO Dedede.ro, toate drepturile rezervate.</p>
+				</footer>
+			</section>
 		</div>
 
 		<script defer src="resources/script.js"></script>
