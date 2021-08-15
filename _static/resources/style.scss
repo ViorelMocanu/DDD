@@ -11,8 +11,9 @@
 	--color-light: #FDE24F;
 	--color-offwhite: #fdfdfd;
 	--color-lightgray: rgba(0,0,0,0.1);
+	--color-darkgray: rgba(0,0,0,0.5);
 
-	--break-medium: 750px;
+	--break-medium: 850px;
 	--break-large: 1280px;
 	--break-huge: 1920px;
 }
@@ -43,7 +44,7 @@
 
 html { font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; background: var(--color-offwhite) url('./memphis-mini.jpg') left top repeat; }
 
-body { display: block; min-height: 100vh; margin: 0; text-rendering: optimizeSpeed; }
+body { display: block; min-height: 100vh; margin: 0; color: var(--color-dark); text-rendering: optimizeSpeed; }
 
 img, picture { max-width: 100%; display: block; }
 
@@ -56,9 +57,12 @@ a { color: var(--color-primary);
 	&:active { color: var(--color-secondary); }
 }
 
-.Button { display: flex; align-items: center; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); font-weight: bold; text-decoration: none; text-align: center; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--color-lightgray);
-	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--color-lightgray); }
-	&:active { background: var(--color-dark); color: var(--color-light); box-shadow: inset 0 0.1em 0.1em var(--color-lightgray); }
+svg { fill: currentColor; }
+
+.Button { display: flex; align-items: flex-start; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); border: 0.1875em solid var(--color-primary); font-weight: bold; text-decoration: none; text-align: center; line-height: 1.5em; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--color-lightgray);
+	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--color-lightgray); border-color: var(--color-secondary); }
+	&:active { background: var(--color-dark); color: var(--color-light); box-shadow: inset 0 0.1em 0.1em var(--color-lightgray); border-color: var(--color-dark); }
+	@media (min-width: 850px) { width: fit-content; }
 }
 .ButtonPrimary {  }
 .ButtonSecondary { padding: 0.3em 0.8em; background: transparent; border: 0.2em solid var(--color-primary); color: var(--color-primary);
@@ -66,24 +70,33 @@ a { color: var(--color-primary);
 	&:active { background: transparent; color: var(--color-offwhite); border-color: var(--color-offwhite); }
 }
 .ButtonTertiary { background: transparent; color: var(--color-primary); text-decoration: underline; box-shadow: none;
-	&:hover { background: transparent; color: var(--color-dark); box-shadow: none; }
-	&:active { background: transparent; color: var(--color-secondary); box-shadow: none; }
+	&:hover { background: transparent; color: var(--color-dark); border-color: var(--color-dark); box-shadow: none; }
+	&:active { background: transparent; color: var(--color-secondary); border-color: var(--color-secondary); box-shadow: none; }
 }
 	.ButtonText { display: block; order: 2; }
-		.ButtonTextSecondary {  }
-		.ButtonTextPrimary {  }
-	.ButtonIcon { display: block; width: 2em; height: 2em; order: 1; overflow: hidden; }
+		.ButtonTextSecondary {
+			@media (min-width: 1280px) { display: block; white-space: nowrap; font-size: 0.8em; }
+		}
+		.ButtonTextPrimary { display: inline-block; white-space: nowrap;
+			@media (min-width: 1280px) { display: block; font-size: 1.25em; }
+		}
+	.ButtonIcon { display: block; width: 1.3125em; height: 1.3125em; margin: 0 0.25em 0 0; flex-shrink: 0; order: 1; overflow: hidden; }
 
 .Highlight  { font-weight: bold; color: var(--color-primary); }
 
 .HighResOnly { display: none;
-	@media (min-width: var(--break-large)) { display: inline; }
+	@media (min-width: 1280px) { display: inline; }
 }
 
 .Hidden, .ScreenReaders { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);white-space: nowrap; border-width: 0; }
 
-.SectionTitle {  }
-.SectionText {  }
+.LimitWidth { max-width: 100rem; margin: 0 auto; }
+
+.SectionTitle { display: block; margin: 0 0 0.6666em; font-size: 1.5rem; line-height: 2rem;
+	@media (min-width: 850px) { font-size: 2rem; line-height: 2.5rem; margin: 0 0 1rem; letter-spacing: -1px; }
+	@media (min-width: 1280px) { font-size: 2.5rem; line-height: 3rem; }
+}
+.SectionText { display: block; margin: 1em 0; }
 
 @keyframes fadeIn {
 	from {
@@ -99,74 +112,228 @@ a { color: var(--color-primary);
 /**********/
 
 .Container { position: relative; }
-	.Header { display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: var(--color-dark); color: var(--color-offwhite); }
-		.Logo { display: block; padding: 0.5em; }
-			.LogoPicture { display: block; }
-				.LogoPicture img { display: block; }
-		.ToggleMenu { display: flex; align-items: center; justify-content: center; padding: 0.75em 0.5em; font-weight: bold; background: transparent; color: var(--color-offwhite); border: none; cursor: pointer;
-			&:hover { background: var(--color-light); color: var(--color-dark); }
-			&:active { background: var(--color-secondary); color: var(--color-dark); }
+	.Header { display: block; position: sticky; top: 0; background: var(--color-dark); color: var(--color-offwhite); z-index: 2; }
+		.HeaderContainer { display: flex; justify-content: space-between; align-items: center;
+			@media (min-width: 850px) { flex-direction: column; align-items: flex-start; }
+			@media (min-width: 1280px) { flex-direction: row; }
 		}
-			.ToggleText {  }
-			.ToggleIcon { display: block; padding: 0 0 0 0.5em; fill: var(--color-offwhite); }
-		.MainMenu { display: none; }
-			.MainMenuList {  }
-				.MainMenuItem {  }
-					.MainMenuLink {  }
-			.CTAList {  }
-				.CTAItem {  }
-					.CTAButton {  }
-	.Hero {  }
-		.HeroContent {  }
-			.HeroTitle {  }
-			.HeroText {  }
-			.CTAHero {  }
-		.HeroImage {  }
-	.Services {  }
-		.ServicesImage {  }
-		.ServicesList {  }
-			.ServicesItem {  }
-				.ServicesIcon {  }
-				.ServiceContainer {  }
-					.ServiceName {  }
-					.ServiceText {  }
-		.CTAServices {  }
-	.MoreInfo {  }
-		.Testimonials {  }
-			.TestimonialList {  }
-				.Testimonial {  }
-					.TestimonialImage {  }
-						.TestimonialImage img {  }
-					.TestimonialContainer {  }
-						.TestimonialAuthor {  }
-						.TestimonialText {  }
+			.Logo { display: block; padding: 0.5em;
+				&:hover { opacity: 0.5; }
+				&:active { opacity: 0.75; }
+				@media (min-width: 850px) { margin: 0; padding: 1rem; }
+			}
+				.LogoPicture { display: block; }
+					.LogoPicture img { display: block;
+						@media (min-width: 850px) { width: auto; height: 3.375rem; }
+					}
+			.ToggleMenu { display: flex; align-items: center; justify-content: center; padding: 0.75em 0.5em; font-weight: bold; background: transparent; color: var(--color-offwhite); fill: var(--color-offwhite); border: none; cursor: pointer;
+				&:hover { background: var(--color-light); color: var(--color-dark); fill: var(--color-dark); }
+				&:active { background: var(--color-secondary); color: var(--color-dark); fill: var(--color-dark); }
+				@media (min-width: 850px) { display: none; }
+			}
+				.ToggleText { display: block; line-height: 1.625em; }
+				.ToggleIcon { display: block; padding: 0 0 0 0.5em; }
+			.MainMenu { display: none; width: 100%; max-height: calc(100vh - 3.125rem); overflow-y: auto; position: absolute; top: 3.125rem; background: var(--color-dark); color: var(--color-offwhite); border-top: 0.25rem solid var(--color-offwhite);
+				@media (min-width: 850px) { display: flex; align-self: center;; width: auto; max-height: none; overflow: none; position: static; top: auto; background: transparent; border: none; }
+				@media (min-width: 1280px) { flex-grow: 1; }
+			}
+				.MainMenuList { display: block; margin: 0; padding: 0;
+					@media (min-width: 850px) { display: flex; }
+					@media (min-width: 1280px) { flex-grow: 1; justify-content: center; }
+				}
+					.MainMenuItem { display: block; }
+						.MainMenuLink { display: block; padding: 1rem; color: var(--color-offwhite); font-weight: 900; font-size: 2rem; line-height: 1em; text-decoration: none;
+							&:hover { background: var(--color-light); color: var(--color-dark); }
+							&:active { background: var(--color-dark); color: var(--color-secondary); text-decoration: underline; }
+							@media (min-width: 850px) { font-size: 1.5rem; }
+							@media (min-width: 1280px) { display: flex; height: 100%; align-items: center; font-size: 1rem; font-weight: normal; }
+						}
+				.CTAList { display: block; margin: 0; padding: 0; 
+					@media (min-width: 850px) { display: flex; position: absolute; right: 0.5rem; top: 0; }
+					@media (min-width: 1280px) { position: static; right: auto; top: auto; margin-right: 1rem; }
+				}
+					.CTAItem { display: block; }
+						.CTAButton { margin: 1rem; padding: 1rem; font-size: 1.5rem; text-align: left;
+							@media (min-width: 850px) { padding: 0.75rem 1rem; margin: 1rem 0.5rem; font-size: 1rem; }
+							@media (min-width: 1280px) { padding: 0.5rem 1rem; line-height: 1em; }
+						}
+							.CTAButton .ButtonText { width: min-content;
+								@media (min-width: 500px) { width: auto; }
+								@media (min-width: 1280px) { width: min-content; }
+							}
+							.CTAButton .ButtonIcon {
+								@media (min-width: 1280px) { width: 2em; height: 2em; }
+							}
+	.Hero { display: block; position: relative; }
+		.HeroContainer { display: flex; padding: 1rem 1rem 1em; overflow: hidden; position: relative;
+			@media (min-width: 420px) { font-size: clamp(1rem, calc(1rem + 1vw), 3rem); }
+			@media (min-width: 850px) { padding: 2rem; font-size: 2rem; }
+			@media (min-width: 960px) { padding: 5vh 5.3rem; }
+			@media (min-width: 1280px) { padding: 5rem 5vw; }
+		}
+			.HeroContent { display: block; padding-bottom: 2.875em;
+				@media (min-width: 420px) { width: 50%; padding-bottom: 1.8em; position: relative; z-index: 1; }
+				@media (min-width: 850px) { width: 60.8%; padding-bottom: 0; }
+				@media (min-width: 960px) { width: 26rem; }
+				@media (min-width: 1280px) { width: 34.875rem; }
+			}
+				.HeroTitle { display: block; margin: 0; font-size: 1.5em; line-height: 1.3333em; letter-spacing: -0.02ch;
+					@media (min-width: 1280px) { font-size: 6rem; line-height: 1em; letter-spacing: -0.07ch; }
+				}
+					.HeroTitle hr { display: block; width: 8ch; margin: 0.5rem 0; border-top: 0.3333ch solid var(--color-dark);
+						@media (min-width: 1280px) { margin: 1rem 0; border-top-width: 0.5rem; }
+					}
+					.HeroMain { display: block; font-size: 1.3333em; line-height: 1em;
+						@media (min-width: 1280px) { font-size: 1em; line-height: 1em; }
+					}
+				.HeroText { display: block; margin: 1rem 0; font-size: 1em; line-height: 1.5em;
+					@media (min-width: 850px) { font-size: 0.75em; line-height: 1.5em; }
+					@media (min-width: 1280px) { font-size: 2rem; line-height: 2.5rem; margin: 2em 0; }
+				}
+				.CTAHero { width: calc(100vw - 3rem); position: absolute;
+					@media (min-width: 850px) { width: fit-content; position: static; font-size: 1.5rem; }
+				}
+					.CTAHero .ButtonIcon { width: 1.5em; height: 1.5em; }
+			.HeroImage { display: block; margin: 0 0 0 0.5rem;
+				@media (min-width: 420px) { width: 50%; height: auto; position: absolute; right: 0; top: 1rem; }
+				@media (min-width: 850px) { width: 37.2%; }
+				@media (min-width: 960px) { width: 26rem; right: 1vw; }
+				@media (min-width: 1080px) { right: 10vw; }
+				@media (min-width: 1280px) { width: 38rem; right: 3vw; }
+			}
+	.Services { display: block; margin: 2rem 0 1rem; padding: 1rem; position: relative; overflow: hidden; background: var(--color-offwhite); box-shadow: 0 0 2em var(--color-darkgray);
+		@media (min-width: 850px) { margin: 0 1rem; border-radius: 1rem; }
+		@media (min-width: 960px) { padding: 5vh 4.3rem; }
+		@media (min-width: 1280px) { padding: 5vh 5vw 5vh 50%; border-radius: 2rem; box-shadow: 0 0 2em var(--color-lightgray); }
+		@media (min-width: 1600px) { padding: 4rem 4rem 4rem 56rem; margin: auto; }
+	}
+		.ServicesImage { display: block; width: 100vw; max-width: unset; height: auto; margin: 1rem -1rem;
+			@media (min-width: 600px) { float: right; width: auto; margin: 0.75rem 0 0 1rem; border-radius: 1rem; }
+			@media (min-width: 1280px) { float: none; height: 100%; position: absolute; top: 0; bottom: 0; right: 52%; margin: 0; border-radius: 0; }
+			@media (min-width: 1600px) { left: 0; right: auto; }
+		}
+		.ServicesList { display: block; margin: 0; padding: 0; }
+			.ServicesItem { display: flex; margin: 1.5rem 0; padding: 0; }
+				.ServicesIcon { display: block; margin: 0 0.5rem 0 0; flex-grow: 0; flex-shrink: 0;
+					@media (min-width: 850px) { width: auto; height: 2.5rem; margin: 0 1rem 0 0; }
+					@media (min-width: 1280px) { width: auto; height: 5rem; margin: 0 1rem 0 0; }
+				}
+				.ServicesItemDeratizare .ServicesIcon {
+					@media (min-width: 850px) { margin: 0 0.625rem 0 0; }
+					@media (min-width: 1280px) { margin: 0 0.1875rem 0 0; }
+				}
+				.ServiceContainer { display: block; }
+					.ServiceName { display: block; margin: 0; color: var(--color-primary); font-weight: 900; text-transform: uppercase;
+						@media (min-width: 1280px) { font-size: 1.5rem; line-height: 1em; }
+					}
+					.ServiceText { display: block; margin: 0; }
+		.CTAServices { margin: 1rem 0;
+			@media (min-width: 850px) { width: fit-content; }
+		}
+	.MoreInfo {
+		@media (min-width: 850px) { display: flex; flex-direction: row-reverse; padding: 1rem; }
+		@media (min-width: 1280px) { padding: 4rem 0; }
+	}
+		.Testimonials { display: block; margin: 1rem 0; padding: 1rem;
+			@media (min-width: 850px) { width: 50%; }
+			@media (min-width: 960px) { width: 38.2%; padding: 2rem; }
+		}
+			.TestimonialList { display: block; margin: 0; padding: 0; }
+				.Testimonial { display: flex; margin: 1rem 0; }
+					.TestimonialImage { display: block; width: 2.5rem; height: 2.5rem; margin: 0 0.5rem 0 0; flex-grow: 0; flex-shrink: 0; border-radius: 50%; overflow: hidden;
+						@media (min-width: 850px) { width: 5rem; height: 5rem; }
+					}
+						.TestimonialImage img { display: block; width: 100%; height: auto; }
+					.TestimonialContainer { display: block; }
+						.TestimonialAuthor { display: block; margin: 0; font-weight: 900; }
+						.TestimonialText { display: block; margin: 0; }
 			.CTATestimonials {  }
-		.UsefulInformation {  }
-			.ArticleList {  }
-				.Article {  }
-					.ArticleLink {  }
-						.ArticleThumbnail {  }
-						.ArticleTitle {  }
-						.ArticleExcerpt {  }
-						.ArticleMeta {  }
-							.ArticleTimestamp {  }
-								.MetaText {  }
-								.ArticleTimestamp .ButtonIcon {  }
+		.UsefulInformation { display: block; margin: 1rem 0; padding: 1rem; background: var(--color-offwhite); box-shadow: 0 0 2em var(--color-darkgray); border-radius: 1rem;
+			@media (min-width: 850px) { width: 50%; }
+			@media (min-width: 960px) { width: 61.8%; padding: 2rem; }
+			@media (min-width: 1280px) { box-shadow: 0 0 2em var(--color-lightgray); }
+		}
+			.ArticleList { display: block; margin: 0; padding: 0;
+				@media (min-width: 600px) { display: flex; flex-direction: row; flex-wrap: wrap; --margin: 1rem; --multiplier: calc(30rem - 100%); margin: calc(var(--margin) * -1); }
+				@media (min-width: 1280px) { margin: 1rem -1rem; }
+			}
+				.Article { display: block; margin: 1rem 0;
+					@media (min-width: 600px) { min-width: calc(50% - (var(--margin) * 2)); max-width: 100%; flex-grow: 1; flex-basis: calc(var(--multiplier) * 999); margin: var(--margin); }
+					@media (min-width: 1280px) { min-width: calc(33.3333% - (var(--margin) * 2)); margin: 1rem; }
+				}
+					.ArticleLink { display: block; text-decoration: none; color: var(--color-dark);
+						&:hover, &:active { color: var(--color-dark); }
+					}
+						.ArticleThumbnail { display: block; width: 100%; height: auto; margin: 0 0 0.5rem; overflow: hidden; border-radius: 0.5rem; }
+							.ArticleLink:hover .ArticleThumbnail { opacity: 0.85; }
+							.ArticleThumbnail img { display: block; width: 100%; height: auto; }
+						.ArticleTitle { display: block; margin: 0.5rem 0 0; }
+							.ArticleLink:hover .ArticleTitle { color: var(--color-primary); }
+						.ArticleExcerpt { display: block; margin: 0 0 0.5rem; }
+						.ArticleMeta { display: flex; align-items: stretch; }
+							.ArticleTimestamp, .ArticleDuration { display: flex; width: 50%; }
+								.MetaText { display: block; order: 2; }
+								.ArticleTimestamp .ButtonIcon { display: block; order: 1; }
 							.ArticleDuration {  }
-			.CTAUseful {  }
-	.Contact {  }
-		.ContactContainer {  }
-			.ContactContainer .SectionTitle {  }
-			.ContactContainer .ContactText {  }
-			.FooterSubtitle {  }
-			.FooterButton {  }
-		.Conclusion {  }
-			.ConclusionContainer {  }
-				.ConclusionContainer .SectionTitle {  }
-				.FooterMenu {  }
-					.FooterItem {  }
-						.FooterLink {  }
-			.Copyright {  }
+			.CTAUseful { margin: 1rem 0;
+				@media (min-width: 960px) { margin: 1rem 0 0; }
+			}
+	.Contact { padding: 1rem 0 0 0; position: relative;
+		@media (min-width: 850px) { display: flex; flex-direction: row; flex-wrap: wrap; padding: 2rem 1rem; background: var(--color-dark); color: var(--color-offwhite); }
+		@media (min-width: 1280px) { margin-bottom: 4rem; border-radius: 2rem; background: var(--color-dark) url('../images/cityscape.svg') center 30% no-repeat; background-size: 100%; }
+	}
+		.ContactContainer { padding: 0 1rem;
+			@media (min-width: 850px) { display: block; width: 100%; }
+			@media (min-width: 1280px) { width: 25%; }
+		}
+			.ContactContainer .SectionTitle { display: block; margin: 0;
+				@media (min-width: 1280px) { margin: 1.5rem 0 1.5rem 0; }
+			}
+			.ContactContainer .ContactText { display: block; margin: 0; }
+			.FooterSubtitle { display: block; margin: 1.5rem 0 0 0; color: var(--color-primary); text-transform: uppercase; font-weight: 900; }
+			.FooterButton { margin: 0 0 1rem; }
+			.FooterButton.ButtonTertiary { justify-content: left; padding: 0; color: var(--color-dark); border: none; text-align: left; font-size: 1.5rem; line-height: 1em;
+				&:hover { color: var(--color-primary); }
+				&:active { color: var(--color-secondary); }
+				@media (min-width: 850px) { color: var(--color-light); }
+			}
+			.FooterButton.ButtonPrimary { margin: 1rem 0 2rem; }
+		.MobileSignal { padding: 0 1rem 0; background: transparent url('../images/cityscape.svg') center top no-repeat; background-size: 850px auto;
+			@media (min-width: 850px) { margin: 0 -1rem -2rem; padding: 0 2rem 0; }
+			@media (min-width: 1280px) { padding-bottom: 17rem; background: transparent; }
+		}
+			.BatmanSignal { display: block; width: 100%; max-width: 25rem; height: auto; margin: 10rem auto auto;
+				@media (min-width: 850px) { margin: 10rem 0 0 0; }
+				@media (min-width: 1280px) { width: 22%; max-width: 100%; position: absolute; left: 2rem; bottom: 0; }
+			}
+				.FillWhite { fill: var(--color-offwhite); }
+				.FillDark { fill: var(--color-dark); }
+				.FillPrimary { fill: var(--color-primary); }
+		.Conclusion { display: block; padding: 1rem; margin: 0; background: var(--color-dark); color: var(--color-offwhite);
+			@media (min-width: 850px) { width: 45%; padding: 2rem; position: absolute; bottom: 0; right: 0; background: transparent; color: inherit; }
+			@media (min-width: 1280px) { width: 75%; padding: 1rem; }
+		}
+			.ConclusionContainer { display: block; }
+				.ConclusionContainer .SectionTitle {
+					@media (min-width: 1280px) { font-size: 1.5rem; line-height: 1.5rem; }
+				}
+				.FooterMenu { margin: 0; padding: 0;
+					@media (min-width: 420px) { float: left; width: 50%; }
+					@media (min-width: 1280px) { display: flex; flex-direction: row; float: none; width: auto; margin-left: -0.5rem; }
+				}
+					.FooterItem { display: block; }
+						.FooterLink { display: block; padding: 0 0 0 1rem; margin: 0 0 0 -1rem; color: var(--color-offwhite); position: relative;
+							&:before { content: '\2022'; display: block; position: absolute; left: 0.25rem; top: 0;
+								@media (min-width: 1280px) { display: none; }
+							}
+							&:hover { color: var(--color-light); }
+							&:active { color: var(--color-secondary); }
+							@media (min-width: 1280px) { padding: 0.5rem; margin: 0; }
+						}
+			.Copyright { display: block;
+				@media (min-width: 420px) { clear: both; padding: 1rem 0 0; }
+				@media (min-width: 1280px) { padding: 0; margin: 0 0 1rem; }
+			}
 
 /*********/
 /* PRINT */
