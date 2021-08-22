@@ -62,7 +62,7 @@
 	<body itemscope itemtype="https://schema.org/WebPage">
 
 		<div class="Container">
-			<header class="Header">
+			<header class="Header" id="header">
 				<div class="HeaderContainer LimitWidth">
 					<a class="Logo" href="#" title="Revino pe prima pagină a site-ului DeDeDe.ro">
 						<picture class="LogoPicture">
@@ -71,15 +71,15 @@
 							<img src="./images/dedede-logo-mobile.png" alt="DeDeDe.ro - Spații fără dăunători - Logo" width="102" height="34" />
 						</picture>
 					</a>
-					<button class="ToggleMenu" type="button">
+					<button class="ToggleMenu" type="button" id="menuToggle">
 						<span class="ToggleText">Meniu</span>
-						<svg class="ToggleIcon" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" width="28" height="21" alt="Deschide sau închide meniul">
-							<g transform="translate(0,-952.36218)">
-								<path d="m 14,970.36216 c -2.7614,0 -5.0000001,2.2385 -5.0000001,5 0,2.76149 2.2386001,5 5.0000001,5 l 72,0 c 2.7614,0 5,-2.23851 5,-5 0,-2.7615 -2.2386,-5 -5,-5 z m 0,27 c -2.7614,0 -5.0000001,2.23845 -5.0000001,4.99994 0,2.7615 2.2386001,5 5.0000001,5 l 72,0 c 2.7614,0 5,-2.2385 5,-5 0,-2.76149 -2.2386,-4.99994 -5,-4.99994 z m 0,27.00004 c -2.7614,0 -5.0000001,2.2385 -5.0000001,5 0,2.7615 2.2386001,5 5.0000001,5 l 72,0 c 2.7614,0 5,-2.2385 5,-5 0,-2.7615 -2.2386,-5 -5,-5 z" style="text-indent:0;text-transform:none;direction:ltr;block-progression:tb;baseline-shift:baseline;enable-background:accumulate;" fill-opacity="1" stroke="none" marker="none" visibility="visible" display="inline" overflow="visible" />
-							</g>
-						</svg>
+						<div class="ToggleIcon">
+							<span class="ToggleIconSymbol Symbol1">&nbsp;</span>
+							<span class="ToggleIconSymbol Symbol2">&nbsp;</span>
+							<span class="ToggleIconSymbol Symbol3">&nbsp;</span>
+						</div>
 					</button>
-					<nav class="MainMenu">
+					<nav class="MainMenu" id="mainMenu">
 						<ul class="MainMenuList">
 							<li class="MainMenuItem">
 								<a href="#" class="MainMenuLink">Prima pagină</a>
@@ -521,6 +521,12 @@
 						</ul>
 					</div>
 					<p class="Copyright">Copyright &copy; 2021 @TODO Dedede.ro, toate drepturile rezervate.</p>
+					<button id="darkMode" class="DarkModeButton Button ButtonSecondary">
+						<span class="ButtonText">Inversează culorile</span>
+						<svg class="ButtonIcon" width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496" alt="Activează sau dezactivează Dark Mode-ul">
+							<path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)" />
+						</svg>
+					</button>
 				</footer>
 			</section>
 		</div>

@@ -4,71 +4,23 @@
   import Clock from '../../components/Clock.svelte';
   export let data, helpers, request;
 
-  export let foo;
-
   // add permalinks to the hook list so we can link to the posts.
   const hooks = data.hookInterface.map((hook) => ({
     ...hook,
     link: helpers.permalinks.hooks({ slug: hook.hook.toLocaleLowerCase() }),
   }));
+  console.info('init: home');
 </script>
 
 <style>
-  .banner {
-    padding: 1rem 2rem;
-    background: #eee;
-    border-radius: 2rem;
-    margin-bottom: 1rem;
-  }
-  .entries {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: 3rem 0;
-  }
-
-  @media (min-width: 768px) {
-    .entries {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      margin: 3rem 0;
-    }
-    :global(.entries .entry) {
-      margin-right: 1rem;
-    }
-  }
-
-  :global(.entry) {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    background: white;
-  }
-  .about {
-    margin-bottom: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    .hydrate {
-      display: grid;
-      grid-template-columns: 80% 20%;
-    }
-  }
-
-  .hooks {
-    display: grid;
-    grid-template-columns: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .hooks {
-      grid-template-columns: 50% 50%;
-    }
+  body {
+    background: yellow;
+    color: black;
   }
 </style>
 
 <svelte:head>
-  <title>Elder.js Template: Home</title>
+  <title>Elder.js Template: Home test 1234</title>
   <meta name="description" content="Elder.js Starter Template: It's A Tutorial Too!" />
   <link href="/" rel="canonical" />
 </svelte:head>
@@ -88,7 +40,7 @@
 {/if}
 
 <div class="banner">
-  <h1>Hello World: Welcome to Elder.js!</h1>
+  <h1>test aaa bbb</h1>
   <p>Woot! You've got Elder.js installed. This template is designed to show you the ropes of how things work.</p>
 
   <p>

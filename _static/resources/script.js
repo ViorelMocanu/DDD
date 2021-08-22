@@ -1,46 +1,57 @@
-/* abstractizarea lui getElementById */
-/*function getId(numeID) {
-	return document.getElementById(numeID);
-}*/
+console.info('Inițializez aplicația...');
 
-/* instanțierea trigger-ului de meniu */
-let $menuTriggerButton = document.getElementById('menuTrigger');
-let $mainMenuNav = document.getElementById('mainMenu');
+/* Toggle de meniu principal */
+const menuToggle = document.getElementById('menuToggle');
+const mainMenuParent = document.getElementById('header');
+menuToggle.addEventListener('click', () => {
+	mainMenuParent.classList.toggle('Active');
+});
 
-$menuTriggerButton.addEventListener('click', () => {
-	$mainMenuNav.classList.toggle('Active');
-	$menuTriggerButton.classList.toggle('Active');
-}, true);
+/* mutation observer pentru ștergerea clasei Active de pe meniu */
+const mediaQuery = window.matchMedia('(min-width:850px)');
+mediaQuery.onchange = e => { if (e.matches) { document.getElementById('header').classList.remove('Active'); } }
 
-/* instanțierea slider-ului */
-let $previousSlideLink = document.getElementById('previousSlide');
-let $nextSlideLink = document.getElementById('nextSlide');
-let $sliderPickerList = document.getElementById('sliderPicker');
-let currentSlide = 1;
-let $sliderList = document.getElementById('sliderList');
-let allSlides = $sliderList.childElementCount;
+// check for saved 'darkMode' in localStorage
+let darkMode = localStorage.getItem('darkMode');
 
-function selectSlide(position) {
-	$sliderList.children[currentSlide - 1].classList.remove('Active');
-	$sliderPickerList.children[currentSlide - 1].classList.remove('Active');
-	currentSlide = position;
-	$sliderList.children[currentSlide - 1].classList.add('Active');
-	$sliderPickerList.children[currentSlide - 1].classList.add('Active');
+const darkModeToggle = document.getElementById('darkMode');
+
+const enableDarkMode = () => {
+	// 1. Add the class to the body
+	document.body.classList.add('darkmode');
+	document.body.classList.remove('lightmode');
+	// 2. Update darkMode in localStorage
+	localStorage.setItem('darkMode', 'enabled');
 }
 
-$previousSlideLink.addEventListener('click', () => {
-	let position = (currentSlide === 1) ? allSlides : (currentSlide - 1);
-	selectSlide(position);
-}, true);
-$nextSlideLink.addEventListener('click', () => {
-	let position = (currentSlide === allSlides) ? 1 : (currentSlide + 1);
-	selectSlide(position);
-}, true);
-$sliderPickerList.querySelectorAll('.SliderPickerLink').forEach((el, index) => {
-	el.addEventListener('click', () => {
-		let position = index + 1;
-		selectSlide(position);
-	}, true);
+const disableDarkMode = () => {
+	// 1. Remove the class from the body
+	document.body.classList.remove('darkmode');
+	document.body.classList.add('lightmode');
+	// 2. Update darkMode in localStorage
+	localStorage.setItem('darkMode', 'disabled');
+}
+
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === 'enabled') {
+	enableDarkMode();
+} else if (darkMode === 'disabled') {
+	disableDarkMode();
+}
+
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => {
+	// get their darkMode setting
+	darkMode = localStorage.getItem('darkMode');
+
+	// if it not current enabled, enable it
+	if (darkMode !== 'enabled') {
+		enableDarkMode();
+		// if it has been enabled, turn it off  
+	} else {
+		disableDarkMode();
+	}
 });
 
 /* instanțierea service worker-ului */

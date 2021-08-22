@@ -1,12 +1,15 @@
 <script>
   import style from '../../assets/style.css';
-  export let templateHtml, settings;
+  export let templateHtml;
+  //export const settings;
+  console.info('init: layout');
 </script>
 
 <style>
 </style>
 
 <svelte:head>
+  <!-- test 1234567 -->
   <!-- SEO -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />

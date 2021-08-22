@@ -8,43 +8,99 @@
 	--color-primary: #FF5470;
 	--color-secondary: #00EBC7;
 	--color-dark: #00214D;
+	--color-darker: #001633;
 	--color-light: #FDE24F;
 	--color-offwhite: #fdfdfd;
-	--color-lightgray: rgba(0,0,0,0.1);
+	--color-lightgray: rgba(12, 11, 11, 0.1);
 	--color-darkgray: rgba(0,0,0,0.5);
+	--color-transparentwhite: rgba(255,255,255,0.1);
+	--color-lightwhite: rgba(255,255,255,0.5);
 
+	--foreground: var(--color-dark);
+	--background: var(--color-offwhite);
+	--shadow: var(--color-darkgray);
+	--light-shadow: var(--color-lightgray);
+
+	/*
 	--break-medium: 850px;
 	--break-large: 1280px;
 	--break-huge: 1920px;
+	*/
+
+	@media (min-width: 1280px) { --shadow: var(--light-shadow); }
 }
 
-/* latin https://fonts.gstatic.com/s/archivo/v8/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2 */
-@font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 400;
-  font-stretch: 100%;
-  font-display: swap;
-  font-named-instance: 'Regular';
-  src: local('Archivo'), url("./archivo-var.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground: var(--color-offwhite);
+		--background: var(--color-dark);
+		--shadow: var(--color-lightwhite);
+		--light-shadow: var(--color-transparentwhite);
+	}
+	body .Header { background: var(--color-darker); border-bottom: 0.1875em solid var(--foreground); }
+	body .Active .MainMenu { border-bottom: 0.25rem solid var(--foreground);
+		@media (min-width: 850px) { border-bottom: none; }
+	}
+	body .HeroTitle hr { border-color: var(--foreground); }
+	body .Services, body .UsefulInformation, body .Contact { background-color: var(--color-darker); }
+	.lightmode .Services, .lightmode .UsefulInformation, .lightmode .Contact { box-shadow: 0 0 2em var(--color-lightgray); }
+	.lightmode .Services, .lightmode .UsefulInformation { background-color: var(--color-offwhite); }
+	.lightmode .Contact { background-color: var(--color-dark); }
+	body .ArticleLink { color: var(--foreground);
+		&:hover { color: var(--foreground); }
+	}
 }
-@font-face {
-  font-family: 'Archivo';
-  font-style: normal;
-  font-weight: 700;
-  font-stretch: 100%;
-  font-display: swap;
-  font-named-instance: 'Bold';
-  src: local('Archivo'), url("./archivo-var.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+.darkmode {
+	--foreground: var(--color-offwhite);
+	--background: var(--color-dark);
+	--shadow: var(--color-lightwhite);
+	--light-shadow: var(--color-transparentwhite);
+	@media (min-width: 1280px) { --shadow: var(--color-transparentwhite); }
+}
+
+.lightmode {
+	--foreground: var(--color-dark);
+	--background: var(--color-offwhite);
+	--shadow: var(--color-darkgray);
+	--light-shadow: var(--color-lightgray);
+	@media (min-width: 1280px) { --shadow: var(--light-darkgray); }
+}
+
+@media (prefers-reduced-data: no-preference) {
+	/* latin https://fonts.gstatic.com/s/archivo/v8/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxI.woff2 */
+	@font-face {
+		font-family: 'Archivo';
+		font-style: normal;
+		font-weight: 400;
+		font-stretch: 100%;
+		font-display: swap;
+		font-named-instance: 'Regular';
+		src: local('Archivo'), url("./archivo-var.woff2") format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+	@font-face {
+		font-family: 'Archivo';
+		font-style: normal;
+		font-weight: 700;
+		font-stretch: 100%;
+		font-display: swap;
+		font-named-instance: 'Bold';
+		src: local('Archivo'), url("./archivo-var.woff2") format('woff2');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within { scroll-behavior: auto; }
+	*, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; background: var(--color-offwhite) url('./memphis-mini.jpg') left top repeat; }
+html { font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; }
 
-body { display: block; min-height: 100vh; margin: 0; color: var(--color-dark); text-rendering: optimizeSpeed; }
+body { display: block; min-height: 100vh; margin: 0; background: var(--background) url('./memphis-mini.webp') left top repeat; color: var(--foreground); text-rendering: optimizeSpeed; }
 
 img, picture { max-width: 100%; display: block; }
 
@@ -59,9 +115,11 @@ a { color: var(--color-primary);
 
 svg { fill: currentColor; }
 
-.Button { display: flex; align-items: flex-start; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); border: 0.1875em solid var(--color-primary); font-weight: bold; text-decoration: none; text-align: center; line-height: 1.5em; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--color-lightgray);
-	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--color-lightgray); border-color: var(--color-secondary); }
-	&:active { background: var(--color-dark); color: var(--color-light); box-shadow: inset 0 0.1em 0.1em var(--color-lightgray); border-color: var(--color-dark); }
+a, button { cursor: pointer; }
+
+.Button { display: flex; align-items: flex-start; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); border: 0.1875em solid var(--color-primary); font-weight: bold; text-decoration: none; text-align: center; line-height: 1.5em; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--light-shadow);
+	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--light-shadow); border-color: var(--color-secondary); }
+	&:active { background: var(--color-dark); color: var(--color-light); box-shadow: inset 0 0.1em 0.1em var(--light-shadow); border-color: var(--color-dark); }
 	@media (min-width: 850px) { width: fit-content; }
 }
 .ButtonPrimary {  }
@@ -82,7 +140,7 @@ svg { fill: currentColor; }
 		}
 	.ButtonIcon { display: block; width: 1.3125em; height: 1.3125em; margin: 0 0.25em 0 0; flex-shrink: 0; order: 1; overflow: hidden; }
 
-.Highlight  { font-weight: bold; color: var(--color-primary); }
+.Highlight { font-weight: bold; color: var(--color-primary); }
 
 .HighResOnly { display: none;
 	@media (min-width: 1280px) { display: inline; }
@@ -112,7 +170,12 @@ svg { fill: currentColor; }
 /**********/
 
 .Container { position: relative; }
-	.Header { display: block; position: sticky; top: 0; background: var(--color-dark); color: var(--color-offwhite); z-index: 2; }
+	.Header { display: block; position: sticky; top: 0; background: var(--color-dark); color: var(--color-light); z-index: 2; /*overflow: hidden;*/
+		.darkmode & { background: var(--color-darker); border-bottom: 0.1875em solid var(--color-offwhite); }
+		&.Active { overflow: visible;
+			@media (min-width: 1280px) { overflow: initial; }
+		}
+	}
 		.HeaderContainer { display: flex; justify-content: space-between; align-items: center;
 			@media (min-width: 850px) { flex-direction: column; align-items: flex-start; }
 			@media (min-width: 1280px) { flex-direction: row; }
@@ -126,19 +189,32 @@ svg { fill: currentColor; }
 					.LogoPicture img { display: block;
 						@media (min-width: 850px) { width: auto; height: 3.375rem; }
 					}
-			.ToggleMenu { display: flex; align-items: center; justify-content: center; padding: 0.75em 0.5em; font-weight: bold; background: transparent; color: var(--color-offwhite); fill: var(--color-offwhite); border: none; cursor: pointer;
-				&:hover { background: var(--color-light); color: var(--color-dark); fill: var(--color-dark); }
-				&:active { background: var(--color-secondary); color: var(--color-dark); fill: var(--color-dark); }
+			.ToggleMenu { display: flex; align-items: center; justify-content: center; padding: 0.75em 0.5em; font-weight: bold; background: transparent; color: var(--color-offwhite); fill: var(--color-dark); border: none; cursor: pointer;
+				&:hover { background: var(--color-secondary); color: var(--color-dark); fill: var(--color-dark); }
+				.Active &, &:active { background: var(--color-light); color: var(--color-dark); fill: var(--color-dark); }
 				@media (min-width: 850px) { display: none; }
 			}
 				.ToggleText { display: block; line-height: 1.625em; }
-				.ToggleIcon { display: block; padding: 0 0 0 0.5em; }
-			.MainMenu { display: none; width: 100%; max-height: calc(100vh - 3.125rem); overflow-y: auto; position: absolute; top: 3.125rem; background: var(--color-dark); color: var(--color-offwhite); border-top: 0.25rem solid var(--color-offwhite);
-				@media (min-width: 850px) { display: flex; align-self: center;; width: auto; max-height: none; overflow: none; position: static; top: auto; background: transparent; border: none; }
-				@media (min-width: 1280px) { flex-grow: 1; }
+				.ToggleIcon { display: block; width: 2rem; height: 1.1875rem; padding: 0 0 0 0.5em; }
+					.ToggleIconSymbol { display: block; height: 0.1875rem; margin: 0 0 0.3125rem; background: var(--color-offwhite); border-radius: 0.0625rem; will-change: transform; transition: transform 0.4s ease-out;
+						.ToggleMenu:hover &, .Active .ToggleMenu &, .ToggleMenu:active & { background: var(--color-dark); }
+					}
+					.Symbol3 { margin: 0; will-change: opacity; transition: opacity 0.4s ease-out; }
+					.Active .Symbol1 { transform: rotate3d(0, 0, 1, 45deg) translate3d(0.375rem, 0.375rem, 0); }
+					.Active .Symbol2 { transform: rotate3d(0, 0, 1, -45deg); }
+					.Active .Symbol3 { opacity: 0; }
+			.MainMenu { display: block; width: 100%; max-height: calc(100vh - 3.125rem); overflow-y: auto; position: absolute; top: 3.125rem; background: var(--color-dark); color: var(--color-offwhite); border-top: 0.25rem solid var(--color-offwhite); transform: translate3d(100%, 0, 0); will-change: transform; transition: transform 0.4s ease-out;
+				@media (min-width: 850px) { display: flex; align-self: center;; width: auto; max-height: none; overflow: none; position: static; top: auto; background: transparent; border: none; transform: none; transition: unset; will-change: unset; }
+				@media (min-width: 1280px) { flex-grow: 1; overflow: visible; }
 			}
-				.MainMenuList { display: block; margin: 0; padding: 0;
-					@media (min-width: 850px) { display: flex; }
+			.Active .MainMenu { display: block; border-color: var(--color-light); transform: translate3d(0, 0, 0);
+				.darkmode & { border-bottom: 0.25rem solid var(--color-offwhite);
+					@media (min-width: 850px) { border-bottom: none; transform: unset; overflow: initial; }
+				}
+				@media (min-width: 850px) { display: flex; }
+			}
+				.MainMenuList { display: block; margin: 1rem 0 0 0; padding: 0;
+					@media (min-width: 850px) { display: flex; margin: 0; }
 					@media (min-width: 1280px) { flex-grow: 1; justify-content: center; }
 				}
 					.MainMenuItem { display: block; }
@@ -150,10 +226,10 @@ svg { fill: currentColor; }
 						}
 				.CTAList { display: block; margin: 0; padding: 0; 
 					@media (min-width: 850px) { display: flex; position: absolute; right: 0.5rem; top: 0; }
-					@media (min-width: 1280px) { position: static; right: auto; top: auto; margin-right: 1rem; }
+					@media (min-width: 1280px) { position: relative; right: auto; top: auto; margin-right: 1rem; }
 				}
 					.CTAItem { display: block; }
-						.CTAButton { margin: 1rem; padding: 1rem; font-size: 1.5rem; text-align: left;
+						.CTAButton { margin: 1rem; padding: 1rem; text-align: left;
 							@media (min-width: 850px) { padding: 0.75rem 1rem; margin: 1rem 0.5rem; font-size: 1rem; }
 							@media (min-width: 1280px) { padding: 0.5rem 1rem; line-height: 1em; }
 						}
@@ -161,6 +237,7 @@ svg { fill: currentColor; }
 								@media (min-width: 500px) { width: auto; }
 								@media (min-width: 1280px) { width: min-content; }
 							}
+								.CTAButton .ButtonTextSecondary { white-space: nowrap; }
 							.CTAButton .ButtonIcon {
 								@media (min-width: 1280px) { width: 2em; height: 2em; }
 							}
@@ -182,6 +259,7 @@ svg { fill: currentColor; }
 				}
 					.HeroTitle hr { display: block; width: 8ch; margin: 0.5rem 0; border-top: 0.3333ch solid var(--color-dark);
 						@media (min-width: 1280px) { margin: 1rem 0; border-top-width: 0.5rem; }
+						.darkmode & { border-color: var(--foreground); }
 					}
 					.HeroMain { display: block; font-size: 1.3333em; line-height: 1em;
 						@media (min-width: 1280px) { font-size: 1em; line-height: 1em; }
@@ -201,11 +279,12 @@ svg { fill: currentColor; }
 				@media (min-width: 1080px) { right: 10vw; }
 				@media (min-width: 1280px) { width: 38rem; right: 3vw; }
 			}
-	.Services { display: block; margin: 2rem 0 1rem; padding: 1rem; position: relative; overflow: hidden; background: var(--color-offwhite); box-shadow: 0 0 2em var(--color-darkgray);
+	.Services { display: block; margin: 2rem 0 1rem; padding: 1rem; position: relative; overflow: hidden; background: var(--background); box-shadow: 0 0 2em var(--shadow);
 		@media (min-width: 850px) { margin: 0 1rem; border-radius: 1rem; }
 		@media (min-width: 960px) { padding: 5vh 4.3rem; }
-		@media (min-width: 1280px) { padding: 5vh 5vw 5vh 50%; border-radius: 2rem; box-shadow: 0 0 2em var(--color-lightgray); }
+		@media (min-width: 1280px) { padding: 5vh 5vw 5vh 50%; border-radius: 2rem; }
 		@media (min-width: 1600px) { padding: 4rem 4rem 4rem 56rem; margin: auto; }
+		.darkmode & { background: var(--color-darker); }
 	}
 		.ServicesImage { display: block; width: 100vw; max-width: unset; height: auto; margin: 1rem -1rem;
 			@media (min-width: 600px) { float: right; width: auto; margin: 0.75rem 0 0 1rem; border-radius: 1rem; }
@@ -248,10 +327,10 @@ svg { fill: currentColor; }
 						.TestimonialAuthor { display: block; margin: 0; font-weight: 900; }
 						.TestimonialText { display: block; margin: 0; }
 			.CTATestimonials {  }
-		.UsefulInformation { display: block; margin: 1rem 0; padding: 1rem; background: var(--color-offwhite); box-shadow: 0 0 2em var(--color-darkgray); border-radius: 1rem;
+		.UsefulInformation { display: block; margin: 1rem 0; padding: 1rem; background: var(--background); box-shadow: 0 0 2em var(--shadow); border-radius: 1rem;
 			@media (min-width: 850px) { width: 50%; }
 			@media (min-width: 960px) { width: 61.8%; padding: 2rem; }
-			@media (min-width: 1280px) { box-shadow: 0 0 2em var(--color-lightgray); }
+			.darkmode & { background: var(--color-darker); }
 		}
 			.ArticleList { display: block; margin: 0; padding: 0;
 				@media (min-width: 600px) { display: flex; flex-direction: row; flex-wrap: wrap; --margin: 1rem; --multiplier: calc(30rem - 100%); margin: calc(var(--margin) * -1); }
@@ -263,6 +342,7 @@ svg { fill: currentColor; }
 				}
 					.ArticleLink { display: block; text-decoration: none; color: var(--color-dark);
 						&:hover, &:active { color: var(--color-dark); }
+						.darkmode & { color: var(--foreground); }
 					}
 						.ArticleThumbnail { display: block; width: 100%; height: auto; margin: 0 0 0.5rem; overflow: hidden; border-radius: 0.5rem; }
 							.ArticleLink:hover .ArticleThumbnail { opacity: 0.85; }
@@ -280,7 +360,8 @@ svg { fill: currentColor; }
 			}
 	.Contact { padding: 1rem 0 0 0; position: relative;
 		@media (min-width: 850px) { display: flex; flex-direction: row; flex-wrap: wrap; padding: 2rem 1rem; background: var(--color-dark); color: var(--color-offwhite); }
-		@media (min-width: 1280px) { margin-bottom: 4rem; border-radius: 2rem; background: var(--color-dark) url('../images/cityscape.svg') center 30% no-repeat; background-size: 100%; }
+		@media (min-width: 1280px) { margin-bottom: 4rem; border-radius: 2rem; background: var(--color-dark) url('../images/cityscape.svg') center 30% no-repeat; background-size: 100%; box-shadow: 0 0.25em 1em var(--shadow); }
+		.darkmode & { background-color: var(--color-darker); }
 	}
 		.ContactContainer { padding: 0 1rem;
 			@media (min-width: 850px) { display: block; width: 100%; }
@@ -307,7 +388,8 @@ svg { fill: currentColor; }
 				@media (min-width: 1280px) { width: 22%; max-width: 100%; position: absolute; left: 2rem; bottom: 0; }
 			}
 				.FillWhite { fill: var(--color-offwhite); }
-				.FillDark { fill: var(--color-dark); }
+				.FillDark { fill: var(--foreground); }
+					.darkmode .BatmanSignal .FillDark { fill: var(--background); }
 				.FillPrimary { fill: var(--color-primary); }
 		.Conclusion { display: block; padding: 1rem; margin: 0; background: var(--color-dark); color: var(--color-offwhite);
 			@media (min-width: 850px) { width: 45%; padding: 2rem; position: absolute; bottom: 0; right: 0; background: transparent; color: inherit; }
@@ -334,15 +416,13 @@ svg { fill: currentColor; }
 				@media (min-width: 420px) { clear: both; padding: 1rem 0 0; }
 				@media (min-width: 1280px) { padding: 0; margin: 0 0 1rem; }
 			}
+			.DarkModeButton { margin: 0; font-weight: normal;
+				@media (min-width: 1280px) { position: absolute; right: 3rem; bottom: 2rem; }
+			}
 
 /*********/
 /* PRINT */
 /*********/
-
-@media (prefers-reduced-motion: reduce) {
-	html:focus-within { scroll-behavior: auto; }
-	*, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
-}
 
 @media print {
 
