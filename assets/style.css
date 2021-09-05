@@ -1,2 +1,30 @@
-@media (prefers-reduced-data: no-preference) and (font-variation-settings: normal){@font-face{font-family:'Inter';font-weight:100 900;font-display:swap;font-style:normal;font-named-instance:'Regular';src:url("./Inter-roman.var.woff2") format("woff2")}}@media (prefers-reduced-data: no-preference){@font-face{font-family:'Inter';font-weight:normal;font-display:swap;font-style:normal;src:url("./Inter-Regular.woff2") format("woff2"),url("./Inter-Regular.woff") format("woff")}@font-face{font-family:'Inter';font-weight:bold;font-display:swap;font-style:normal;src:url("./Inter-Black.woff2") format("woff2"),url("./Inter-Black.woff") format("woff")}}*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}html{font-family:'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;line-height:1.5em}@supports (font-variation-settings: normal){html{font-family:'Inter Variable', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif}}body{display:block;min-height:100vh;margin:0;text-rendering:optimizeSpeed}@media (min-width: 500px){body{display:-ms-grid;display:grid;place-items:center}}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}strong{font-weight:900}@supports (font-variation-settings: normal){strong{font-variation-settings:'wght' 900}}em,i{font-style:italic}@supports (font-variation-settings: normal){em,i{font-variation-settings:'slnt' -10;font-style:oblique 10deg}}.Container{background:white;color:black;padding:1rem;font-size:clamp(1rem, 2vw, 2rem);line-height:1.5em}@media (prefers-reduced-motion: reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{-webkit-animation-duration:0.01ms !important;animation-duration:0.01ms !important;-webkit-animation-iteration-count:1 !important;animation-iteration-count:1 !important;-webkit-transition-duration:0.01ms !important;transition-duration:0.01ms !important;scroll-behavior:auto !important}}@media print{*{background-image:none;background:white;color:black}@page{margin:2cm}@page :first{margin-top:3cm}@page :left{margin-right:3cm}@page :right{margin-left:3cm}html{background:white;font-size:12pt;line-height:1.5em}a:link,a:visited{color:#00f;background:transparent;font-weight:bold}a:not([href^="http"]):after{content:" (" attr(href) ")";font-size:0.9em}a[href^="/"]:after{content:" (https://@TODO.ro" attr(href) ") "}a:after>img{content:""}body::after{content:"@TODO";display:block;text-align:center}.Container{background:transparent;margin:0;padding:0}h1,h2,h3,h4,h5,h6{page-break-after:avoid;page-break-inside:avoid}h1+h2{page-break-before:avoid}table,pre,img,svg,blockquote,a{-webkit-column-break-inside:avoid;break-inside:avoid}ul,ol,dl{page-break-before:avoid}}
-/*# sourceMappingURL=style.css.map */
+.code,
+code {
+  padding: 0 0.25rem;
+  background: #eee;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  font-family: monospace;
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  line-height: 2.35rem;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: #06395a;
+  border-top: 10px solid #06395a;
+  padding-top: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+  background: #f4f7fb;
+}

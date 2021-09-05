@@ -1,59 +1,60 @@
 <script>
-  import style from '../../assets/style.css';
-  export let templateHtml;
-  //export const settings;
-  console.info('init: layout');
+  // import style from '../../assets/style.css';
+  import style from '../../resources/style.css';
+  import DeHeader from '../components/DeHeader.svelte';
+  import DeFooter from '../components/DeFooter.svelte';
+  export let templateHtml, settings;
 </script>
 
 <style>
 </style>
 
 <svelte:head>
-  <!-- test 1234567 -->
+  <!-- setup -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
   <!-- SEO -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta property="og:title" content="@TODO" /><!-- @TODO -->
-  <meta property="og:description" content="@TODO" /><!-- @TODO -->
-  <meta property="og:site_name" content="@TODO" /><!-- @TODO -->
+  <meta property="og:site_name" content="@TODO" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
-  <meta property="og:url" content="@TODO" /><!-- @TODO -->
-  <meta property="og:image" content="./og-image.jpg" /><!-- @TODO -->
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="@TODO" /><!-- @TODO -->
-  <meta property="article:publisher" content="@TODO" /><!-- @TODO -->
-  <meta property="article:section" content="@TODO" /><!-- @TODO -->
-  <meta property="article:published_time" content="2021-06-13T23:27:55+03:00" /><!-- @TODO -->
-  <meta property="article:modified_time" content="2021-06-13T23:27:57+03:00" /><!-- @TODO -->
-  <meta name="twitter:site" content="@ViorelMocanu" /><!-- @TODO -->
-  <meta name="twitter:creator" content="@ViorelMocanu" /><!-- @TODO -->
+  <meta property="article:publisher" content="@TODO" />
+  <meta name="twitter:site" content="@ViorelMocanu" />
+  <meta name="twitter:creator" content="@ViorelMocanu" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- design -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" /><!-- @TODO -->
-  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" /><!-- @TODO -->
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" /><!-- @TODO -->
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" /><!-- @TODO -->
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png" /><!-- @TODO -->
-  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#4f6df5" /><!-- @TODO -->
-  <meta name="msapplication-TileColor" content="#ffffff" /><!-- @TODO -->
-  <link rel="manifest" href="./my.webmanifest" /><!-- @TODO -->
-  <meta name="apple-mobile-web-app-title" content="@TODO" /><!-- @TODO -->
-  <meta name="application-name" content="@TODO" /><!-- @TODO -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#4f6df5" />
+  <meta name="msapplication-TileColor" content="#ffffff" />
+  <link rel="manifest" href="./my.webmanifest" />
+  <meta name="apple-mobile-web-app-title" content="@TODO" />
+  <meta name="application-name" content="@TODO" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-touch-fullscreen" content="yes" />
-  <meta name="theme-color" content="#ffffff" /><!-- @TODO -->
-  <link rel="stylesheet" href="./style.css" media="all" />
+  <meta name="theme-color" content="#ffffff" />
 
   <!-- optimize -->
-  <link rel="preload" href="./Inter-roman.var.woff2?v=3.18" as="font" type="font/woff2" crossorigin /><!-- @TODO -->
+  <link rel="preload" href="@TODO" as="font" type="font/woff2" crossorigin />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
 </svelte:head>
 
 <div class="Container">
+  <DeHeader />
   {@html templateHtml}
+  <DeFooter />
+  <script defer src="resources/script.js"></script>
 </div>
-<div class="footer">test 123</div>

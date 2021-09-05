@@ -106,19 +106,5 @@ const hooks = [
   // },
 
   // If you'd like to see specific examples of how to do things that you think could help improve the template please create a GH issue.
-  {
-    hook: 'stacks',
-    name: 'addAnalyticstoFooter',
-    description: 'Add analytics to Footer.',
-    priority: 1, // we want it to be last
-    run: async ({ footerStack }) => {
-      footerStack.push({
-        source: 'hooks',
-        string: `<!-- @TODO your analytics code here -->`,
-        priority: 1,
-      });
-      return { footerStack };
-    },
-  },
 ];
 module.exports = hooks;
