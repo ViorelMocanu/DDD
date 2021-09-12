@@ -18,7 +18,7 @@
   <meta property="article:modified_time" content="2021-07-04T23:27:57+03:00" />
 </svelte:head>
 
-<section class="Hero">
+<section class="Hero ContentPage">
   <div class="HeroContainer LimitWidth">
     <div class="HeroContent">
       <h1 class="HeroTitle">Contact</h1>
