@@ -1,9 +1,30 @@
 <script>
-  // import style from '../../assets/style.css';
   import style from '../../resources/style.css';
   import DeHeader from '../components/DeHeader.svelte';
   import DeFooter from '../components/DeFooter.svelte';
-  export let templateHtml, settings;
+  import { onMount } from 'svelte';
+  export let templateHtml, data, helpers, request, settings;
+
+  let scriptReady = false;
+  let mounted = false;
+
+  onMount(() => {
+    mounted = true;
+    if (scriptReady) {
+      loadScriptElements();
+    }
+  });
+
+  function scriptLoaded() {
+    scriptReady = true;
+    if (mounted) {
+      loadScriptElements();
+    }
+  }
+
+  function loadScriptElements() {
+    console.log('loadScriptElements ran');
+  }
 </script>
 
 <style>
@@ -53,8 +74,8 @@
 </svelte:head>
 
 <div class="Container">
-  <DeHeader />
+  <DeHeader {helpers} {request} />
   {@html templateHtml}
-  <DeFooter />
-  <script defer src="resources/script.js"></script>
+  <DeFooter {helpers} {request} />
+  <script defer src="/resources/script.js" on:load={scriptLoaded}></script>
 </div>

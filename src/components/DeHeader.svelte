@@ -1,22 +1,15 @@
 <script>
-  export let data;
-  export let contact;
-  export let helpers;
-  // add permalinks to the hook list so we can link to the posts.
-  /*const hooks = data.hookInterface.map((hook) => ({
-    ...hook,
-    link: helpers.permalinks.hooks({ slug: hook.hook.toLocaleLowerCase() }),
-  }));*/
+  export let helpers, request;
 </script>
 
 <header class="Header" id="header">
   <div class="HeaderContainer LimitWidth">
     <a class="Logo" href="/" title="Revino pe prima pagină a site-ului DeDeDe.ro">
       <picture class="LogoPicture">
-        <source type="image/svg+xml" srcset="./images/dedede-logo-desktop.svg" media="(min-width: 850px)" />
-        <source type="image/svg+xml" srcset="./images/dedede-logo-mobile.svg" media="(min-width: 100px)" />
+        <source type="image/svg+xml" srcset="/images/dedede-logo-desktop.svg" media="(min-width: 850px)" />
+        <source type="image/svg+xml" srcset="/images/dedede-logo-mobile.svg" media="(min-width: 100px)" />
         <img
-          src="./images/dedede-logo-mobile.png"
+          src="/images/dedede-logo-mobile.png"
           alt="DeDeDe.ro - Spații fără dăunători - Logo"
           width="102"
           height="34" />
@@ -32,20 +25,22 @@
     </button>
     <nav class="MainMenu" id="mainMenu">
       <ul class="MainMenuList">
-        <li class="MainMenuItem">
-          <a href="/" class="MainMenuLink">Prima pagină</a>
+        <li class="MainMenuItem {request.route == 'home' ? 'Active' : ''}">
+          <a href="/" class="MainMenuLink"> Prima pagină </a>
         </li>
-        <li class="MainMenuItem">
-          <a href="/servicii" class="MainMenuLink">Servicii</a>
+        <li class="MainMenuItem {request.route == 'servicii' ? 'Active' : ''}">
+          <a href={helpers.permalinks.servicii({ slug: 'servicii' })} class="MainMenuLink"> Servicii </a>
         </li>
-        <li class="MainMenuItem">
-          <a href="/testimoniale" class="MainMenuLink">Testimoniale</a>
+        <li class="MainMenuItem {request.route == 'testimoniale' ? 'Active' : ''}">
+          <a href={helpers.permalinks.testimoniale({ slug: 'testimoniale' })} class="MainMenuLink"> Testimoniale </a>
         </li>
-        <li class="MainMenuItem">
-          <a href="/informatii-utile" class="MainMenuLink">Informații utile</a>
+        <li class="MainMenuItem {request.route == 'informatii-utile' ? 'Active' : ''}">
+          <a href={helpers.permalinks['informatii-utile']({ slug: 'informatii-utile' })} class="MainMenuLink">
+            Informații utile
+          </a>
         </li>
-        <li class="MainMenuItem">
-          <a href="/contact" class="MainMenuLink">Contact</a>
+        <li class="MainMenuItem {request.route == 'contact' ? 'Active' : ''}">
+          <a href={helpers.permalinks.contact({ slug: 'contact' })} class="MainMenuLink"> Contact </a>
         </li>
       </ul>
       <ul class="CTAList">
@@ -78,7 +73,7 @@
           </a>
         </li>
         <li class="CTAItem">
-          <a href="/contact" class="CTAButton Button ButtonPrimary">
+          <a href={helpers.permalinks.contact({ slug: 'contact' })} class="CTAButton Button ButtonPrimary">
             <span class="ButtonText">Programează intervenție&nbsp;&rarr;</span>
             <svg
               class="ButtonIcon"

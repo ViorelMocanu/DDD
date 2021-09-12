@@ -49,6 +49,7 @@
 	body .ArticleLink { color: var(--foreground);
 		&:hover { color: var(--foreground); }
 	}
+	body .BatmanSignal .FillDark { fill: var(--background); }
 }
 
 .darkmode {

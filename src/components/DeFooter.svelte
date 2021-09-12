@@ -38,7 +38,7 @@
     <p class="ContactText">
       Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp dând click aici!
     </p>
-    <a href="/contact" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
+    <a href="/contact/" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
       <span class="ButtonText">Mesaj Whatsapp &rarr;</span>
       <svg
         class="ButtonIcon"
@@ -84,7 +84,7 @@
   <div class="ContactContainer MobileSignal">
     <h3 class="FooterSubtitle">Dă-i un mesaj rapid lui DeDeDe</h3>
     <p class="ContactText">Dacă vrei să eviți email-ul, îi poți trimite un mesaj rapid pe pagina de contact.</p>
-    <a href="/contact" class="FooterButton Button ButtonPrimary" title="Scrie-i un mesaj lui DeDeDe direct pe site!">
+    <a href="/contact/" class="FooterButton Button ButtonPrimary" title="Scrie-i un mesaj lui DeDeDe direct pe site!">
       <span class="ButtonText">Trimite mesajul tău &rarr;</span>
       <svg
         class="ButtonIcon"
@@ -138,27 +138,27 @@
           <a href="/" class="FooterLink">Prima pagină</a>
         </li>
         <li class="FooterItem">
-          <a href="/servicii" class="FooterLink">Servicii</a>
+          <a href="/servicii/" class="FooterLink">Servicii</a>
         </li>
         <li class="FooterItem">
-          <a href="/testimoniale" class="FooterLink">Testimoniale</a>
+          <a href="/testimoniale/" class="FooterLink">Testimoniale</a>
         </li>
         <li class="FooterItem">
-          <a href="/informatii-utile" class="FooterLink">Informații utile</a>
+          <a href="/informatii-utile/" class="FooterLink">Informații utile</a>
         </li>
         <li class="FooterItem">
-          <a href="/contact" class="FooterLink">Contact</a>
+          <a href="/contact/" class="FooterLink">Contact</a>
         </li>
       </ul>
       <ul class="FooterMenu">
         <li class="FooterItem">
-          <a href="termeni-si-conditii" class="FooterLink">Termeni și condiții</a>
+          <a href="/termeni-si-conditii/" class="FooterLink">Termeni și condiții</a>
         </li>
         <li class="FooterItem">
-          <a href="/confidentialitate" class="FooterLink">Politica de confidențialitate</a>
+          <a href="/confidentialitate/" class="FooterLink">Politica de confidențialitate</a>
         </li>
         <li class="FooterItem">
-          <a href="/cookies" class="FooterLink">Schimbă setările de cookies</a>
+          <a href="/cookies/" class="FooterLink">Schimbă setările de cookies</a>
         </li>
       </ul>
     </div>

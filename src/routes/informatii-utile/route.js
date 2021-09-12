@@ -11,7 +11,20 @@ module.exports = {
 
   // This is telling the simple markdown plugin, which route to control.
 
-  data: {},
-  all: () => [],
+  template: 'InformatiiUtile.svelte',
+  data: ({ data }) => {
+    return data;
+  },
+  all: async () => {
+    return [{ slug: 'informatii-utile', template: 'BlogIndex' }];
+    /*return [
+      {
+        'informatii-utile': { slug: 'informatii-utile', template: 'BlogIndex' },
+        template: 'BlogIndex',
+      },
+    ];*/
+  },
   permalink: '/:slug/',
+  //permalink: '/informatii-utile/:slug/',
+  //permalink: ({ request, settings }) => `/${request.blog.slug}/${request.slug}/`,
 };

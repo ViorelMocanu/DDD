@@ -1,4 +1,4 @@
-console.info('Inițializez aplicația...');
+console.info('Inițializez aplicația...', document);
 
 /* Toggle de meniu principal */
 const menuToggle = document.getElementById('menuToggle');

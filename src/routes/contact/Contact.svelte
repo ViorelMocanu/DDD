@@ -1,4 +1,5 @@
 <script>
+  export let data, helpers, request, settings;
 </script>
 
 <style>
@@ -7,10 +8,10 @@
 <svelte:head>
   <title>Contactează specialiștii în DeDeDe chiar acum!</title>
   <meta name="description" content="@TODO" />
-  <link rel="canonical" href="/contact" />
+  <link rel="canonical" href="{settings.origin}{request.permalink}" />
   <meta property="og:title" content="@TODO" />
   <meta property="og:description" content="@TODO" />
-  <meta property="og:url" content="/contact" />
+  <meta property="og:url" content="{settings.origin}{request.permalink}" />
   <meta property="og:image" content="./og-image.jpg" />
   <meta property="og:image:alt" content="@TODO" />
   <meta property="article:published_time" content="2021-07-04T23:27:55+03:00" />
