@@ -17,14 +17,6 @@ module.exports = {
   },
   all: async () => {
     return [{ slug: 'informatii-utile', template: 'BlogIndex' }];
-    /*return [
-      {
-        'informatii-utile': { slug: 'informatii-utile', template: 'BlogIndex' },
-        template: 'BlogIndex',
-      },
-    ];*/
   },
   permalink: '/:slug/',
-  //permalink: '/informatii-utile/:slug/',
-  //permalink: ({ request, settings }) => `/${request.blog.slug}/${request.slug}/`,
 };

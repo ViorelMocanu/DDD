@@ -1,4 +1,6 @@
 <script>
+  import DataCitibila from './DataCitibila.svelte';
+  import TimpCitire from './TimpCitire.svelte';
   export let articol, helpers;
 </script>
 
@@ -7,18 +9,31 @@
     class="ArticleLink"
     href={helpers.permalinks['informatii-utile']({ slug: articol.slug })}
     title="Citește articolul {articol.frontmatter.title}">
-    <picture class="ArticleThumbnail">
-      <source type="image/webp" srcset="./images/generic-thumbnail-desktop.webp" media="(min-width: 850px)" />
-      <source type="image/webp" srcset="./images/generic-thumbnail-mobile.webp" media="(min-width: 100px)" />
-      <img src="./images/generic-thumbnail-mobile.jpg" alt="@TODO" width="280" height="157" />
-    </picture>
+    {#if articol.frontmatter.thumbnail}
+      <picture class="ArticlePicture">
+        <source
+          type="image/webp"
+          srcset="/images/{articol.frontmatter.thumbnail.name}-desktop.webp"
+          media="(min-width: 850px)" />
+        <source
+          type="image/webp"
+          srcset="/images/{articol.frontmatter.thumbnail.name}-mobile.webp"
+          media="(min-width: 100px)" />
+        <img
+          class="BigArticleImg"
+          src="/images/{articol.frontmatter.thumbnail.name}-mobile.jpg"
+          alt={articol.frontmatter.thumbnail.alt}
+          width="280"
+          height="157" />
+      </picture>
+    {/if}
     <h3 class="ArticleTitle">{articol.frontmatter.title}</h3>
     <p class="ArticleExcerpt">
       {articol.frontmatter.excerpt}
     </p>
     <div class="ArticleMeta">
       <div class="ArticleTimestamp">
-        <span class="MetaText">1 Aug 2021</span>
+        <span class="MetaText"><DataCitibila dataNecitibila={articol.frontmatter.date} eScurta={true} /></span>
         <svg
           class="ButtonIcon"
           width="20"
@@ -57,7 +72,7 @@
         </svg>
       </div>
       <div class="ArticleDuration">
-        <span class="MetaText">6 min.</span>
+        <span class="MetaText"><TimpCitire textOriginal={articol.html} /> min.</span>
         <svg
           class="ButtonIcon"
           width="20"

@@ -260,6 +260,7 @@ a, button { cursor: pointer; }
 					@media (min-width: 1600px) { border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; }
 					@media (min-width: 1920px) { border-radius: 2rem; }
 				}
+			.BigArticle .BigArticleIntro { font-size: 1.5em; line-height: 1.25em; margin: 1em auto; }
 			.HeroContent { display: block; padding-bottom: 2.875em;
 				@media (min-width: 420px) { width: 50%; padding-bottom: 1.8em; position: relative; z-index: 1; }
 				@media (min-width: 850px) { width: 60.8%; padding-bottom: 0; }
@@ -388,9 +389,21 @@ a, button { cursor: pointer; }
 			}
 				.Article { display: block; margin: 1rem 0;
 					@media (min-width: 600px) { min-width: calc(50% - (var(--margin) * 2)); max-width: 100%; flex-grow: 1; flex-basis: calc(var(--multiplier) * 999); margin: var(--margin); }
-					@media (min-width: 1280px) { min-width: calc(33.3333% - (var(--margin) * 2)); margin: 1rem; }
+					@media (min-width: 1280px) { flex-grow: 1; min-width: calc(33.3333% - (var(--margin) * 2)); margin: 1rem; }
 				}
-					.ArticleLink { display: block; text-decoration: none; color: var(--color-dark);
+					.ArticlePreMeta { display: flex; flex-direction: column; text-align: left; justify-content: flex-start; font-style: italic;
+						@media (min-width: 600px) { flex-direction: row; }
+					}
+						.ArticlePreMeta p { margin: 0; flex-grow: 1;
+							&:last-child {
+								@media (min-width: 600px) { text-align: right; margin: 0 0 0 1rem; }
+							}
+						}
+							.ArticlePreMeta p strong {
+								@media (min-width: 600px) { white-space: nowrap; }
+							}
+					.ArticleAuthor:before { display: block; content: ' '; width: 38.2%; height: 1rem; margin: 1.5rem 0; background: var(--foreground); }
+					.ArticleLink { display: flex; height: 100%; flex-direction: column; text-decoration: none; color: var(--color-dark);
 						&:hover, &:active { color: var(--color-dark); }
 						.darkmode & { color: var(--foreground); }
 					}
@@ -399,8 +412,8 @@ a, button { cursor: pointer; }
 							.ArticleThumbnail img { display: block; width: 100%; height: auto; }
 						.ArticleTitle { display: block; margin: 0.5rem 0 0; }
 							.ArticleLink:hover .ArticleTitle { color: var(--color-primary); }
-						.ArticleExcerpt { display: block; margin: 0 0 0.5rem; }
-						.ArticleMeta { display: flex; align-items: stretch; }
+						.ArticleExcerpt { display: block; margin: 0.5rem 0; flex-grow: 1; }
+						.ArticleMeta { display: flex; align-items: stretch; justify-self: flex-end; }
 							.ArticleTimestamp, .ArticleDuration { display: flex; width: 50%; }
 								.MetaText { display: block; order: 2; }
 								.ArticleTimestamp .ButtonIcon { display: block; order: 1; }
@@ -466,6 +479,7 @@ a, button { cursor: pointer; }
 				.FillWhite { fill: var(--color-offwhite); }
 				.FillDark { fill: var(--foreground); }
 					.darkmode .BatmanSignal .FillDark { fill: var(--background); }
+					.lightmode .BatmanSignal .FillDark { fill: var(--foreground); }
 				.FillPrimary { fill: var(--color-primary); }
 		.Conclusion { display: block; padding: 1rem; margin: 0; background: var(--color-dark); color: var(--color-offwhite);
 			@media (min-width: 850px) { width: 45%; padding: 2rem; position: absolute; bottom: 0; right: 0; background: transparent; color: inherit; }

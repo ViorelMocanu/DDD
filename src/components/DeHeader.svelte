@@ -25,21 +25,21 @@
     </button>
     <nav class="MainMenu" id="mainMenu">
       <ul class="MainMenuList">
-        <li class="MainMenuItem {request.route == 'home' ? 'Active' : ''}">
+        <li class="MainMenuItem" class:Active={request.route === 'home'}>
           <a href="/" class="MainMenuLink"> Prima pagină </a>
         </li>
-        <li class="MainMenuItem {request.route == 'servicii' ? 'Active' : ''}">
+        <li class="MainMenuItem" class:Active={request.route === 'servicii'}>
           <a href={helpers.permalinks.servicii({ slug: 'servicii' })} class="MainMenuLink"> Servicii </a>
         </li>
-        <li class="MainMenuItem {request.route == 'testimoniale' ? 'Active' : ''}">
+        <li class="MainMenuItem" class:Active={request.route === 'testimoniale'}>
           <a href={helpers.permalinks.testimoniale({ slug: 'testimoniale' })} class="MainMenuLink"> Testimoniale </a>
         </li>
-        <li class="MainMenuItem {request.route == 'informatii-utile' ? 'Active' : ''}">
+        <li class="MainMenuItem" class:Active={request.route === 'informatii-utile'}>
           <a href={helpers.permalinks['informatii-utile']({ slug: 'informatii-utile' })} class="MainMenuLink">
             Informații utile
           </a>
         </li>
-        <li class="MainMenuItem {request.route == 'contact' ? 'Active' : ''}">
+        <li class="MainMenuItem" class:Active={request.route === 'contact'}>
           <a href={helpers.permalinks.contact({ slug: 'contact' })} class="MainMenuLink"> Contact </a>
         </li>
       </ul>
