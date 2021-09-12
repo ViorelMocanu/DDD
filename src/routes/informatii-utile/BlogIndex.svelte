@@ -8,8 +8,14 @@
 </script>
 
 <svelte:head>
-  <title>INDEX HERE</title>
-  <link href="{settings.origin}{request.permalink}" rel="canonical" />
+  <title>Informații utile pentru Dezinsecție, Dezinfecție, Deratizare</title>
+  <meta name="description" content="@TODO" />
+  <link rel="canonical" href="{settings.origin}{request.permalink}" />
+  <meta property="og:title" content="Informații utile pentru Dezinsecție, Dezinfecție, Deratizare" />
+  <meta property="og:description" content="@TODO" />
+  <meta property="og:url" content="{settings.origin}{request.permalink}" />
+  <meta property="og:image" content="@TODO" />
+  <meta property="og:image:alt" content="@TODO" />
 </svelte:head>
 
 <section class="Hero ContentPage">
