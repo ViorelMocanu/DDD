@@ -1,17 +1,39 @@
 <script>
 </script>
 
-<section class="Contact LimitWidth">
+<section class="Contact LimitWidth" itemscope itemtype="https://schema.org/ProfessionalService">
   <div class="ContactContainer">
-    <h2 class="SectionTitle">Cum îl chemi pe <strong class="Highlight">dedede</strong>?</h2>
+    <img
+      class="ScreenReaders"
+      src="./images/dedede-logo-mobile.png"
+      alt="DeDeDe.ro - Spații fără dăunători - Logo"
+      loading="lazy"
+      width="102"
+      height="34"
+      itemprop="image" />
+    <span class="ScreenReaders" itemprop="priceRange">$$</span>
+    <span class="ScreenReaders" itemprop="telephone">+40749263606</span>
+    <h2 class="SectionTitle">Cum îl chemi pe <strong class="Highlight" itemprop="name">DeDeDe.ro</strong>?</h2>
+    <p class="ScreenReaders" itemprop="description">
+      DeDeDe este un serviciu de Dezinsecție, Dezinfecție și Deratizare care te ajută să scapi de gândaci, șobolani,
+      ploșnițe, suprafețe infectate și orice altceva din sfera DDD.
+    </p>
     <p class="ContactText">
       Sunt 3 metode de a-l chema pe dedede la tine acasă. Pe a 4-a i-a împrumutat-o lui Batman și n-a mai primit-o
       înapoi. :)
     </p>
   </div>
-  <div class="ContactContainer">
+  <div class="ContactContainer" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
     <h3 class="FooterSubtitle">Sună-l pe DeDeDe</h3>
-    <p class="ContactText">Răspunde la telefon de luni până sâmbătă de la 09:00 la 20:00</p>
+    <div class="ScreenReaders" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+      <span itemprop="streetAddress">@TODO</span>
+      <span itemprop="addressLocality">@TODO</span>,
+      <span itemprop="addressRegion">@TODO</span>
+    </div>
+    <p class="ContactText">
+      Răspunde la telefon
+      <time itemprop="openingHours" datetime="Mo-Sa 09:00-20:00">de luni până sâmbătă de la 09:00 la 20:00</time>
+    </p>
     <a href="tel:0040749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
       <span class="ButtonText">0749 263 606</span>
       <svg
@@ -65,7 +87,8 @@
     <a
       href="mailto:contact@dedede.ro"
       class="FooterButton Button ButtonTertiary"
-      title="Trimite-i un mail lui DeDeDe chiar acum!">
+      title="Trimite-i un mail lui DeDeDe chiar acum!"
+      itemprop="email">
       <span class="ButtonText">contact@dedede.ro</span>
       <svg
         class="ButtonIcon"

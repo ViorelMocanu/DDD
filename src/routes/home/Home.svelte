@@ -5,15 +5,19 @@
 
 <svelte:head>
   <title>Dezinsecție, Dezinfecție, Deratizare București - DeDeDe.ro</title>
-  <meta name="description" content="@TODO" />
+  <meta
+    name="description"
+    content="Supereroul tău de zi cu zi care te ajută să scapi de ploșnițe, gândaci, șoareci, virusuri și alți dăunători. Servicii complete de Dezinsecție, Dezinfecție, Deratizare București." />
   <link rel="canonical" href="{settings.origin}{request.permalink}" />
-  <meta property="og:title" content="@TODO" />
-  <meta property="og:description" content="@TODO" />
+  <meta property="og:title" content="Dezinsecție, Dezinfecție, Deratizare București - DeDeDe.ro" />
+  <meta
+    property="og:description"
+    content="Supereroul tău de zi cu zi care te ajută să scapi de ploșnițe, gândaci, șoareci, virusuri și alți dăunători. Servicii complete de Dezinsecție, Dezinfecție, Deratizare București." />
   <meta property="og:url" content="{settings.origin}{request.permalink}" />
-  <meta property="og:image" content="./og-image.jpg" />
-  <meta property="og:image:alt" content="@TODO" />
-  <meta property="article:published_time" content="2021-07-04T23:27:55+03:00" />
-  <meta property="article:modified_time" content="2021-07-04T23:27:57+03:00" />
+  <meta property="og:image" content="/images/og-image.jpg" />
+  <meta property="og:image:alt" content="DeDeDe.ro - Spații fără dăunători" />
+  <meta property="article:published_time" content="2021-09-19T19:35:55+03:00" />
+  <meta property="article:modified_time" content="2021-09-19T19:35:55+03:00" />
 </svelte:head>
 
 <section class="Hero">
@@ -54,7 +58,7 @@
       alt="Supereroul DeDeDe este tot timpul la un click distanță, gata să te ajute cu problemele tale de dezinfecție, dezinsecție și deratizare!" />
   </div>
 </section>
-<section class="Services LimitWidth">
+<section class="Services LimitWidth" id="servicii">
   <h2 class="SectionTitle">Superputerile lui <strong class="Highlight">dedede</strong></h2>
   <p class="SectionText">În lupta cu dăunătorii, există un singur câștigător, în oricare din categorii:</p>
   <img
@@ -62,15 +66,18 @@
     class="ServicesImage"
     width="320"
     height="261"
+    loading="lazy"
     alt="Detalii despre serviciile de dezinsecție, dezinfecție și deratizare oferite de dedede.ro" />
   <ul class="ServicesList">
     <li class="ServicesItem" itemscope itemtype="https://schema.org/Service">
       <meta itemprop="serviceType" content="DDD" />
       <meta itemprop="providerMobility" content="dynamic" />
       <span class="Hidden" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+        <span itemprop="priceRange">$$</span>
         <img
           src="./images/dedede-logo-mobile.png"
           alt="DeDeDe.ro - Spații fără dăunători - Logo"
+          loading="lazy"
           width="102"
           height="34"
           itemprop="image" />
@@ -101,20 +108,22 @@
           <strong>muște</strong> și așa mai departe.
         </p>
       </div>
-      <span class="Hidden" itemprop="areaServed" itemscope itemtype="https://schema.org/City">
+      <span class="ScreenReaders" itemprop="areaServed" itemscope itemtype="https://schema.org/City">
         în <span itemprop="name">București</span>
       </span>
-      <span class="Hidden" itemprop="areaServed" itemscope itemtype="https://schema.org/State">
+      <span class="ScreenReaders" itemprop="areaServed" itemscope itemtype="https://schema.org/State">
         și <span itemprop="name">Ilfov</span>
       </span>
     </li>
     <li class="ServicesItem ServicesItemDeratizare" itemscope itemtype="https://schema.org/Service">
       <meta itemprop="serviceType" content="DDD" />
       <meta itemprop="providerMobility" content="dynamic" />
-      <span class="Hidden" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+      <span class="ScreenReaders" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+        <span itemprop="priceRange">$$</span>
         <img
           src="./images/dedede-logo-mobile.png"
           alt="DeDeDe.ro - Spații fără dăunători - Logo"
+          loading="lazy"
           width="102"
           height="34"
           itemprop="image" />
@@ -143,20 +152,22 @@
           <strong>șobolanilor</strong>.
         </p>
       </div>
-      <span class="Hidden" itemprop="areaServed" itemscope itemtype="https://schema.org/City">
+      <span class="ScreenReaders" itemprop="areaServed" itemscope itemtype="https://schema.org/City">
         în <span itemprop="name">București</span>
       </span>
-      <span class="Hidden" itemprop="areaServed" itemscope itemtype="https://schema.org/State">
+      <span class="ScreenReaders" itemprop="areaServed" itemscope itemtype="https://schema.org/State">
         și <span itemprop="name">Ilfov</span>
       </span>
     </li>
     <li class="ServicesItem" itemscope itemtype="https://schema.org/Service">
       <meta itemprop="serviceType" content="DDD" />
       <meta itemprop="providerMobility" content="dynamic" />
-      <span class="Hidden" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+      <span class="ScreenReaders" itemprop="provider" itemscope itemtype="https://schema.org/LocalBusiness">
+        <span itemprop="priceRange">$$</span>
         <img
           src="./images/dedede-logo-mobile.png"
           alt="DeDeDe.ro - Spații fără dăunători - Logo"
+          loading="lazy"
           width="102"
           height="34"
           itemprop="image" />
@@ -225,7 +236,7 @@
   </a>
 </section>
 <div class="MoreInfo LimitWidth">
-  <section class="Testimonials">
+  <section class="Testimonials" id="testimoniale">
     <h2 class="SectionTitle">Ce spun clienții <strong class="Highlight">dedede</strong>?</h2>
     <ol class="TestimonialList">
       <li class="Testimonial">
@@ -235,6 +246,7 @@
           <img
             src="./images/generic-avatar.jpg"
             alt="Acest testimonial este scris de NUME PRENUME @TODO"
+            loading="lazy"
             width="40"
             height="40" />
         </picture>
@@ -253,6 +265,7 @@
           <img
             src="./images/generic-avatar.jpg"
             alt="Acest testimonial este scris de NUME PRENUME @TODO"
+            loading="lazy"
             width="40"
             height="40" />
         </picture>
@@ -271,6 +284,26 @@
           <img
             src="./images/generic-avatar.jpg"
             alt="Acest testimonial este scris de NUME PRENUME @TODO"
+            loading="lazy"
+            width="40"
+            height="40" />
+        </picture>
+        <div class="TestimonialContainer">
+          <h3 class="TestimonialAuthor">Prenume Nume @TODO</h3>
+          <p class="TestimonialText">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text. @TODO
+          </p>
+        </div>
+      </li>
+      <li class="Testimonial">
+        <picture class="TestimonialImage">
+          <source type="image/webp" srcset="./images/generic-avatar-mobile.webp" media="(min-width: 850px)" />
+          <source type="image/webp" srcset="./images/generic-avatar-desktop.webp" media="(min-width: 100px)" />
+          <img
+            src="./images/generic-avatar.jpg"
+            alt="Acest testimonial este scris de NUME PRENUME @TODO"
+            loading="lazy"
             width="40"
             height="40" />
         </picture>
@@ -283,12 +316,6 @@
         </div>
       </li>
     </ol>
-    <a
-      class="CTATestimonials Button ButtonTertiary"
-      href={helpers.permalinks.testimoniale({ slug: 'testimoniale' })}
-      title="Află ce-au spus toți clienții precedenți despre dedede">
-      <span class="ButtonText">Vezi toate testimonialele &rarr;</span>
-    </a>
   </section>
   <section class="UsefulInformation">
     <h2 class="SectionTitle">Informații utile<span class="HighResOnly"> despre dăunători și cum scapi de ei</span></h2>

@@ -9,17 +9,35 @@
 
 <svelte:head>
   <title>Informații utile pentru Dezinsecție, Dezinfecție, Deratizare</title>
-  <meta name="description" content="@TODO" />
+  <meta
+    name="description"
+    content="Citește toate articolele scrise de echipa DeDeDe în legătură cu felul cum ai putea și tu să scapi de gândaci, șobolani, ploșnițe sau alți dăunători." />
   <link rel="canonical" href="{settings.origin}{request.permalink}" />
   <meta property="og:title" content="Informații utile pentru Dezinsecție, Dezinfecție, Deratizare" />
-  <meta property="og:description" content="@TODO" />
+  <meta
+    property="og:description"
+    content="Citește toate articolele scrise de echipa DeDeDe în legătură cu felul cum ai putea și tu să scapi de gândaci, șobolani, ploșnițe sau alți dăunători." />
   <meta property="og:url" content="{settings.origin}{request.permalink}" />
-  <meta property="og:image" content="@TODO" />
-  <meta property="og:image:alt" content="@TODO" />
+  <meta property="og:image" content="/images/og-image.jpg" />
+  <meta property="og:image:alt" content="DeDeDe.ro - Spații fără dăunători" />
+  <meta property="article:published_time" content="2021-09-19T19:35:55+03:00" />
+  <meta property="article:modified_time" content="2021-09-19T19:35:55+03:00" />
 </svelte:head>
 
 <section class="Hero ContentPage">
   <div class="HeroContainer IndexHeroContainer LimitWidth">
+    <ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a class="BreadcrumbLink" itemprop="item" href="/">
+          <span class="BreadcrumbText" itemprop="name">DeDeDe.ro</span>
+        </a>
+        <span class="ScreenReaders" itemprop="position">1</span>
+      </li>
+      <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="BreadcrumbText" itemprop="name">Informații utile</span>
+        <span class="ScreenReaders" itemprop="position">2</span>
+      </li>
+    </ol>
     <h1 class="HeroTitle">Informații utile</h1>
     <p class="HeroText">Articole folositoare dacă vrei să scapi de dăunători.</p>
   </div>
@@ -45,6 +63,7 @@
             <img
               src="/images/{articol.frontmatter.thumbnail.name}-mobile.jpg"
               alt={articol.frontmatter.thumbnail.alt}
+              loading="lazy"
               width="280"
               height="157" />
           </picture>

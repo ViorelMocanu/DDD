@@ -2,24 +2,37 @@
   export let data, helpers, request, settings;
 </script>
 
-<style>
-</style>
-
 <svelte:head>
   <title>Contactează specialiștii în DeDeDe chiar acum!</title>
-  <meta name="description" content="@TODO" />
+  <meta
+    name="description"
+    content="Programează-te la servicii complete de Dezinfecție, Dezinsecție și Deratizare și scapă de gândaci, ploșnițe, șobolani și alți dăunători! În București sau Ilfov." />
   <link rel="canonical" href="{settings.origin}{request.permalink}" />
-  <meta property="og:title" content="@TODO" />
-  <meta property="og:description" content="@TODO" />
+  <meta property="og:title" content="Contactează specialiștii în DeDeDe chiar acum!" />
+  <meta
+    property="og:description"
+    content="Programează-te la servicii complete de Dezinfecție, Dezinsecție și Deratizare și scapă de gândaci, ploșnițe, șobolani și alți dăunători! În București sau Ilfov." />
   <meta property="og:url" content="{settings.origin}{request.permalink}" />
-  <meta property="og:image" content="./og-image.jpg" />
-  <meta property="og:image:alt" content="@TODO" />
-  <meta property="article:published_time" content="2021-07-04T23:27:55+03:00" />
-  <meta property="article:modified_time" content="2021-07-04T23:27:57+03:00" />
+  <meta property="og:image" content="/images/og-image.jpg" />
+  <meta property="og:image:alt" content="DeDeDe.ro - Spații fără dăunători" />
+  <meta property="article:published_time" content="2021-09-19T19:35:55+03:00" />
+  <meta property="article:modified_time" content="2021-09-19T19:35:55+03:00" />
 </svelte:head>
 
 <section class="Hero ContentPage">
   <div class="HeroContainer LimitWidth">
+    <ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a class="BreadcrumbLink" itemprop="item" href="/">
+          <span class="BreadcrumbText" itemprop="name">DeDeDe.ro</span>
+        </a>
+        <span class="ScreenReaders" itemprop="position">1</span>
+      </li>
+      <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span class="BreadcrumbText" itemprop="name">Contactează-l pe DeDeDe.ro</span>
+        <span class="ScreenReaders" itemprop="position">2</span>
+      </li>
+    </ol>
     <div class="HeroContent">
       <h1 class="HeroTitle">Contact</h1>
       <p class="HeroText">Scrie-i lui DeDeDe în formularul de mai jos sau contactează-l prin alte metode:</p>

@@ -60,7 +60,8 @@ Astfel, poți crea momeli de acest tip peste tot prin casă. Cu toate acestea î
 
 Astfel de substanțe pe care cu toții le avem prin casă și cu care putem crea momeli sunt:
 
-a. **Bicarbonatul de sodiu** – În combinație cu zahărul sau orice alt aliment care atrage gândacii poate ajuta la uciderea lor. Plusul lui cel mai mare este că e o substanță pe care cu toții o avem prin casă, iar dacă nu o avem o putem cu ușurintă procura în ce cantitate avem nevoie. Nu este la fel de eficientă ca altele, dar măcar nu este toxică. 
+a. **Bicarbonatul de sodiu** – În combinație cu zahărul sau orice alt aliment care atrage gândacii poate ajuta la uciderea lor. Plusul lui cel mai mare este că e o substanță pe care cu toții o avem prin casă, iar dacă nu o avem o putem cu ușurintă procura în ce cantitate avem nevoie. Nu este la fel de eficientă ca altele, dar măcar nu este toxică.
+
 b. **Acidul boric** – E o altă variantă de substanță cu care se pot crea momeli în casă, aceasta fiind un pic mai eficientă decât bicarbonatul de sodiu. Acidul boric are un efect mai rapid, însă trebuie să reții să nu-l folosești decât în zonele ascunse din casă și să nu îl lași în spații în care copiii sau animalele au acces deoarece substanța este toxică inclusiv pentru organismele umane. 
 
 c. **Insecticidele spray** – Sunt folosite cele mai frecvent și trebuie întotdeauna atunci când folosiți unul să citiți cu atenție eticheta și îndrumările despre măsurile de siguranță pe care le puteți lua pentru ca substanțele respective să nu vă dăuneze.
