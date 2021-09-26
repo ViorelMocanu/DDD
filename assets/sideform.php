@@ -1,24 +1,27 @@
 <?php
+
+// @TODO - Honeypot pentru spambots care nu respectă robots.txt în /hp
+
 $mailuriDeSpamat = array('viorel.mocanu@gmail.com', 'office@gyocleaning.ro', 'office@dedede.ro');
 
-function getallheaders() {
+function getallheadersddd() {
 	$headers = '';
 	foreach ($_SERVER as $name => $value) {
 		if (substr($name, 0, 5) == 'HTTP_') {
 			$headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
 		}
 	}
+	print_r($headers);
 	return $headers;
 }
-$h = getallheaders();
-print_r($h);
+getallheadersddd();
 
 function strleft ($s1, $s2) {
 	return substr($s1, 0, strpos($s1, $s2));
 }
 
 function selfURL () {
-    $s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
+    $s = empty($_SERVER["HTTPS"]) ? '' : (($_SERVER["HTTPS"] == "on") ? "s" : "");
     $protocol = strleft(strtolower($_SERVER["SERVER_PROTOCOL"]), "/").$s;
     $port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
     return $protocol."://".$_SERVER['SERVER_NAME'].$port.$_SERVER['REQUEST_URI'];
@@ -86,6 +89,11 @@ if ( isset($_POST['utm_content']) && $_POST['utm_content'] != '' ) $_SESSION['ut
 if ( isset($_POST['utm_campaign']) && $_POST['utm_campaign'] != '' ) $_SESSION['utm_campaign'] = $_POST['utm_campaign'];
 if ( isset($_POST['gclid']) && $_POST['gclid'] != '' ) $_SESSION['gclid'] = $_POST['gclid'];
 
+print '<h1>Session</h1>';
+print_r($_SESSION);
+print '<h1>Request</h1>';
+print_r($_REQUEST);
+
 if ( $side_url == '' ) {
 	$side_url = selfURL();
 	$_SESSION['side_url'] = $side_url;
@@ -122,6 +130,18 @@ if( $datasent == 'true' ) {
 	if ( $errormessage != '' ) {
 		$errormessage = 'Te rugăm să încerci să retrimiți formularul, pentru că '.$errormessage.'.';
 	} else {
+		require_once('env.php');
+		$link = false;
+		if( $server == $ALLOWED_SERVER || $server == $ALLOWED_SERVER_2 || $server == $ALLOWED_SERVER_3 ) {
+			$link = mysqli_connect( $DATABASE_HOST, $DATABASE_USERNAME, $DATABASE_PASSWORD, $DATABASE_NAME );
+			if ( !$link ) {
+				$errormessage .= "Eroare: nu m-am putut conecta la MySQL.\n" . PHP_EOL;
+				$errormessage .= "Număr de debugging: " . mysqli_connect_errno() . PHP_EOL;
+				$errormessage .= "Eroare de debugging: " . mysqli_connect_error() . PHP_EOL;
+			}
+		} else {
+			$errormessage .= 'Sunt pe un server greșit!'.$server;
+		}
 
 		if ( $errormessage == '' ) {
 
@@ -188,36 +208,31 @@ if( $datasent == 'true' ) {
 
 				$varContent = '';
 
-				$formType = 'contextual';
-				if ( $iscontact ) {
-					$formType = 'de contact';
-				} else if ( $isjob ) {
-					$formType = 'de job';
-				}
+				$formType = 'de contact';
 
-				$subject  = "Contact nou pe GyoCleaning.ro - $side_name";
+				$subject  = "Contact nou pe DeDeDe.ro - $side_name";
 				$headers  = 'MIME-Version: 1.0
 ';
 				$headers .= 'Content-Type: text/html; charset="utf-8"
 ';
-				$headers .= 'From: "Gyo Cleaning" <no-reply@gyocleaning.ro>
+				$headers .= 'From: "DeDeDe" <no-reply@dedede.ro>
 ';
 				$headers .= 'Reply-To: '.$side_name.' <'.$side_email.'>
 ';
 				$headers .= 'Return-Path: '.$side_name.' <'.$side_email.'>
 ';
-				$headers .= 'X-Sender: Formularul de pe gyocleaning.ro <'.$side_email.'>
+				$headers .= 'X-Sender: Formularul de pe DeDeDe.ro <'.$side_email.'>
 ';
 				$headers .= 'X-Mailer: PHP/'.phpversion().'
 ';
-				$headers .= 'X-Organization: GyoCleaning
+				$headers .= 'X-Organization: DeDeDe
 ';
 				$headers .= 'X-Priority: 2
 ';
 				$message = "<html>
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'> 
-		<title>Contact Gyo Cleaning</title>
+		<title>Contact DeDeDe</title>
 	</head>
 	<body>
 		<div id='framework' style='font-family:Helvetica,Arial,Verdana,sans-serif;font-size:12px;line-height:1.5em;width:90%;margin:0 auto;'>
@@ -252,59 +267,59 @@ if( $datasent == 'true' ) {
 				}
 				$message .= "
 			</div>
-			<div style='font-size:9pt;padding:1em;border-bottom:1px solid #ddd;background:#fff !important;color:#666;'>E-mail trimis automat de pe <a href='".$_SERVER['HTTP_REFERER']."?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=Gyo-Contact'>gyocleaning.ro</a> pe ".date('d.m.Y').", ".date('G:i')." de pe IP-ul ".$ip." (<a href='mailto:$side_email'>$side_name</a>).</div>
+			<div style='font-size:9pt;padding:1em;border-bottom:1px solid #ddd;background:#fff !important;color:#666;'>E-mail trimis automat de pe <a href='".$_SERVER['HTTP_REFERER']."?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=DeDede-Contact'>DeDeDe.ro</a> pe ".date('d.m.Y').", ".date('G:i')." de pe IP-ul ".$ip." (<a href='mailto:$side_email'>$side_name</a>).</div>
 		</div> 
 	</body>
 </html>";
 				$additional = '-f'.$side_email;
 				foreach ( $mailuriDeSpamat as $m ) {
 					if( !mail( $m, "$subject", "$message", "$headers", "$additional" ) ) {
-					$errormessage = 'Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@gyocleaning.ro" title="Trimite-ne un mail!">office@gyocleaning.ro</a> !';
+					$errormessage = 'Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a> !';
 					}
 				}
 
 				if ( $errormessage == '' ) {
-					$subject = "Gyo Cleaning te va contacta cât se poate de repede!";
+					$subject = "DeDeDe te va contacta cât se poate de repede!";
 					$headers  = 'MIME-Version: 1.0
 ';
 					$headers .= 'Content-Type: text/html; charset="utf-8"
 ';
-					$headers .= 'From: "Gyo Cleaning" <'.'office@gyocleaning.ro'.'>
+					$headers .= 'From: "DeDeDe" <'.'office@dedede.ro'.'>
 ';
-					$headers .= 'Reply-To: '.'office@gyocleaning.ro'.'
+					$headers .= 'Reply-To: '.'office@dedede.ro'.'
 ';
-					$headers .= 'Return-Path: <'.'office@gyocleaning.ro'.'>
+					$headers .= 'Return-Path: <'.'office@dedede.ro'.'>
 ';
-					$headers .= 'X-Sender: Mulțumiri din partea Gyo Cleaning <'.'office@gyocleaning.ro'.'>
+					$headers .= 'X-Sender: Mulțumiri din partea DeDeDe <'.'office@dedede.ro'.'>
 ';
 					$headers .= 'X-Mailer: PHP/'.phpversion().'
 ';
-					$headers .= 'X-Organization: GyoCleaning
+					$headers .= 'X-Organization: DeDeDe
 ';
 					$headers .= 'X-Priority: 2
 ';
 					$message = "<html>
 	<head>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-		<title>Gyo Cleaning te va contacta cât se poate de repede!</title>
+		<title>DeDeDe te va contacta cât se poate de repede!</title>
 	</head>
 	<body>
 		<div id='framework' style='font-family:Helvetica,Arial,Verdana,sans-serif;font-size:12px;line-height:1.5em;width:90%;margin:0 auto;'>
 			<div id='content' style='display:block;padding:1em 3em;background:#eee !important;border:1px solid #ddd !important;'>
-				<h1 style='display:block;font-size:24px;line-height:36px;font-weight:100;color:#000;'>Echipa Gyo Cleaning îți mulțumește pentru mesaj!</h1>
+				<h1 style='display:block;font-size:24px;line-height:36px;font-weight:100;color:#000;'>Echipa DeDeDe îți mulțumește pentru mesaj!</h1>
 				<p>Dragă $side_name,</p>
-				<p>Îți mulțumim pentru interesul arătat serviciilor de curățenie <a href='https://gyocleaning.ro/?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=Gyo-Products'>Gyo Cleaning</a>!</p>
+				<p>Îți mulțumim pentru interesul arătat serviciilor de curățenie <a href='https://dedede.ro/?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=DeDeDe-Products'>DeDeDe.ro</a>!</p>
 				<p>Te vom contacta în cel mai scurt timp pentru a continua discuția. Așteaptă-te la un telefon sau e-mail din partea noastră în câteva ore după trimiterea acestui mesaj automat de confirmare.</p>
 				<p>Toate cele bune,</p>
-				<p>Echipa Gyo Cleaning.</p>
+				<p>Echipa DeDeDe.ro</p>
 			</div>
-			<div style='font-size:9pt;padding:1em 3em;border-bottom:1px solid #ddd;background:#fff !important;color:#666;'>E-mail trimis automat de pe <a href='".$_SERVER['HTTP_REFERER']."?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=Gyo-Contact'>gyocleaning.ro</a> pe ".date('d.m.Y').", ".date('G:i')." de pe IP-ul ".$ip.".</div>
+			<div style='font-size:9pt;padding:1em 3em;border-bottom:1px solid #ddd;background:#fff !important;color:#666;'>E-mail trimis automat de pe <a href='".$_SERVER['HTTP_REFERER']."?utm_source=ConfirmationMail&amp;utm_medium=email&amp;utm_campaign=DeDeDe-Contact'>dedede.ro</a> pe ".date('d.m.Y').", ".date('G:i')." de pe IP-ul ".$ip.".</div>
 		</div>
 	</body>
 </html>";
 					$additional = '-f' . $side_email;
 					if (!mail("$side_email", "$subject", "$message", "$headers", "$additional")) {
-					$errormessage .= 'Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@gyocleaning.ro" title="Trimite-ne un mail!">office@gyocleaning.ro</a> !';
+					$errormessage .= 'Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a> !';
 					}
 				}
 			}
@@ -321,14 +336,7 @@ if( $datasent == 'true' ) {
 
 }
 
-$iscontact = false;
-$isjob = false;
 $standardUrl = strtok($_SERVER["REQUEST_URI"],'?');
-if ( strpos($standardUrl, 'contact.htm') !== false) {
-	$iscontact = true;
-} else if ( strpos($standardUrl, 'locuri-de-munca.htm') !== false) {
-	$isjob = true;
-}
 $contactFormClass = 'SideFormForm';
 $contactFieldsetClass = 'Fieldset';
 $contactListClass = 'SideList';
@@ -337,9 +345,11 @@ $contactLabelClass = '';
 $contactInoutClass = 'SideInput';
 $contactButtomClass = 'SideSubmit';
 
+echo $proces;
+
 ?>
 
-<div id="proces" class="Proces<?php if ( $proces != '' ) echo ' ProcesActiv'; ?>"><?php echo $proces; ?></div>
+<!--div id="proces" class="Proces<?php if ( $proces != '' ) echo ' ProcesActiv'; ?>"><?php echo $proces; ?></div>
 <div id="eroare" class="Hidden">&nbsp;</div>
 <form id="sideform" class="Form <?php echo $contactFormClass; ?>" action="/sideform.php" method="post">
 	<fieldset class="Fieldset">
@@ -438,8 +448,6 @@ $contactButtomClass = 'SideSubmit';
 
 		<input class="Hidden" type="hidden" id="urlAjax" name="urlAjax" value="https://<?php echo $server; if ( $server == 'viorelmocanu.ro' ) : ?>/dedede.ro<?php else: ?><?php endif; ?>/sideform.php" />
 		<input class="Hidden" type="hidden" id="side_url" name="side_url" value="<?php echo $_SESSION['side_url']; ?>" />
-		<input class="Hidden" type="hidden" id="iscontact" name="iscontact" value="<?php echo $iscontact; ?>" />
-		<input class="Hidden" type="hidden" id="isjob" name="isjob" value="<?php echo $isjob; ?>" />
 		<input class="Hidden" type="hidden" id="utm_source" name="utm_source" value="<?php if ( isset( $_SESSION['utm_source'] ) ) { echo $_SESSION['utm_source']; } ?>" />
 		<input class="Hidden" type="hidden" id="utm_medium" name="utm_medium" value="<?php if ( isset( $_SESSION['utm_medium'] ) ) { echo $_SESSION['utm_medium']; } ?>" />
 		<input class="Hidden" type="hidden" id="utm_term" name="utm_term" value="<?php if ( isset( $_SESSION['utm_term'] ) ) { echo $_SESSION['utm_term']; } ?>" />
@@ -462,107 +470,8 @@ $contactButtomClass = 'SideSubmit';
 		</svg>
 		</button>
 	</fieldset>
-</form>
-
-<!--form class="<?php echo $contactFormClass; ?>" id="sideform" action="https://<?php echo $server; if ( $server == 'viorelmocanu.ro' ) : ?>/gyocleaning.ro<?php else: ?><?php endif; ?>/sideform.php" method="post">
-	<fieldset class="Fieldset">
-		<legend class="Legend"><?php _e( 'Cere informații:', 'gyocleaning' ); ?></legend>
-		<a class="Button FormClose ContentTrigger" href="#" title="Închide formularul de contact">
-			<span class="TmpIcon">&times;</span>
-		</a>
-		<div id="proces" class="Proces<?php if ( $proces != '' ) echo ' ProcesActiv'; ?>"><?php echo $proces; ?></div>
-		<div id="eroare" class="Hidden">&nbsp;</div>
-		<ul class="<?php echo $contactListClass; ?>">
-			<li class="<?php echo $eroare['side_name']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_name">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Nume', 'gyocleaning' ); ?></span>
-					<input class="<?php echo $contactInoutClass; ?>" type="text" name="side_name" id="side_name" value="<?php echo $side_name; ?>" placeholder="<?php _e( 'Numele tău...', 'gyocleaning' ); ?>" maxlength="300" required="required" aria-required="true" autocomplete="on" accesskey="n" tabindex="1" />
-				</label>
-			</li>
-			<li class="<?php echo $eroare['side_email']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_email">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'E-mail', 'gyocleaning' ); ?></span>
-					<input class="<?php echo $contactInoutClass; ?>" type="email" name="side_email" id="side_email" value="<?php echo $side_email; ?>" placeholder="<?php _e( 'E-mail-ul tău...', 'gyocleaning' ); ?>" maxlength="300" required="required" aria-required="true" autocomplete="on" accesskey="e" tabindex="2" />
-				</label>
-			</li>
-			<li class="<?php echo $eroare['side_telephone']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_telephone">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Telefon', 'gyocleaning' ); ?></span>
-					<input class="<?php echo $contactInoutClass; ?>" type="tel" name="side_telephone" id="side_telephone" value="<?php echo $side_telephone; ?>" placeholder="<?php _e( 'Telefonul tău...', 'gyocleaning' ); ?>" maxlength="20" required="required" aria-required="true" pattern="\+?\d{9,}" autocomplete="on" accesskey="t" tabindex="3" title="Telefonul ar trebui să conțină numai cifre, eventual și simbolul +" />
-				</label>
-			</li>
-			<?php if ( !$iscontact && !$isjob ) :?>
-			<li class="<?php echo $eroare['side_proprietate']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_proprietate">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Proprietate', 'gyocleaning' ); ?></span>
-					<select class="<?php echo $contactInoutClass; ?>" name="side_proprietate" id="side_proprietate" accesskey="p" tabindex="4">
-						<?php
-							$sel = array();
-							if ( strpos($standardUrl, 'garsoniere') !== false) {
-								$sel['garsoniera'] = ' selected="selected"';
-							} else if ( strpos($standardUrl, 'apartamente') !== false) {
-								$sel['apartamente'] = ' selected="selected"';
-							} else if ( strpos($standardUrl, 'vile') !== false) {
-								$sel['vile'] = ' selected="selected"';
-							} else if ( strpos($standardUrl, 'birou') !== false) {
-								$sel['birou'] = ' selected="selected"';
-							} else if ( strpos($standardUrl, 'alte') !== false) {
-								$sel['alte'] = ' selected="selected"';
-							}
-						?>
-						<option value="">Selectează proprietatea...</option>
-						<option value="garsoniera" <?=$sel['garsoniera'];?>>Garsonieră</option>
-						<option value="apartament" <?=$sel['apartamente'];?>>Apartament</option>
-						<option value="casa" <?=$sel['vile'];?>>Casă / Vilă</option>
-						<option value="birou" <?=$sel['birou'];?>>Birou / Magazin</option>
-						<option value="altele" <?=$sel['alte'];?>>Altceva</option>
-					</select>
-				</label>
-			</li>
-			<li class="<?php echo $eroare['side_suprafata']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_suprafata">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Suprafață (în m&sup2;)', 'gyocleaning' ); ?></span>
-					<input class="<?php echo $contactInoutClass; ?>" type="number" step="0.5" min="1" max="1000" name="side_suprafata" id="side_suprafata" value="<?php echo $side_suprafata; ?>" placeholder="<?php _e( 'Suprafața...', 'gyocleaning' ); ?>" required="required" aria-required="true" autocomplete="on" accesskey="s" tabindex="5" title="Suprafața e exprimată în metri pătrați" />
-				</label>
-			</li>
-			<li class="<?php echo $eroare['side_tip']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_tip">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Tip curățenie', 'gyocleaning' ); ?></span>
-					<select class="<?php echo $contactInoutClass; ?>" name="side_tip" id="side_tip" accesskey="t" tabindex="6">
-						<option value="">Selectează tipul...</option>
-						<option value="generala">Generală</option>
-						<option value="intretinere">Întreținere</option>
-						<option value="post-construct">După construcții</option>
-						<option value="post-party">După petrecere</option>
-					</select>
-				</label>
-			</li>
-			<?php endif; ?>
-			<?php if ( true === $iscontact || true === $isjob ) :?>
-			<li class="<?php echo $eroare['side_mesaj']; echo $contactItemClass; ?>">
-				<label class="SideLabel" for="side_mesaj">
-					<span class="SideLabelText<?php echo $contactLabelClass; ?>"><?php _e( 'Mesaj', 'gyocleaning' ); ?></span>
-					<textarea class="<?php echo $contactInoutClass; ?> Textarea ContactTextarea" id="side_mesaj" name="side_mesaj" placeholder="<?php _e( 'Mesajul tău...', 'gyocleaning' ); ?>" required="required" rows="9" cols="60" accesskey="m" tabindex="7"><?php echo $side_mesaj; ?></textarea>
-				</label>
-			</li>
-			<?php endif; ?>
-		</ul>
-		<input class="Hidden" type="hidden" id="urlAjax" name="urlAjax" value="https://<?php echo $server; if ( $server == 'viorelmocanu.ro' ) : ?>/gyocleaning.ro<?php else: ?><?php endif; ?>/sideform.php" />
-		<input class="Hidden" type="hidden" id="side_url" name="side_url" value="<?php echo $_SESSION['side_url']; ?>" />
-		<input class="Hidden" type="hidden" id="iscontact" name="iscontact" value="<?php echo $iscontact; ?>" />
-		<input class="Hidden" type="hidden" id="isjob" name="isjob" value="<?php echo $isjob; ?>" />
-		<input class="Hidden" type="hidden" id="utm_source" name="utm_source" value="<?php if ( isset( $_SESSION['utm_source'] ) ) { echo $_SESSION['utm_source']; } ?>" />
-		<input class="Hidden" type="hidden" id="utm_medium" name="utm_medium" value="<?php if ( isset( $_SESSION['utm_medium'] ) ) { echo $_SESSION['utm_medium']; } ?>" />
-		<input class="Hidden" type="hidden" id="utm_term" name="utm_term" value="<?php if ( isset( $_SESSION['utm_term'] ) ) { echo $_SESSION['utm_term']; } ?>" />
-		<input class="Hidden" type="hidden" id="utm_content" name="utm_content" value="<?php if ( isset( $_SESSION['utm_content'] ) ) { echo $_SESSION['utm_content']; } ?>" />
-		<input class="Hidden" type="hidden" id="utm_campaign" name="utm_campaign" value="<?php if ( isset( $_SESSION['utm_campaign'] ) ) { echo $_SESSION['utm_campaign']; } ?>" />
-		<input class="Hidden" type="hidden" id="gclid" name="gclid" value="<?php if ( isset( $_SESSION['gclid'] ) ) { echo $_SESSION['gclid']; } ?>" />
-		<button class="Button <?php echo $contactButtomClass; ?>" type="submit" id="side_submit" name="side_submit" title="<?php _e('Trimite-ne datele tale acum!', 'gyocleaning'); ?>" tabindex="8">
-			<span class="ButtonText"><?php _e('Trimite formular', 'gyocleaning'); ?></span>
-			<i class="icon-accept">&raquo;</i>
-		</button>
-	</fieldset>
 </form-->
+
 <?php
 	if ( sizeof($variabile) > 0 ) {
 		foreach ( $variabile as $key => $val ) {

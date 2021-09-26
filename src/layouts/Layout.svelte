@@ -1,5 +1,5 @@
 <script>
-  import style from '../../resources/style.css';
+  import style from '../../assets/resources/style.css';
   import DeHeader from '../components/DeHeader.svelte';
   import DeFooter from '../components/DeFooter.svelte';
   import { onMount } from 'svelte';
@@ -62,11 +62,22 @@
   <link rel="preload" href="/resources/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
 </svelte:head>
 
-<div class="Container" itemscope itemtype="https://schema.org/WebPage">
+<svelte:body itemscope itemtype="https://schema.org/WebPage" />
+
+<div class="Container">
   <a href="#continut" class="ScreenReaders">Sari la conținut</a>
   <DeHeader {helpers} {request} />
   <a href="#header" id="continut" class="ScreenReaders">Accesează meniul</a>
   {@html templateHtml}
   <DeFooter {helpers} {request} />
   <script defer src="/resources/script.js" on:load={scriptLoaded}></script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden" />
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 </div>

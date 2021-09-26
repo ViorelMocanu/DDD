@@ -1,28 +1,28 @@
 <IfModule php7_module>
-# Setari de server comentate atunci cand nu vrei sa fie afisate erorile de PHP
-# php_flag display_errors On
-# php_value error_log /home/path/public_html/domain/PHP_errors.log
-php_flag display_startup_errors off
-php_flag display_errors off
-php_flag html_errors off
-php_flag log_errors on
-php_flag ignore_repeated_errors off
-php_flag ignore_repeated_source off
-php_flag report_memleaks on
-php_flag track_errors on
-php_value docref_root 0
-php_value docref_ext 0
-php_value error_reporting -1
-php_value log_errors_max_len 0
-   php_value max_execution_time 60
-   php_value max_input_time 60
-   php_value max_input_vars 5000
-   php_value memory_limit 132M
-   php_value post_max_size 8M
-   php_value session.gc_maxlifetime 1440
-   php_value session.save_path "/var/php_sessions/"
-   php_value upload_max_filesize 12M
-   php_flag zlib.output_compression On   
+	# Setari de server comentate atunci cand nu vrei sa fie afisate erorile de PHP
+	php_flag display_errors on
+	php_value error_log /home/path/public_html/domain/PHP_errors.log
+	php_flag display_startup_errors off
+	# php_flag display_errors off
+	php_flag html_errors off
+	php_flag log_errors on
+	php_flag ignore_repeated_errors off
+	php_flag ignore_repeated_source off
+	php_flag report_memleaks on
+	php_flag track_errors on
+	php_value docref_root 0
+	php_value docref_ext 0
+	php_value error_reporting -1
+	php_value log_errors_max_len 0
+	php_value max_execution_time 60
+	php_value max_input_time 60
+	php_value max_input_vars 5000
+	php_value memory_limit 132M
+	php_value post_max_size 8M
+	php_value session.gc_maxlifetime 1440
+	php_value session.save_path "/var/php_sessions/"
+	php_value upload_max_filesize 12M
+	php_flag zlib.output_compression On
 </IfModule>
 
 AddDefaultCharset utf-8

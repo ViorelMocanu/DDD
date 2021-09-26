@@ -1,4 +1,4 @@
-console.info('Inițializez aplicația...', document);
+console.info('Inițializez aplicația...');
 
 /* Toggle de meniu principal */
 const menuToggle = document.getElementById('menuToggle');
@@ -68,3 +68,17 @@ if ('serviceWorker' in navigator) {
 } else {
   console.log('Service workers are not supported.');
 }
+
+// Google Tag Manager
+console.log('Pornesc Google Tag Manager');
+(function (w, d, s, l, i) {
+  w[l] = w[l] || [];
+  w[l].push({
+    'gtm.start': new Date().getTime(), event: 'gtm.js'
+  });
+  let f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+  j.async = true;
+  j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+  f.parentNode.insertBefore(j, f);
+  console.log('Am pornit Google Tag Manager');
+})(window, document, 'script', 'dataLayer', 'GTM-NGTSNLX');

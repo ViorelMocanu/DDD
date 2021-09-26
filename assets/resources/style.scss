@@ -106,7 +106,7 @@
 
 html { width: 100%; overflow-x: hidden; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; }
 
-body { display: block; min-height: 100vh; margin: 0; background: var(--background) url('./memphis-mini.webp') left top repeat; color: var(--foreground); text-rendering: optimizeSpeed; }
+body { display: block; min-height: 100vh; margin: 0; background: var(--background) url('/images/memphis-mini.webp') left top repeat; color: var(--foreground); text-rendering: optimizeSpeed; }
 
 img, picture { max-width: 100%; display: block; }
 
@@ -256,6 +256,10 @@ a, button { cursor: pointer; }
 			@media (min-width: 960px) { padding: 5vh 5.3rem; }
 			@media (min-width: 1280px) { padding: 5rem 5vw; }
 		}
+		.contact .HeroContainer {
+			@media (min-width: 850px) { overflow: visible; }
+			@media (min-width: 960px) { padding: 2rem 5.3rem; }
+		}
 		body .IndexHeroContainer {
 			@media (min-width: 960px) { padding-bottom: 2rem; }
 		}
@@ -276,7 +280,9 @@ a, button { cursor: pointer; }
 				@media (min-width: 960px) { width: 26rem; }
 				@media (min-width: 1280px) { width: 34.875rem; }
 			}
-			.ContactPage .HeroContent { padding-bottom: 0; }
+			.contact .HeroContent { padding-bottom: 0;
+				@media (min-width: 850px) { width: 61.8%; }
+			}
 				.HeroTitle { display: block; margin: 0; font-size: 1.5em; line-height: 1.3333em; letter-spacing: -0.02ch;
 					@media (min-width: 1280px) { font-size: 6rem; line-height: 1em; letter-spacing: -0.07ch; }
 				}
@@ -302,6 +308,10 @@ a, button { cursor: pointer; }
 				@media (min-width: 960px) { width: 26rem; right: 1vw; }
 				@media (min-width: 1080px) { right: 10vw; }
 				@media (min-width: 1280px) { width: 38rem; right: 3vw; }
+			}
+			.contact .HeroImage { display: none; width: 50%;
+				@media (min-width: 420px) { display: block; }
+				@media (min-width: 850px) { width: 38.2%; right: 0; }
 			}
 	.ArticleIndexList { display: block; margin: 1rem 0 2rem; padding: 0;
 		@media (min-width: 600px) { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)) }
@@ -457,20 +467,24 @@ a, button { cursor: pointer; }
 			.CTAUseful { margin: 1rem 0;
 				@media (min-width: 960px) { margin: 1rem 0 0; }
 			}
-	.FormContainer { display: block; }
-		.Form { display: block; padding: 1rem;
-			@media (min-width: 850px) { padding: 0 2rem 2rem; }
+	.FormContainer { display: block;
+		@media (min-width: 1280px) { display: flex; }
+	}
+		.Form { display: block; padding: 0 1rem;
+			@media (min-width: 850px) { width: 61.8%; padding: 0 2rem 2rem; }
 			@media (min-width: 960px) { padding: 0 5.3rem 2rem; }
-			@media (min-width: 1280px) { display: flex; padding: 0 5vw 7rem; margin-bottom: 3rem; position: relative; gap: 5vw; }
+			@media (min-width: 1280px) { flex-grow: 1; max-width: 55rem; padding: 0 5vw 2rem; margin-bottom: 3rem; position: relative; }
 		}
-			.Fieldset { display: block; padding: 0 0 1rem; margin: 0 0 2rem; background: var(--background); color: var(--foreground); border: none; box-shadow: 0 0.5rem 1rem var(--shadow); border-radius: 1rem; 
-				@media (min-width: 1280px) { flex-grow: 1; border: 0.125rem solid var(--foreground); }
+			.Fieldset { display: block; margin: 0; padding: 0; background: var(--background); color: var(--foreground); border: none; border-radius: 1rem; 
+				@media (min-width: 1280px) { flex-grow: 1; padding: 0 0 1rem; margin: 0 0 2rem; border: 0.125rem solid var(--foreground); }
 			}
 			.CTAFieldset { padding: 0; border: none;
-				@media (min-width: 1280px) { width: 90%; max-width: 87rem; position: absolute; bottom: 0; left: 5vw; }
+				@media (min-width: 1280px) {  }
 			}
-				.Legend { display: block; padding: 0.5rem 1rem; background: var(--foreground); color: var(--background); border-radius: 1rem; }
-				.Label { display: block; margin: 0; padding: 0.5rem 1rem; cursor: pointer;
+				.Legend { display: none; padding: 0.5rem 1rem; background: var(--foreground); color: var(--background); border-radius: 1rem;
+					@media (min-width: 1280px) { display: block; }
+				}
+				.Label { display: block; margin: 0; padding: 0.5rem 0; cursor: pointer;
 					&:hover { opacity: 0.9; }
 					@media (min-width: 1280px) { padding: 1vh 2vw; }
 				}
@@ -483,6 +497,8 @@ a, button { cursor: pointer; }
 					.FormContainer .Button { width: 100%;
 						@media (min-width: 850px) { font-size: 1.5rem; }
 					}
+	.ContactHeroContainer { position: relative; }
+		.contact .HeroTitle { line-height: 1; }
 	.Contact { padding: 1rem 0 0 0; position: relative;
 		@media (min-width: 850px) { display: flex; flex-direction: row; flex-wrap: wrap; padding: 2rem 1rem; background: var(--color-dark); color: var(--color-offwhite); }
 		@media (min-width: 1280px) { margin-bottom: 4rem; border-radius: 2rem; background: var(--color-dark) url('../images/cityscape.svg') center 30% no-repeat; background-size: 100%; box-shadow: 0 0.25em 1em var(--shadow); }

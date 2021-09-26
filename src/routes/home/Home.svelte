@@ -35,7 +35,7 @@
       </p>
       <a
         class="CTAHero Button ButtonPrimary"
-        href="#"
+        href="/contact"
         title="Află prețul serviciilor de dezinfecție, dezinsecție și deratizare ale dedede.ro">
         <span class="ButtonText">Cât costă o vizită dedede?</span>
         <svg

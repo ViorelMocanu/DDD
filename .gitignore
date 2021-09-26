@@ -3,4 +3,4 @@
 /public/
 /build/
 .DS_Store
-
+env.php
