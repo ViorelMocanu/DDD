@@ -161,10 +161,10 @@
           <a href="/" class="FooterLink">Prima pagină</a>
         </li>
         <li class="FooterItem">
-          <a href="/servicii/" class="FooterLink">Servicii</a>
+          <a href="/#servicii" class="FooterLink">Servicii</a>
         </li>
         <li class="FooterItem">
-          <a href="/testimoniale/" class="FooterLink">Testimoniale</a>
+          <a href="/#testimoniale" class="FooterLink">Testimoniale</a>
         </li>
         <li class="FooterItem">
           <a href="/informatii-utile/" class="FooterLink">Informații utile</a>

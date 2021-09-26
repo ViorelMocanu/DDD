@@ -52,7 +52,7 @@
     </div>
     <img
       class="HeroImage"
-      src="/resources/dedede-hero.svg"
+      src="/images/dedede-hero.svg"
       width="130"
       height="328"
       alt="Supereroul DeDeDe este tot timpul la un click distanță, gata să te ajute cu problemele tale de dezinfecție, dezinsecție și deratizare!" />

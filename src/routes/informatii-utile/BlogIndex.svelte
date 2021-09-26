@@ -4,7 +4,7 @@
   export let data, helpers, request, settings;
   const { html, frontmatter } = data;
 
-  console.log('REQUEST INDEX = ', request);
+  //console.log('REQUEST INDEX = ', request);
 </script>
 
 <svelte:head>

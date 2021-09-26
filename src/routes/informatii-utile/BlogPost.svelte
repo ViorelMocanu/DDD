@@ -11,7 +11,6 @@
   const toateArticolele = data.markdown['informatii-utile'];
   for (let i = 0; i < toateArticolele.length; i++) {
     const articol = toateArticolele[i];
-    console.log('Data articolului ' + i + ':', articol.frontmatter.title, articol.frontmatter.date);
     if (Date.parse(articol.frontmatter.date) < Date.parse(frontmatter.date)) {
       articolPrecedent = i;
       break;
@@ -19,7 +18,6 @@
       articolUrmator = i;
     }
   }
-  console.log('Articole:', articolPrecedent, articolUrmator);
 </script>
 
 <svelte:head>

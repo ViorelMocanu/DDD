@@ -40,7 +40,7 @@
   </div>
 </section>
 <section class="FormContainer LimitWidth">
-  <form id="contactForm" class="Form" action="#" method="post">
+  <form id="sideform" class="Form" action="#" method="post">
     <fieldset class="Fieldset">
       <legend class="Legend">Introdu datele tale de contact</legend>
       <label class="Label">

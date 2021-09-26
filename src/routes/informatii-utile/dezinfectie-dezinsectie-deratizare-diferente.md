@@ -14,7 +14,7 @@ ogimage:
 
 Poate ai mai auzit în discuțiile altora acești termeni însă nu te-a preocupat prea mult subiectul până acum, când, dintr-un motiv sau altul, vrei să afli mai multe și să înțelegi mai bine care-i treaba cu [DeDeDe.ro](/).
 
-Cu siguranță mulți dintre noi am putea spune că ne pricepem la orice și nu avem nevoie prea mare de un ajutor, un ghid, o reîmprospătare a informației când vine vorba de multe, însă realitatea este că uneori (de cele mai multe ori chiar) ne întâlnim în viață cu evenimente care ne depășesc, care sunt în afara ariei noastre de confort și unde am avea nevoie de un ajutor profesionist. Așa e și când vine vorba de [serviciile DeDeDe](/servicii/).
+Cu siguranță mulți dintre noi am putea spune că ne pricepem la orice și nu avem nevoie prea mare de un ajutor, un ghid, o reîmprospătare a informației când vine vorba de multe, însă realitatea este că uneori (de cele mai multe ori chiar) ne întâlnim în viață cu evenimente care ne depășesc, care sunt în afara ariei noastre de confort și unde am avea nevoie de un ajutor profesionist. Așa e și când vine vorba de [serviciile DeDeDe](/#servicii).
 
 Eroul nostru DeDeDe a luat naștere dintr-o nevoie a lucrului bine făcut, a unui mediu în care oamenii să se simtă protejați, să se simtă în siguranță și să îți poată vedea liniștiți de viață, fără bătăi de cap.
 

@@ -42,14 +42,14 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- design -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon-16x16.png" />
-  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-  <link rel="icon" type="image/svg+xml" href="/resources/favicon.svg" />
-  <link rel="apple-touch-icon" href="/resources/apple-touch-icon.png" />
-  <link rel="mask-icon" href="/resources/safari-pinned-tab.svg" color="#00214d" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
   <meta name="msapplication-TileColor" content="#fde24f" />
-  <link rel="manifest" href="/resources/site.webmanifest" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="apple-mobile-web-app-title" content="DeDeDe.ro - Spații fără dăunători" />
   <meta name="application-name" content="DeDeDe.ro" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,12 +60,12 @@
 
   <!-- optimize -->
   <link rel="preload" href="/resources/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
-
-  <!--link rel="preconnect" href="https://fonts.googleapis.com" /-->
 </svelte:head>
 
 <div class="Container" itemscope itemtype="https://schema.org/WebPage">
+  <a href="#continut" class="ScreenReaders">Sari la conținut</a>
   <DeHeader {helpers} {request} />
+  <a href="#header" id="continut" class="ScreenReaders">Accesează meniul</a>
   {@html templateHtml}
   <DeFooter {helpers} {request} />
   <script defer src="/resources/script.js" on:load={scriptLoaded}></script>

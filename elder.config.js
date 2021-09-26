@@ -1,6 +1,7 @@
 require('dotenv').config();
 module.exports = {
-  origin: 'http://localhost', // TODO: update this.
+  origin: process.env.NODE_ENV == 'development' ? 'http://localhost' : 'https://dedede.ro', // TODO: update this.
+  /* origin: 'https://dedede.ro', */
   lang: 'ro',
   srcDir: 'src',
   distDir: 'public',
