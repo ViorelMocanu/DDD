@@ -1,7 +1,13 @@
 <script>
+  const azi = new Date();
+  const an = azi.getFullYear();
+  let copy = 2021;
+  if (an != copy) {
+    copy = copy + '-' + an;
+  }
 </script>
 
-<section class="Contact LimitWidth" itemscope itemtype="https://schema.org/ProfessionalService">
+<section class="Contact LimitWidth" itemscope itemtype="https://schema.org/ProfessionalService" role="contentinfo">
   <div class="ContactContainer">
     <img
       class="ScreenReaders"
@@ -34,7 +40,7 @@
       Răspunde la telefon
       <time itemprop="openingHours" datetime="Mo-Sa 09:00-20:00">de luni până sâmbătă de la 09:00 la 20:00</time>
     </p>
-    <a href="tel:0040749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
+    <a href="tel:+40749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
       <span class="ButtonText">0749 263 606</span>
       <svg
         class="ButtonIcon"
@@ -58,7 +64,7 @@
       </svg>
     </a>
     <p class="ContactText">
-      Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp dând click aici!
+      Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp – click pe:
     </p>
     <a
       href="https://wa.me/%2B40749263606/?text=Servicii%20DeDeDe"
@@ -123,7 +129,13 @@
           d="M44.6355 38.7818C41.9739 38.3033 38.8355 36.5187 37.3385 33.211C42.9386 29.8402 46.577 24.4971 46.577 18.4616C46.577 8.2662 36.2447 0 23.5 0C10.7553 0 0.422951 8.2662 0.422951 18.4616C0.422951 28.6571 10.7553 36.9233 23.5 36.9233C25.2092 36.9233 26.8708 36.7633 28.4723 36.4817C32.8724 39.5202 38.0908 40.4956 44.4878 39.7725C44.8693 39.7418 45.0355 39.5448 45.0355 39.271C45.0386 39.0264 44.8647 38.8279 44.6355 38.7818ZM14.2692 21.5386C12.5707 21.5386 11.1922 20.1616 11.1922 18.4616C11.1922 16.7632 12.5707 15.3847 14.2692 15.3847C15.9677 15.3847 17.3461 16.7632 17.3461 18.4616C17.3461 20.1616 15.9677 21.5386 14.2692 21.5386ZM23.5 21.5386C21.8015 21.5386 20.4231 20.1616 20.4231 18.4616C20.4231 16.7632 21.8015 15.3847 23.5 15.3847C25.1985 15.3847 26.5769 16.7632 26.5769 18.4616C26.5769 20.1616 25.1985 21.5386 23.5 21.5386ZM32.7308 21.5386C31.0323 21.5386 29.6539 20.1616 29.6539 18.4616C29.6539 16.7632 31.0323 15.3847 32.7308 15.3847C34.4293 15.3847 35.8078 16.7632 35.8078 18.4616C35.8078 20.1616 34.4293 21.5386 32.7308 21.5386Z" />
       </svg>
     </a>
-    <svg class="BatmanSignal" width="280" height="114" viewBox="0 0 280 114" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      class="BatmanSignal"
+      width="280"
+      height="114"
+      viewBox="0 0 280 114"
+      xmlns="http://www.w3.org/2000/svg"
+      title="Semnalul lui Batman, varianta pentru Dezinsecție, Dezinfecție și Deratizare">
       <path
         d="M1.34631e-05 99.6603L10.1 83.1234L20.9305 79.3314L27.3675 105.968L15.1589 108.919L1.34631e-05 99.6603Z"
         class="FillWhite" />
@@ -184,11 +196,11 @@
           <a href="/confidentialitate/" class="FooterLink">Politica de confidențialitate</a>
         </li>
         <li class="FooterItem">
-          <a href="/cookies/" class="FooterLink">Schimbă setările de cookies</a>
+          <a href="/cookies/" class="FooterLink">Politica de cookies</a>
         </li>
       </ul>
     </div>
-    <p class="Copyright">Copyright &copy; 2021 @TODO Dedede.ro, toate drepturile rezervate.</p>
+    <p class="Copyright">Copyright &copy; {copy} Dedede.ro, toate drepturile rezervate.</p>
     <button id="darkMode" class="DarkModeButton Button ButtonSecondary">
       <span class="ButtonText">Inversează culorile</span>
       <svg

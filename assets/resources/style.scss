@@ -213,7 +213,7 @@ a, button { cursor: pointer; }
 					.Active .Symbol2 { transform: rotate3d(0, 0, 1, -45deg); }
 					.Active .Symbol3 { opacity: 0; }
 			.MainMenu { display: block; width: 100%; max-height: calc(100vh - 3.125rem); overflow-y: auto; position: absolute; top: 3.125rem; background: var(--color-dark); color: var(--color-offwhite); border-top: 0.25rem solid var(--color-offwhite); transform: translate3d(100%, 0, 0); will-change: transform; transition: transform 0.4s ease-out;
-				@media (min-width: 850px) { display: flex; align-self: center;; width: auto; max-height: none; overflow: none; position: static; top: auto; background: transparent; border: none; transform: none; transition: unset; will-change: unset; }
+				@media (min-width: 850px) { display: flex; align-self: center;; width: auto; max-height: none; overflow: hidden; position: static; top: auto; background: transparent; border: none; transform: none; transition: unset; will-change: unset; }
 				@media (min-width: 1280px) { flex-grow: 1; overflow: visible; }
 			}
 			.Active .MainMenu { display: block; border-color: var(--color-light); transform: translate3d(0, 0, 0);
@@ -227,7 +227,7 @@ a, button { cursor: pointer; }
 					@media (min-width: 1280px) { flex-grow: 1; justify-content: center; }
 				}
 					.MainMenuItem { display: block; }
-						.MainMenuLink { display: block; padding: 1rem; color: var(--color-offwhite); font-weight: 900; font-size: 2rem; line-height: 1em; text-decoration: none;
+						.MainMenuLink { display: block; padding: 1rem; color: var(--color-offwhite); font-weight: bold; font-size: 2rem; line-height: 1em; text-decoration: none;
 							&:hover { background: var(--color-light); color: var(--color-dark); }
 							&:active { background: var(--color-dark); color: var(--color-secondary); text-decoration: underline; }
 							.MainMenuItem.Active & { background: var(--color-light); color: var(--color-dark); }
@@ -346,15 +346,15 @@ a, button { cursor: pointer; }
 		@media (min-width: 1600px) { margin: 4rem auto; padding: 4rem 10vw; }
 		.darkmode & { background: var(--color-almostdark); }
 	}
-		.BigArticleTitle { display: block; margin: 1rem 0; padding: 0; font-size: 2em; line-height: 1.1em; font-weight: 900; letter-spacing: -0.06rem; hyphens: auto;
+		.BigArticleTitle { display: block; margin: 1rem 0; padding: 0; font-size: 2em; line-height: 1.1em; font-weight: bold; letter-spacing: -0.06rem; hyphens: auto;
 			@media (min-width: 480px) { font-size: 2.5em; }
 			@media (min-width: 1280px) { font-size: 3em; }
 		}
 			.BigArticleTitle strong { color: var(--color-primary); }
 			.BigArticleTitle em { font-weight: 100; font-style: normal; }
 		.BigArticle p { display: block; margin: 1.5em auto; }
-		.BigArticle h2 { display: block; margin: 2em auto 0; font-size: 1.5em; line-height: 1em; font-weight: 900; }
-		.BigArticle h3 { display: block; margin: 1.5em auto 0; font-size: 1em; line-height: 1.5em; font-weight: 900; }
+		.BigArticle h2 { display: block; margin: 2em auto 0; font-size: 1.5em; line-height: 1em; font-weight: bold; }
+		.BigArticle h3 { display: block; margin: 1.5em auto 0; font-size: 1em; line-height: 1.5em; font-weight: bold; }
 	.BigArticleNav { display: block; margin: 1rem auto; font-size: 1rem; line-height: 1.5em;
 		@media (min-width: 480px) { font-size: 1.5rem; }
 		@media (min-width: 960px) { margin: 5vh 5vw; }
@@ -397,7 +397,7 @@ a, button { cursor: pointer; }
 					@media (min-width: 1280px) { margin: 0 0.1875rem 0 0; }
 				}
 				.ServiceContainer { display: block; }
-					.ServiceName { display: block; margin: 0; color: var(--color-primary); font-weight: 900; text-transform: uppercase;
+					.ServiceName { display: block; margin: 0; color: var(--color-primary); font-weight: bold; text-transform: uppercase;
 						@media (min-width: 1280px) { font-size: 1.5rem; line-height: 1em; }
 					}
 					.ServiceText { display: block; margin: 0; }
@@ -419,7 +419,7 @@ a, button { cursor: pointer; }
 					}
 						.TestimonialImage img { display: block; width: 100%; height: auto; }
 					.TestimonialContainer { display: block; }
-						.TestimonialAuthor { display: block; margin: 0; font-weight: 900; }
+						.TestimonialAuthor { display: block; margin: 0; font-weight: bold; }
 						.TestimonialText { display: block; margin: 0; }
 			.CTATestimonials {  }
 		.UsefulInformation { display: block; margin: 1rem 0; padding: 1rem; background: var(--background); box-shadow: 0 0 2em var(--shadow); border-radius: 1rem;
@@ -520,8 +520,8 @@ a, button { cursor: pointer; }
 				@media (min-width: 1280px) { margin: 1.5rem 0 1.5rem 0; }
 			}
 			.ContactContainer .ContactText { display: block; margin: 0; }
-			.FooterSubtitle { display: block; margin: 1.5rem 0 0 0; color: var(--color-primary); text-transform: uppercase; font-weight: 900; }
-			.FooterButton { margin: 0 0 1rem; }
+			.FooterSubtitle { display: block; margin: 1.5rem 0 0 0; color: var(--color-primary); text-transform: uppercase; font-weight: bold; }
+			.FooterButton { margin: 0.5rem 0 1rem; }
 			body .FooterButton.ButtonTertiary { justify-content: left; padding: 0; color: var(--color-light); border: none; text-align: left; font-size: 1.5rem; line-height: 1em;
 				&:hover { color: var(--color-primary); }
 				&:active { color: var(--color-secondary); }
@@ -545,7 +545,7 @@ a, button { cursor: pointer; }
 			@media (min-width: 1280px) { width: 75%; padding: 1rem; }
 		}
 			.ConclusionContainer { display: block; }
-				.ConclusionContainer .SectionTitle {
+				.ConclusionContainer .SectionTitle { margin-bottom: 0.5rem;
 					@media (min-width: 1280px) { font-size: 1.5rem; line-height: 1.5rem; }
 				}
 				.FooterMenu { margin: 0; padding: 0;
@@ -575,7 +575,7 @@ a, button { cursor: pointer; }
 
 @media print {
 
-	* { background-image: none; background: white; color: black; }
+	* { background: white; background-image: none; color: black; }
 
 	@page { margin: 2cm; }
 	@page :first { margin-top: 3cm; }

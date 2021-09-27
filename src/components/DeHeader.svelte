@@ -2,7 +2,7 @@
   export let helpers, request;
 </script>
 
-<header class="Header" id="header">
+<header class="Header" id="header" role="navigation">
   <div class="HeaderContainer LimitWidth">
     <a class="Logo" href="/" title="Revino pe prima pagină a site-ului DeDeDe.ro">
       <picture class="LogoPicture">
@@ -45,7 +45,7 @@
       </ul>
       <ul class="CTAList">
         <li class="CTAItem">
-          <a href="tel:0040749263606" class="CTAButton Button ButtonSecondary">
+          <a href="tel:+40749263606" class="CTAButton Button ButtonSecondary">
             <span class="ButtonText">
               <span class="ButtonTextSecondary">Sună-l pe DeDeDe</span>
               <strong class="ButtonTextPrimary">0749 263 606</strong>

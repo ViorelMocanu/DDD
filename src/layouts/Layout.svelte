@@ -30,13 +30,13 @@
 <svelte:head>
   <!-- SEO -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta property="og:site_name" content="DeDeDe.ro" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="article:publisher" content="DeDeDe.ro" />
+  <meta property="fb:app_id" content="811489239521802" />
   <meta name="twitter:site" content="@TODO" />
   <meta name="twitter:creator" content="@TODO" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -77,6 +77,7 @@
       src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX"
       height="0"
       width="0"
+      sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
       style="display:none;visibility:hidden" />
   </noscript>
   <!-- End Google Tag Manager (noscript) -->

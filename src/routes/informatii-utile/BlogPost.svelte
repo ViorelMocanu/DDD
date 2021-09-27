@@ -39,8 +39,8 @@
   {/if}
 </svelte:head>
 
-<div class="ArticleContainer" itemscope itemtype="https://schema.org/Article">
-  <section class="Hero">
+<article class="ArticleContainer" itemscope itemtype="https://schema.org/Article">
+  <section class="Hero" role="banner">
     {#if frontmatter.thumbnail}
       <picture class="BigArticlePicture">
         <source
@@ -62,7 +62,7 @@
       </picture>
     {/if}
   </section>
-  <section class="BigArticle LimitWidth">
+  <main class="BigArticle LimitWidth">
     <ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
       <li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a class="BreadcrumbLink" itemprop="item" href="/">
@@ -110,31 +110,33 @@
         <h2>Ne pare rău, nu am găsit articolul Markdown!</h2>
       {/if}
     </div>
-  </section>
-  <nav class="BigArticleNav LimitWidth">
-    <ol class="BigArticleList">
-      {#if articolPrecedent >= 0}
-        <li class="BigArticleItem BigArticlePrevious">
-          <a
-            class="BigArticleLink"
-            href={helpers.permalinks['informatii-utile']({ slug: toateArticolele[articolPrecedent].slug })}
-            title="Mergi la articolul precedent: {toateArticolele[articolPrecedent].frontmatter.title}">
-            <span class="BALstatus">Articolul precedent:</span>
-            <strong>{toateArticolele[articolPrecedent].frontmatter.title}</strong>
-          </a>
-        </li>
-      {/if}
-      {#if articolUrmator >= 0}
-        <li class="BigArticleItem BigArticleNext">
-          <a
-            class="BigArticleLink"
-            href={helpers.permalinks['informatii-utile']({ slug: toateArticolele[articolUrmator].slug })}
-            title="Mergi la articolul următor: {toateArticolele[articolUrmator].frontmatter.title}">
-            <span class="BALstatus">Articolul următor:</span>
-            <strong>{toateArticolele[articolUrmator].frontmatter.title}</strong>
-          </a>
-        </li>
-      {/if}
-    </ol>
-  </nav>
-</div>
+  </main>
+  <aside role="complementary">
+    <nav class="BigArticleNav LimitWidth">
+      <ol class="BigArticleList">
+        {#if articolPrecedent >= 0}
+          <li class="BigArticleItem BigArticlePrevious">
+            <a
+              class="BigArticleLink"
+              href={helpers.permalinks['informatii-utile']({ slug: toateArticolele[articolPrecedent].slug })}
+              title="Mergi la articolul precedent: {toateArticolele[articolPrecedent].frontmatter.title}">
+              <span class="BALstatus">Articolul precedent:</span>
+              <strong>{toateArticolele[articolPrecedent].frontmatter.title}</strong>
+            </a>
+          </li>
+        {/if}
+        {#if articolUrmator >= 0}
+          <li class="BigArticleItem BigArticleNext">
+            <a
+              class="BigArticleLink"
+              href={helpers.permalinks['informatii-utile']({ slug: toateArticolele[articolUrmator].slug })}
+              title="Mergi la articolul următor: {toateArticolele[articolUrmator].frontmatter.title}">
+              <span class="BALstatus">Articolul următor:</span>
+              <strong>{toateArticolele[articolUrmator].frontmatter.title}</strong>
+            </a>
+          </li>
+        {/if}
+      </ol>
+    </nav>
+  </aside>
+</article>

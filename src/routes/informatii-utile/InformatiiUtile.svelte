@@ -12,7 +12,4 @@
   }
 </script>
 
-<style>
-</style>
-
 <svelte:component this={component} {settings} {data} {helpers} {request} />
