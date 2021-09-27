@@ -144,7 +144,6 @@ if( $datasent == 'true' ) {
 		}
 
 		if ( $errormessage == '' ) {
-
 			$drop['dedede_contact'] = "DROP TABLE IF EXISTS dedede_contact";
 			$creare['dedede_contact'] = "CREATE TABLE dedede_contact (
 				`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
