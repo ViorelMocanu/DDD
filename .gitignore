@@ -7,3 +7,5 @@ env.php
 sftp.json
 /.vscode/
 /_backup/
+.vscode
+_backup
