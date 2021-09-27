@@ -7,7 +7,7 @@
     "start": "npm run dev",
     "build": "node ./src/cleanPublic.js && npm run build:rollup && npm run build:html",
     "build:rollup": "rollup -c",
-    "build:html": "node ./src/build.js && ncp ./images ./public/images && ncp ./resources ./public/resources",
+    "build:html": "node ./src/build.js && ncp ./assets/images ./public/images && ncp ./assets/resources ./public/resources",
     "dev": "rollup  -c -w --no-watch.clearScreen",
     "serve": "node ./src/cleanPublic.js && npm run build:rollup && NODE_ENV=production node ./src/server.js",
     "eslint": "eslint --ext .js .",

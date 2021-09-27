@@ -60,7 +60,10 @@
     <p class="ContactText">
       Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp dând click aici!
     </p>
-    <a href="/contact/" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
+    <a
+      href="https://wa.me/%2B40749263606/?text=Servicii%20DeDeDe"
+      class="FooterButton Button ButtonTertiary"
+      title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
       <span class="ButtonText">Mesaj Whatsapp &rarr;</span>
       <svg
         class="ButtonIcon"
