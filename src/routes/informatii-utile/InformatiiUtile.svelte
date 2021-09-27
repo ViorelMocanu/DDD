@@ -1,6 +1,6 @@
 <script>
-  import BlogIndex from './BlogIndex.svelte';
-  import BlogPost from './BlogPost.svelte';
+  import BlogIndex from './blogindex.svelte';
+  import BlogPost from './blogpost.svelte';
   export let data, helpers, request, settings; // data is mainly being populated from the @elderjs/plugin-markdown
   const { html, frontmatter } = data;
 

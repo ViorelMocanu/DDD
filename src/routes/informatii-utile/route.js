@@ -11,7 +11,7 @@ module.exports = {
 
   // This is telling the simple markdown plugin, which route to control.
 
-  template: 'InformatiiUtile.svelte',
+  template: 'informatiiutile.svelte',
   data: ({ data }) => {
     return data;
   },

@@ -38,11 +38,11 @@ AddDefaultCharset utf-8
 	# Protejeaza impotriva content-sniffing
 	Header set X-Content-Type-Options "nosniff"
 
-	# Porneste  HSTS pentru Preloading
+	# Porneste HSTS pentru Preloading
 	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
 	# Content Security Policy trebuie definita corect pentru fiecare site in parte, in functie de resurse
-	Header set Content-Security-Policy "default-src 'self' www.google.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; frame-src 'self' www.google.com; style-src 'self' https: 'unsafe-inline' *.google.com; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com *.google.com data:; connect-src 'self' https: *.google-analytics.com *.googletagmanager.com *.google.com data: stats.g.doubleclick.net; font-src 'self' https: data:; img-src https: data:;"
+	Header set Content-Security-Policy "default-src 'self' www.google.com; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; frame-src 'self' www.google.com; style-src 'self' https: 'unsafe-inline' *.google.com; script-src 'self' https: 'unsafe-inline' 'unsafe-eval' *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net; connect-src 'self' https: *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net stats.g.doubleclick.net; font-src 'self' https: data:; img-src https: data:;"
 
 	# Porneste politicile de transmisie de referrers
 	Header set Referrer-Policy "strict-origin-when-cross-origin, no-referrer-when-downgrade"
