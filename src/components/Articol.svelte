@@ -22,8 +22,8 @@
         <img
           src="/images/{articol.frontmatter.thumbnail.name}-mobile.jpg"
           alt={articol.frontmatter.thumbnail.alt}
-          width="280"
-          height="157" />
+          width="236"
+          height="133" />
       </picture>
     {/if}
     <h3 class="ArticleTitle">{articol.frontmatter.title}</h3>

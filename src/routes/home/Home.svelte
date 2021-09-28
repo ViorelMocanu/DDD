@@ -300,7 +300,7 @@
     </ol>
   </section>
   <section class="UsefulInformation">
-    <h2 class="SectionTitle">Informații utile<span class="HighResOnly"> despre dăunători și cum scapi de ei</span></h2>
+    <h2 class="SectionTitle">Informații utile <span class="HighResOnly">despre dăunători și cum scapi de ei</span></h2>
     <ol class="ArticleList">
       {#each data.markdown['informatii-utile'] as articol}
         <Articol {articol} {helpers} />
