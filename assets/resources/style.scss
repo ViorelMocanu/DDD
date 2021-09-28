@@ -118,8 +118,8 @@ svg { fill: currentColor; }
 
 a, button { cursor: pointer; }
 
-.Button { display: flex; align-items: flex-start; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); border: 0.1875em solid var(--color-primary); font-weight: bold; text-decoration: none; text-align: center; line-height: 1.5em; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--light-shadow);
-	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--light-shadow); border-color: var(--color-secondary); }
+.Button { display: flex; align-items: flex-start; justify-content: center; padding: 0.5em 1em; background: var(--color-primary); color: var(--color-offwhite); border: 0.1875em solid var(--color-primary); font-weight: bold; text-decoration: none; text-align: center; line-height: 1.5em; border-radius: 0.5em; box-shadow: 0 0.25em 0.25em var(--light-shadow); text-shadow: 0 1px 1px var(--color-darkgray);
+	&:hover { background: var(--color-secondary); color: var(--color-dark); box-shadow: 0 0.3333em 0.3333em var(--light-shadow); border-color: var(--color-secondary); text-shadow: var(--color-lightwhite); }
 	&:active { background: var(--color-dark); color: var(--color-light); box-shadow: inset 0 0.1em 0.1em var(--light-shadow); border-color: var(--color-dark); }
 	@media (min-width: 850px) { width: fit-content; }
 }
@@ -355,6 +355,10 @@ a, button { cursor: pointer; }
 		.BigArticle p { display: block; margin: 1.5em auto; }
 		.BigArticle h2 { display: block; margin: 2em auto 0; font-size: 1.5em; line-height: 1em; font-weight: bold; }
 		.BigArticle h3 { display: block; margin: 1.5em auto 0; font-size: 1em; line-height: 1.5em; font-weight: bold; }
+		.BigArticle ul, .BigArticle ol { padding-inline-start: 1em;
+			@media (min-width: 960px) { padding-inline-start: 1.5em; }
+		}
+			.BigArticle li { margin-block-start: 1.5em; margin-block-end: 1.5em; }
 	.BigArticleNav { display: block; margin: 1rem auto; font-size: 1rem; line-height: 1.5em;
 		@media (min-width: 480px) { font-size: 1.5rem; }
 		@media (min-width: 960px) { margin: 5vh 5vw; }
@@ -553,12 +557,14 @@ a, button { cursor: pointer; }
 					@media (min-width: 1280px) { display: flex; flex-direction: row; float: none; width: auto; margin-left: -0.5rem; }
 				}
 					.FooterItem { display: block; }
-						.FooterLink { display: block; padding: 0 0 0 1rem; margin: 0 0 0 -1rem; color: var(--color-offwhite); position: relative;
-							&:before { content: '\2022'; display: block; position: absolute; left: 0.25rem; top: 0;
+						.FooterLink { display: block; padding: 0.75rem 0.5rem 0.75rem 1rem; margin: 0 0 0 -1rem; color: var(--color-offwhite); position: relative;
+							&:before { content: '\2022'; display: block; position: absolute; left: 0.25rem; top: 0.75rem;
+								@media (min-width: 850px) { top: 0; }
 								@media (min-width: 1280px) { display: none; }
 							}
 							&:hover { color: var(--color-light); }
 							&:active { color: var(--color-secondary); }
+							@media (min-width: 850px) { padding: 0 0 0 1em; }
 							@media (min-width: 1280px) { padding: 0.5rem; margin: 0; }
 						}
 			.Copyright { display: block;
@@ -575,7 +581,7 @@ a, button { cursor: pointer; }
 
 @media print {
 
-	* { background: white; background-image: none; color: black; }
+	*, *>* { background: white; background-image: none; color: black; }
 
 	@page { margin: 2cm; }
 	@page :first { margin-top: 3cm; }
@@ -585,14 +591,20 @@ a, button { cursor: pointer; }
 	html { background: white; font-size: 12pt; line-height: 1.5em; }
 
 	a:link, a:visited { color: #00f; background: transparent; font-weight: bold; }
-	a:not([href^="http"]):after { content: " (" attr(href) ")"; font-size: 0.9em; }
-	a[href^="/"]:after { content: " (https://viorelmocanu.github.io/LinkInBio" attr(href) ") "; }
-	/*a:not(:local-link):after { content: " (" attr(href) ")»"; }*/
-	a:after > img { content: ""; }
+	a:after { font-size: 0.75rem; line-height: 1; }
+		a.Button { position: relative; }
+		a.Button:after { position: absolute; white-space: nowrap; overflow: hidden; }
 
-	body::after { content: "Copyright © Viorel Mocanu, toate drepturile rezervate."; display: block; text-align: center; }
+		a[href^="/"]:after { content: " (https://dedede.ro" attr(href) ") "; } /* link intern relativ */
+		a[href^="tel"]:after { content: " (" attr(href) ")"; } /* link cu tel: */
+		a:not(:local-link):after { content: " (" attr(href) ")»"; } /* link extern */
+		a:after > img, #header a.Logo:after { content: ''; }
 
-	.Container { background: transparent; margin: 0; padding: 0; }
+	body::after { content: "Copyright © DeDeDe.ro, toate drepturile rezervate."; display: block; text-align: center; }
+
+	.Container, .lightmode .Contact, .darkmode .Contact, .darkmode .Services, .darkmode .Header, .darkmode .UsefulInformation, .MobileSignal, .Conclusion { background: transparent; color: #00214D; }
+	.ToggleIconSymbol, a.Logo { background: #00214D; }
+	.Container { margin: 0; padding: 0; }
 
 	h1, h2, h3, h4, h5, h6 { page-break-after: avoid; page-break-inside: avoid }
 	h1 + h2 { page-break-before: avoid; }
@@ -600,8 +612,5 @@ a, button { cursor: pointer; }
 	table, pre, img, svg, blockquote, a { break-inside: avoid; }
 
 	ul, ol, dl { page-break-before: avoid; }
-
-	.TitlulPaginii { padding-top: 0.5em; }
-	.ListaText { display: inline; color: #00f; white-space: normal; text-decoration: underline; }
 
 }

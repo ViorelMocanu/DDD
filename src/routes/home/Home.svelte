@@ -53,8 +53,8 @@
     <img
       class="HeroImage"
       src="/images/dedede-hero.svg"
-      width="130"
-      height="328"
+      width="300"
+      height="757"
       loading="eager"
       alt="Supereroul DeDeDe este tot timpul la un click distanță, gata să te ajute cu problemele tale de dezinfecție, dezinsecție și deratizare!" />
   </div>
@@ -65,8 +65,8 @@
   <img
     src="/images/servicii.svg"
     class="ServicesImage"
-    width="320"
-    height="261"
+    width="300"
+    height="245"
     loading="lazy"
     alt="Detalii despre serviciile de dezinsecție, dezinfecție și deratizare oferite de dedede.ro" />
   <ul class="ServicesList">
@@ -244,7 +244,7 @@
     <h2 class="SectionTitle">Ce spun clienții <strong class="Highlight">dedede</strong>?</h2>
     <ol class="TestimonialList">
       <li class="Testimonial">
-        <picture class="TestimonialImage">
+        <!--picture class="TestimonialImage">
           <source
             type="image/webp"
             srcset="/images/generic-avatar-mobile.webp"
@@ -261,93 +261,39 @@
             loading="lazy"
             width="40"
             height="40" />
-        </picture>
+        </picture-->
         <div class="TestimonialContainer">
-          <h3 class="TestimonialAuthor">Prenume Nume @TODO</h3>
+          <h3 class="TestimonialAuthor">Liviu Florin Măniceanu</h3>
           <p class="TestimonialText">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text. @TODO
+            Am numai cuvinte de laudă pentru Sorin și echipa acestuia de profesioniști. Am avut mari probleme cu
+            ploșnitele de lemn (nu dormeam nopțile din cauza lor) până au venit cei de la DeDeDe. Au rezolvat problema
+            într-un timp foarte scurt. Recomand cu încredere!
           </p>
         </div>
       </li>
       <li class="Testimonial">
-        <picture class="TestimonialImage">
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-mobile.webp"
-            media="(min-width: 850px)"
-            loading="lazy" />
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-desktop.webp"
-            media="(min-width: 100px)"
-            loading="lazy" />
-          <img
-            src="/images/generic-avatar.jpg"
-            alt="Acest testimonial este scris de NUME PRENUME @TODO"
-            loading="lazy"
-            width="40"
-            height="40" />
-        </picture>
         <div class="TestimonialContainer">
-          <h3 class="TestimonialAuthor">Prenume Nume @TODO</h3>
+          <h3 class="TestimonialAuthor">Ionela Elena Dia</h3>
           <p class="TestimonialText">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text. @TODO
+            Timp de aproximativ 6 luni m-am confruntat cu o mare problemă: GÂNDACII DE BUCĂTĂRIE! Până când a venit
+            echipa DeDeDe și din 2 intervenții au rezolvat problema. Recomand 100% 👍
           </p>
         </div>
       </li>
       <li class="Testimonial">
-        <picture class="TestimonialImage">
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-mobile.webp"
-            media="(min-width: 850px)"
-            loading="lazy" />
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-desktop.webp"
-            media="(min-width: 100px)"
-            loading="lazy" />
-          <img
-            src="/images/generic-avatar.jpg"
-            alt="Acest testimonial este scris de NUME PRENUME @TODO"
-            loading="lazy"
-            width="40"
-            height="40" />
-        </picture>
         <div class="TestimonialContainer">
-          <h3 class="TestimonialAuthor">Prenume Nume @TODO</h3>
+          <h3 class="TestimonialAuthor">Dan Cristian Iordache</h3>
           <p class="TestimonialText">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text. @TODO
+            R E C O M A N D echipa DeDeDe! Momentele de coșmar prin care am trecut cu ploșnitele de pat sunt acum de
+            domeniul trecutului. Doar cu ajutorul celor de la DeDeDe am scăpat de ele! Îi recomand cu încredere!
           </p>
         </div>
       </li>
       <li class="Testimonial">
-        <picture class="TestimonialImage">
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-mobile.webp"
-            media="(min-width: 850px)"
-            loading="lazy" />
-          <source
-            type="image/webp"
-            srcset="/images/generic-avatar-desktop.webp"
-            media="(min-width: 100px)"
-            loading="lazy" />
-          <img
-            src="/images/generic-avatar.jpg"
-            alt="Acest testimonial este scris de NUME PRENUME @TODO"
-            loading="lazy"
-            width="40"
-            height="40" />
-        </picture>
         <div class="TestimonialContainer">
-          <h3 class="TestimonialAuthor">Prenume Nume @TODO</h3>
+          <h3 class="TestimonialAuthor">Camelia Diaconu</h3>
           <p class="TestimonialText">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text. @TODO
+            Vi-i recomand fără ezitare pe cei de la Dedede! Punctualitate și Profesionalism! Nota 🔟
           </p>
         </div>
       </li>
