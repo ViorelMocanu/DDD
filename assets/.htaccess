@@ -41,15 +41,18 @@ AddDefaultCharset utf-8
 	# Porneste HSTS pentru Preloading
 	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
 
+	# Protejeaza impotriva cross domain policy abuse
+	Header set X-Permitted-Cross-Domain-Policies "none"
+
 	# Content Security Policy trebuie definita corect pentru fiecare site in parte, in functie de resurse
-	Header set Content-Security-Policy "default-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; frame-ancestors 'none'; frame-src 'self' www.google.com; manifest-src 'self'; style-src 'self' https: *.google.com 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net; connect-src 'self' https: *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net stats.g.doubleclick.net; font-src 'self' https: data:; img-src https: data:;"
+	Header set Content-Security-Policy "default-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; child-src 'self'; frame-ancestors 'none'; frame-src 'self' www.google.com; manifest-src 'self'; style-src 'self' https: *.google.com 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net; connect-src 'self' https: *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net stats.g.doubleclick.net; font-src 'self' https: data:; img-src https: data:; upgrade-insecure-requests; block-all-mixed-content;"
 
 	# Porneste politicile de transmisie de referrers
 	Header set Referrer-Policy "strict-origin-when-cross-origin, no-referrer"
 
 	# Controlul feature-urilor din browser
-	Header set Feature-Policy "microphone 'none'; geolocation 'self'; vibrate 'none'"
-	# Header set Permissions-Policy "microphone=(), geolocation=(self "https://dedede.ro"), vibrate=()"
+	Header set Feature-Policy "accelerometer 'none'; microphone 'none'; geolocation 'self'; vibrate 'none'; ambient-light-sensor 'self'; autoplay 'self'; camera 'none'; fullscreen 'self';"
+	# Header set Permissions-Policy "accelerometer=Origin(), autoplay=Origin(), camera=(), gyroscope=(), magnetometer=(), microphone=(), payment=Origin(), publickey-credentials-get=(), usb=()"
 
 	# Compatibilitate cu IE-uri mai vechi
 	Header set X-UA-Compatible "IE=edge"
@@ -61,21 +64,24 @@ AddDefaultCharset utf-8
 	</FilesMatch>
 
 	# Scoate semnatura serverului
+	Header always unset X-Powered-By
+	Header always unset server
 	Header unset X-Powered-By
+	Header unset server
 
-    # Setam cache-ul unor extensii sa expire mai repede
+	# Setam cache-ul unor extensii sa expire mai repede
 	# Meta-urile = 1 luna
-    <FilesMatch "\.(webmanifest|txt|ico|woff2)$">
-        Header set Cache-Control "max-age=2592000"
-    </FilesMatch>
+	<FilesMatch "\.(webmanifest|txt|ico|woff2)$">
+		Header set Cache-Control "max-age=2592000"
+	</FilesMatch>
 	# Pozele = 1 saptamana
-    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
-        Header set Cache-Control "max-age=604800, public"
-    </FilesMatch>
+	<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+		Header set Cache-Control "max-age=604800, public"
+	</FilesMatch>
 	# Staticele, paginile și sitemap-ul = 1 zi
-    <FilesMatch "\.(js|css|map|html|xml|php)$">
-        Header set Cache-Control "max-age=86400"
-    </FilesMatch>
+	<FilesMatch "\.(js|css|map|html|xml|php)$">
+		Header set Cache-Control "max-age=86400"
+	</FilesMatch>
 
 </IfModule>
 

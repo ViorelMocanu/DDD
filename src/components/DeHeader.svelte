@@ -1,66 +1,58 @@
 <script>
-  export let helpers, request;
+	export let helpers, request;
 </script>
 
 <header class="Header" id="header" role="navigation">
-  <div class="HeaderContainer LimitWidth">
-    <a class="Logo" href="/" title="Revino pe prima pagină a site-ului DeDeDe.ro">
-      <picture class="LogoPicture">
-        <source type="image/svg+xml" srcset="/images/dedede-logo-desktop.svg" media="(min-width: 850px)" />
-        <source type="image/svg+xml" srcset="/images/dedede-logo-mobile.svg" media="(min-width: 100px)" />
-        <img
-          src="/images/dedede-logo-mobile.png"
-          alt="DeDeDe.ro - Spații fără dăunători - Logo"
-          width="102"
-          height="34" />
-      </picture>
-    </a>
-    <button class="ToggleMenu" type="button" id="menuToggle">
-      <span class="ToggleText">Meniu</span>
-      <div class="ToggleIcon">
-        <span class="ToggleIconSymbol Symbol1">&nbsp;</span>
-        <span class="ToggleIconSymbol Symbol2">&nbsp;</span>
-        <span class="ToggleIconSymbol Symbol3">&nbsp;</span>
-      </div>
-    </button>
-    <nav class="MainMenu" id="mainMenu">
-      <ul class="MainMenuList">
-        <li class="MainMenuItem" class:Active={request.route === 'home'}>
-          <a href="/" class="MainMenuLink"> Prima pagină </a>
-        </li>
-        <li class="MainMenuItem" class:Active={request.route === 'servicii'}>
-          <a href="/#servicii" class="MainMenuLink"> Servicii </a>
-        </li>
-        <li class="MainMenuItem" class:Active={request.route === 'testimoniale'}>
-          <a href="/#testimoniale" class="MainMenuLink"> Testimoniale </a>
-        </li>
-        <li class="MainMenuItem" class:Active={request.route === 'informatii-utile'}>
-          <a href={helpers.permalinks['informatii-utile']({ slug: 'informatii-utile' })} class="MainMenuLink">
-            Informații utile
-          </a>
-        </li>
-        <li class="MainMenuItem" class:Active={request.route === 'contact'}>
-          <a href={helpers.permalinks.contact({ slug: 'contact' })} class="MainMenuLink"> Contact </a>
-        </li>
-      </ul>
-      <ul class="CTAList">
-        <li class="CTAItem">
-          <a href="tel:+40749263606" class="CTAButton Button ButtonSecondary">
-            <span class="ButtonText">
-              <span class="ButtonTextSecondary">Sună-l pe DeDeDe</span>
-              <strong class="ButtonTextPrimary">0749 263 606</strong>
-            </span>
-            <svg
-              class="ButtonIcon"
-              width="30"
-              height="30"
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              viewBox="0 0 31.9 30.6"
-              alt="Sună specialistul">
-              <path
-                d="M2.3,16.6c2.5,5,6.6,9.1,11.7,11.7l2.2,1.1c1.5,0.8,3.2,1.2,4.9,1.2c0.9,0,1.8-0.1,2.6-0.3c2.6-0.7,4.7-2.5,5.8-4.9l0.6-1.2
+	<div class="HeaderContainer LimitWidth">
+		<a class="Logo" href="/" title="Revino pe prima pagină a site-ului DeDeDe.ro">
+			<picture class="LogoPicture">
+				<source type="image/svg+xml" srcset="/images/dedede-logo-desktop.svg" media="(min-width: 850px)" />
+				<source type="image/svg+xml" srcset="/images/dedede-logo-mobile.svg" media="(min-width: 100px)" />
+				<img
+					src="/images/dedede-logo-mobile.png"
+					alt="DeDeDe.ro - Spații fără dăunători - Logo"
+					width="102"
+					height="34" />
+			</picture>
+		</a>
+		<button class="ToggleMenu" type="button" id="menuToggle">
+			<span class="ToggleText">Meniu</span>
+			<div class="ToggleIcon">
+				<span class="ToggleIconSymbol Symbol1">&nbsp;</span>
+				<span class="ToggleIconSymbol Symbol2">&nbsp;</span>
+				<span class="ToggleIconSymbol Symbol3">&nbsp;</span>
+			</div>
+		</button>
+		<nav class="MainMenu" id="mainMenu">
+			<ul class="MainMenuList">
+				<li class="MainMenuItem" class:Active={request.route === 'home'}>
+					<a href="/" class="MainMenuLink"> Prima pagină </a>
+				</li>
+				<li class="MainMenuItem" class:Active={request.route === 'servicii'}>
+					<a href="/#servicii" class="MainMenuLink"> Servicii </a>
+				</li>
+				<li class="MainMenuItem" class:Active={request.route === 'testimoniale'}>
+					<a href="/#testimoniale" class="MainMenuLink"> Testimoniale </a>
+				</li>
+				<li class="MainMenuItem" class:Active={request.route === 'informatii-utile'}>
+					<a href={helpers.permalinks['informatii-utile']({ slug: 'informatii-utile' })} class="MainMenuLink">
+						Informații utile
+					</a>
+				</li>
+				<li class="MainMenuItem" class:Active={request.route === 'contact'}>
+					<a href={helpers.permalinks.contact({ slug: 'contact' })} class="MainMenuLink"> Contact </a>
+				</li>
+			</ul>
+			<ul class="CTAList">
+				<li class="CTAItem">
+					<a href="tel:+40749263606" class="CTAButton Button ButtonSecondary">
+						<span class="ButtonText">
+							<span class="ButtonTextSecondary">Sună-l pe DeDeDe</span>
+							<strong class="ButtonTextPrimary">0749 263 606</strong>
+						</span>
+						<svg class="ButtonIcon" width="30" height="30" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 31.9 30.6" alt="Sună specialistul">
+							<path
+								d="M2.3,16.6c2.5,5,6.6,9.1,11.7,11.7l2.2,1.1c1.5,0.8,3.2,1.2,4.9,1.2c0.9,0,1.8-0.1,2.6-0.3c2.6-0.7,4.7-2.5,5.8-4.9l0.6-1.2
 										c0.3-0.6,0.1-1.3-0.5-1.7l-7.1-5c-0.4-0.3-1-0.3-1.5-0.1l-1.4,0.8c-2.4,1.2-5.4,0.3-6.8-2c-1.1-1.6-1.2-3.6-0.3-5.3l0.7-1.3
 										c0.3-0.5,0.2-1-0.1-1.5L8.2,1C7.8,0.4,7.1,0.2,6.5,0.5L5.3,1.1C2.9,2.1,1,4.3,0.4,6.8C-0.3,9.3,0,12,1.2,14.4L2.3,16.6z M3,7.6
 										c0.3-1,0.8-2,1.6-2.8c0.5-0.5,1.2-0.9,1.8-1.3l0.2-0.1L10.4,9l-0.3,0.5c-1.4,2.6-1.3,5.7,0.4,8.2c2.2,3.5,6.7,4.8,10.4,2.9l0.7-0.4
@@ -69,51 +61,45 @@
 										c-0.7,0.3-1.5-0.1-1.8-0.8c-1.7-4.3-5.3-7.5-9.7-8.9C18.9,2.6,18.4,1.8,18.7,1C18.7,1,18.7,1,18.7,1z M17.7,6.4
 										c0.3-0.7,1-1.1,1.8-0.8c3,1.1,5.5,3.3,6.9,6.2c0.3,0.7,0,1.5-0.7,1.8c-0.7,0.3-1.5,0-1.8-0.6c-1.1-2.2-3-4-5.3-4.8
 										C17.8,7.9,17.4,7.1,17.7,6.4L17.7,6.4z" />
-            </svg>
-          </a>
-        </li>
-        <li class="CTAItem">
-          <a href={helpers.permalinks.contact({ slug: 'contact' })} class="CTAButton Button ButtonPrimary">
-            <span class="ButtonText">Programează intervenție&nbsp;&rarr;</span>
-            <svg
-              class="ButtonIcon"
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              xmlns="http://www.w3.org/2000/svg"
-              alt="Programează-te acum">
-              <path
-                d="M13.3333 12.2224H11.111C10.4977 12.2224 10 12.7197 10 13.3334V14.4444C10 15.058 10.4977 15.5554 11.111 15.5554H13.3333C13.947 15.5554 14.4443 15.058 14.4443 14.4444V13.3334C14.4443 12.7197 13.947 12.2224 13.3333 12.2224Z" />
-              <path
-                d="M18.889 12.2224H16.6667C16.053 12.2224 15.5557 12.72 15.5557 13.3334V14.4444C15.5557 15.058 16.053 15.5554 16.6667 15.5554H18.889C19.5027 15.5554 20 15.058 20 14.4444V13.3334C20 12.7197 19.5027 12.2224 18.889 12.2224Z" />
-              <path
-                d="M24.4444 12.2224H22.2224C21.6087 12.2224 21.111 12.72 21.111 13.3334V14.4444C21.111 15.058 21.6087 15.5554 22.2224 15.5554H24.4444C25.058 15.5554 25.5557 15.058 25.5557 14.4444V13.3334C25.5557 12.7197 25.058 12.2224 24.4444 12.2224Z" />
-              <path
-                d="M7.77767 17.0223H5.55534C4.94167 17.0223 4.44434 17.5197 4.44434 18.1333V19.2443C4.44434 19.858 4.94167 20.3557 5.55534 20.3557H7.77767C8.39134 20.3557 8.88867 19.858 8.88867 19.2443V18.1333C8.889 17.5197 8.39134 17.0223 7.77767 17.0223Z" />
-              <path
-                d="M13.3333 17.0223H11.111C10.4977 17.0223 10 17.5197 10 18.1333V19.2443C10 19.858 10.4977 20.3557 11.111 20.3557H13.3333C13.947 20.3557 14.4443 19.858 14.4443 19.2443V18.1333C14.4443 17.5197 13.947 17.0223 13.3333 17.0223Z" />
-              <path
-                d="M18.889 17.0223H16.6667C16.053 17.0223 15.5557 17.5197 15.5557 18.1333V19.2443C15.5557 19.858 16.053 20.3557 16.6667 20.3557H18.889C19.5027 20.3557 20 19.858 20 19.2443V18.1333C20 17.5197 19.5027 17.0223 18.889 17.0223Z" />
-              <path
-                d="M24.4444 17.0223H22.2224C21.6087 17.0223 21.111 17.5197 21.111 18.1333V19.2443C21.111 19.858 21.6087 20.3557 22.2224 20.3557H24.4444C25.058 20.3557 25.5557 19.858 25.5557 19.2443V18.1333C25.5557 17.5197 25.058 17.0223 24.4444 17.0223Z" />
-              <path
-                d="M7.77767 21.822H5.55534C4.94167 21.822 4.44434 22.3197 4.44434 22.9334V24.0444C4.44434 24.658 4.94167 25.1554 5.55534 25.1554H7.77767C8.39134 25.1554 8.88867 24.658 8.88867 24.0444V22.9334C8.889 22.32 8.39134 21.822 7.77767 21.822Z" />
-              <path
-                d="M13.3333 21.822H11.111C10.4977 21.822 10 22.32 10 22.9334V24.0444C10 24.658 10.4977 25.1554 11.111 25.1554H13.3333C13.947 25.1554 14.4443 24.658 14.4443 24.0444V22.9334C14.4443 22.32 13.947 21.822 13.3333 21.822Z" />
-              <path
-                d="M18.889 21.822H16.6667C16.053 21.822 15.5557 22.3197 15.5557 22.9334V24.0444C15.5557 24.658 16.053 25.1554 16.6667 25.1554H18.889C19.5027 25.1554 20 24.658 20 24.0444V22.9334C20 22.32 19.5027 21.822 18.889 21.822Z" />
-              <path
-                d="M26.6667 3.33337H25.2777V5.00004C25.2777 6.37837 24.1563 7.50004 22.7777 7.50004C21.3993 7.50004 20.2777 6.37837 20.2777 5.00004V3.33337H17.5V5.00004C17.5 6.37837 16.3787 7.50004 15 7.50004C13.6217 7.50004 12.5 6.37837 12.5 5.00004V3.33337H9.72233V5.00004C9.72233 6.37837 8.601 7.50004 7.22233 7.50004C5.844 7.50004 4.72233 6.37837 4.72233 5.00004V3.33337H3.33333C1.49533 3.33337 0 4.82871 0 6.66671V26.2667C0 28.1047 1.49533 29.6 3.33333 29.6H26.6667C28.5047 29.6 30 28.1047 30 26.2667V6.66671C30 4.82871 28.5047 3.33337 26.6667 3.33337ZM27.7777 26.2667C27.7777 26.8794 27.2793 27.3777 26.6667 27.3777H3.33333C2.72067 27.3777 2.22233 26.8794 2.22233 26.2667V11.111C2.22233 10.4974 2.72 10 3.33333 10H26.6667C27.2803 10 27.7777 10.4974 27.7777 11.111V26.2667Z" />
-              <path
-                d="M7.22233 6.66667C8.143 6.66667 8.889 5.92033 8.889 5V1.66667C8.889 0.746 8.143 0 7.22233 0C6.302 0 5.55566 0.746 5.55566 1.66667V5C5.55566 5.92033 6.30166 6.66667 7.22233 6.66667Z" />
-              <path
-                d="M15 6.66667C15.9206 6.66667 16.6666 5.92033 16.6666 5V1.66667C16.6666 0.746 15.9206 0 15 0C14.0796 0 13.3333 0.746 13.3333 1.66667V5C13.3333 5.92033 14.0796 6.66667 15 6.66667Z" />
-              <path
-                d="M22.7777 6.66667C23.6984 6.66667 24.4444 5.92033 24.4444 5V1.66667C24.4444 0.746 23.6984 0 22.7777 0C21.8574 0 21.111 0.746 21.111 1.66667V5C21.111 5.92033 21.8574 6.66667 22.7777 6.66667Z" />
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+						</svg>
+					</a>
+				</li>
+				<li class="CTAItem">
+					<a href={helpers.permalinks.contact({ slug: 'contact' })} class="CTAButton Button ButtonPrimary">
+						<span class="ButtonText">Programează intervenție&nbsp;&rarr;</span>
+						<svg class="ButtonIcon" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" alt="Programează-te acum">
+							<path
+								d="M13.3333 12.2224H11.111C10.4977 12.2224 10 12.7197 10 13.3334V14.4444C10 15.058 10.4977 15.5554 11.111 15.5554H13.3333C13.947 15.5554 14.4443 15.058 14.4443 14.4444V13.3334C14.4443 12.7197 13.947 12.2224 13.3333 12.2224Z" />
+							<path
+								d="M18.889 12.2224H16.6667C16.053 12.2224 15.5557 12.72 15.5557 13.3334V14.4444C15.5557 15.058 16.053 15.5554 16.6667 15.5554H18.889C19.5027 15.5554 20 15.058 20 14.4444V13.3334C20 12.7197 19.5027 12.2224 18.889 12.2224Z" />
+							<path
+								d="M24.4444 12.2224H22.2224C21.6087 12.2224 21.111 12.72 21.111 13.3334V14.4444C21.111 15.058 21.6087 15.5554 22.2224 15.5554H24.4444C25.058 15.5554 25.5557 15.058 25.5557 14.4444V13.3334C25.5557 12.7197 25.058 12.2224 24.4444 12.2224Z" />
+							<path
+								d="M7.77767 17.0223H5.55534C4.94167 17.0223 4.44434 17.5197 4.44434 18.1333V19.2443C4.44434 19.858 4.94167 20.3557 5.55534 20.3557H7.77767C8.39134 20.3557 8.88867 19.858 8.88867 19.2443V18.1333C8.889 17.5197 8.39134 17.0223 7.77767 17.0223Z" />
+							<path
+								d="M13.3333 17.0223H11.111C10.4977 17.0223 10 17.5197 10 18.1333V19.2443C10 19.858 10.4977 20.3557 11.111 20.3557H13.3333C13.947 20.3557 14.4443 19.858 14.4443 19.2443V18.1333C14.4443 17.5197 13.947 17.0223 13.3333 17.0223Z" />
+							<path
+								d="M18.889 17.0223H16.6667C16.053 17.0223 15.5557 17.5197 15.5557 18.1333V19.2443C15.5557 19.858 16.053 20.3557 16.6667 20.3557H18.889C19.5027 20.3557 20 19.858 20 19.2443V18.1333C20 17.5197 19.5027 17.0223 18.889 17.0223Z" />
+							<path
+								d="M24.4444 17.0223H22.2224C21.6087 17.0223 21.111 17.5197 21.111 18.1333V19.2443C21.111 19.858 21.6087 20.3557 22.2224 20.3557H24.4444C25.058 20.3557 25.5557 19.858 25.5557 19.2443V18.1333C25.5557 17.5197 25.058 17.0223 24.4444 17.0223Z" />
+							<path
+								d="M7.77767 21.822H5.55534C4.94167 21.822 4.44434 22.3197 4.44434 22.9334V24.0444C4.44434 24.658 4.94167 25.1554 5.55534 25.1554H7.77767C8.39134 25.1554 8.88867 24.658 8.88867 24.0444V22.9334C8.889 22.32 8.39134 21.822 7.77767 21.822Z" />
+							<path
+								d="M13.3333 21.822H11.111C10.4977 21.822 10 22.32 10 22.9334V24.0444C10 24.658 10.4977 25.1554 11.111 25.1554H13.3333C13.947 25.1554 14.4443 24.658 14.4443 24.0444V22.9334C14.4443 22.32 13.947 21.822 13.3333 21.822Z" />
+							<path
+								d="M18.889 21.822H16.6667C16.053 21.822 15.5557 22.3197 15.5557 22.9334V24.0444C15.5557 24.658 16.053 25.1554 16.6667 25.1554H18.889C19.5027 25.1554 20 24.658 20 24.0444V22.9334C20 22.32 19.5027 21.822 18.889 21.822Z" />
+							<path
+								d="M26.6667 3.33337H25.2777V5.00004C25.2777 6.37837 24.1563 7.50004 22.7777 7.50004C21.3993 7.50004 20.2777 6.37837 20.2777 5.00004V3.33337H17.5V5.00004C17.5 6.37837 16.3787 7.50004 15 7.50004C13.6217 7.50004 12.5 6.37837 12.5 5.00004V3.33337H9.72233V5.00004C9.72233 6.37837 8.601 7.50004 7.22233 7.50004C5.844 7.50004 4.72233 6.37837 4.72233 5.00004V3.33337H3.33333C1.49533 3.33337 0 4.82871 0 6.66671V26.2667C0 28.1047 1.49533 29.6 3.33333 29.6H26.6667C28.5047 29.6 30 28.1047 30 26.2667V6.66671C30 4.82871 28.5047 3.33337 26.6667 3.33337ZM27.7777 26.2667C27.7777 26.8794 27.2793 27.3777 26.6667 27.3777H3.33333C2.72067 27.3777 2.22233 26.8794 2.22233 26.2667V11.111C2.22233 10.4974 2.72 10 3.33333 10H26.6667C27.2803 10 27.7777 10.4974 27.7777 11.111V26.2667Z" />
+							<path
+								d="M7.22233 6.66667C8.143 6.66667 8.889 5.92033 8.889 5V1.66667C8.889 0.746 8.143 0 7.22233 0C6.302 0 5.55566 0.746 5.55566 1.66667V5C5.55566 5.92033 6.30166 6.66667 7.22233 6.66667Z" />
+							<path
+								d="M15 6.66667C15.9206 6.66667 16.6666 5.92033 16.6666 5V1.66667C16.6666 0.746 15.9206 0 15 0C14.0796 0 13.3333 0.746 13.3333 1.66667V5C13.3333 5.92033 14.0796 6.66667 15 6.66667Z" />
+							<path
+								d="M22.7777 6.66667C23.6984 6.66667 24.4444 5.92033 24.4444 5V1.66667C24.4444 0.746 23.6984 0 22.7777 0C21.8574 0 21.111 0.746 21.111 1.66667V5C21.111 5.92033 21.8574 6.66667 22.7777 6.66667Z" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
 </header>

@@ -24,13 +24,13 @@ Bacterii precum Salmonella, Stafilococul Auriu sau Streptococul (alți inamici D
 
 ## Cum luptăm cu gândacii de bucătărie?
 
-Ești în impas, cauți soluții rapide și-ai ajuns în locul potrivit. Cel mai simplu pentru tine  ar fi să aplelezi la un veteran în lupta cu gândacii, eroul nostru DeDeDe. Dacă însă nu-ți inspiră prea multă frică și vrei să le declari război pe cont propriu, iată câteva mișcări strategice pe care le poți aborda:
+Ești în impas, cauți soluții rapide și-ai ajuns în locul potrivit. Cel mai simplu pentru tine	ar fi să aplelezi la un veteran în lupta cu gândacii, eroul nostru DeDeDe. Dacă însă nu-ți inspiră prea multă frică și vrei să le declari război pe cont propriu, iată câteva mișcări strategice pe care le poți aborda:
 
 ### 1. Elimină factorii care le asigură supraviețuirea
 
 Fiindcă știm că gândacii de bucătărie se pot hrăni cu orice alimente de origine vegetală sau chiar resturi alimentare, brusc firmiturile lăsate de tine pe podea sau pe masă, vasele care trebuiesc spălate dar le-ai lăsat pe mâine că-ți era prea lene sau alimentele lăsate în spații libere sau ușor accesibile sunt hrană ușoară pentru gândaci. Ca primă regulă de război deci, nu mai hrăni „Dușmanul”!
 
-Mai e important să știi că la fel ca noi, gândacii au o mai mare nevoie de a se hidrata decât de a mânca, ei putând supraviețui pâna la 21-30 de zile fără hrană însă fără apă doar o săptămână. Pentru a te asigura că elimini cât mai multe din posibilele lor surse  de apă, poți avea în vedere:
+Mai e important să știi că la fel ca noi, gândacii au o mai mare nevoie de a se hidrata decât de a mânca, ei putând supraviețui pâna la 21-30 de zile fără hrană însă fără apă doar o săptămână. Pentru a te asigura că elimini cât mai multe din posibilele lor surse	de apă, poți avea în vedere:
 
 - Verificarea și repararea conductelor de apă dacă există scurgeri;
 - Repararea supapelor în cazul în care există condens la conductele de apă;

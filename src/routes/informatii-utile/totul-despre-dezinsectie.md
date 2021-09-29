@@ -76,12 +76,12 @@ Acest tip de dezinsecție se poate aborda prin metode fizice (ecologice), metode
 
 Eroul nostru DeDeDe are două metode de abordare a luptei împotriva dăunătorilor:
 
-- **Dezinsecția prin pulverizare cu soluție lichidă** – este metoda ce constă în utilizarea substanțelor pesticide de ingestie și contact, o metodă numai bună de abordat când avem de-a face cu insecte adulte sau larve. Substanțele se vor aplica în stare pulverizată, sub formă de aerosoli,  în strat grosier, iar pentru un rezultat optim tratamentul se va repeta la un interval de 14-21 zile cu pompa tip vermorel pentru spațiile închise (apartamente, blocuri, birouri, etc.) iar pentru exterior se vor folosi aparate tip atomizor, generatoare de ceață rece.
+- **Dezinsecția prin pulverizare cu soluție lichidă** – este metoda ce constă în utilizarea substanțelor pesticide de ingestie și contact, o metodă numai bună de abordat când avem de-a face cu insecte adulte sau larve. Substanțele se vor aplica în stare pulverizată, sub formă de aerosoli,	în strat grosier, iar pentru un rezultat optim tratamentul se va repeta la un interval de 14-21 zile cu pompa tip vermorel pentru spațiile închise (apartamente, blocuri, birouri, etc.) iar pentru exterior se vor folosi aparate tip atomizor, generatoare de ceață rece.
 - **Dezinsecția prin aplicare de insecticid sub formă de gel** – este o altă metodă ce constă de data aceasta în aplicarea de picături de insecticid sub formă de gel în zonele de trecere ale insectelor vizate, cât și în spațiile în care nu pot fi utilizate substanțe lichide (aparatură electronică/ electrocasnică, panouri electrice, sertare, mașini de gătit, etc.). <br /> Avantajul acestui tip de luptă este că picăturile de gel nu sunt vizibile, substanța nu are miros, nu pătează, nu provoacă alergii sau disconfort iar efectuarea acestei operațiuni nu afectează deloc activitatea umană în zonele unde are loc dezinsecția.
 
 ## Cât de des ar trebui să faci o dezinsecție?
 
-Eroul nostru DeDeDe are scutul la el și armele pregătite tot timpul, dar  e bine să știi că toate se fac la timpul lor. Când e acela pentru dezinsecție? E simplu:
+Eroul nostru DeDeDe are scutul la el și armele pregătite tot timpul, dar	e bine să știi că toate se fac la timpul lor. Când e acela pentru dezinsecție? E simplu:
 
 - Instituțiile de specialitate spun că în spațiile publice de pe domeniul public sau privat dezinsecția ar trebui să se facă cu o frecvență de 3 ori pe an. În acest caz (spații deschise) vor fi utilizate substanțe cu pulverizare în volum ultraredus (ULV) si aplicate în mod obligatoriu cu aparatură compatibilă.
 - De 3 ori pe an / sau ori de câte ori este nevoie pentru suprafețe cu altă destinație decât cea de locuință, cum ar fi subsolurile și căminele rețelelor de alimentare cu apă și canal de alimentare cu energie termică. În cazul ”luptei” împotriva țânțarilor, este obligatorie atât acțiunea asupra larvelor cât și a insectelor adulte.

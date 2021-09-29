@@ -18,8 +18,8 @@ server.use(sirv(elder.settings.distDir, { dev }));
 
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
 server.listen(SERVER_PORT, (err) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(`> Elder.js running on http://localhost:${SERVER_PORT}`);
+	if (err) {
+		console.log(err);
+	}
+	console.log(`> Elder.js running on http://localhost:${SERVER_PORT}`);
 });

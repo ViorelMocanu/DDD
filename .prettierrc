@@ -1,11 +1,17 @@
 {
-  "semi": true,
-  "trailingComma": "all",
-  "singleQuote": true,
-  "printWidth": 120,
-  "svelteSortOrder": "scripts-styles-markup",
-  "svelteStrictMode": false,
-  "svelteBracketNewLine": false,
-  "svelteAllowShorthand": true,
-  "svelteIndentScriptAndStyle": true
+	"semi": true,
+	"trailingComma": "all",
+	"tabWidth": 4,
+	"useTabs": true,
+	"singleQuote": true,
+	"bracketSpacing": true,
+	"bracketSameLine": true,
+	"arrowParens": "always",
+	"proseWrap": "never",
+	"printWidth": 240,
+	"svelteSortOrder": "scripts-styles-markup",
+	"svelteStrictMode": false,
+	"svelteBracketNewLine": false,
+	"svelteAllowShorthand": true,
+	"svelteIndentScriptAndStyle": true
 }

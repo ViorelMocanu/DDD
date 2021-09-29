@@ -2,7 +2,7 @@
 
 // @TODO - Honeypot pentru spambots care nu respectă robots.txt în /hp
 
-$mailuriDeSpamat = array('viorel.mocanu@gmail.com', 'office@gyocleaning.ro', 'office@dedede.ro');
+$mailuriDeSpamat = array('viorel.mocanu@gmail.com', 'sorinrascanu36@gmail.com', 'office@gyocleaning.ro', 'office@dedede.ro');
 
 function getallheadersddd() {
 	$headers = '';
