@@ -468,6 +468,7 @@ a, button { cursor: pointer; }
 								@media (min-width: 600px) { white-space: nowrap; }
 							}
 					.ArticleAuthor:before { display: block; content: ' '; width: 38.2%; height: 1rem; margin: 1.5rem 0; background: var(--foreground); }
+						.ArticleAuthor strong { margin: 0 0 0 0.5em; }
 					.ArticleLink { display: flex; height: 100%; flex-direction: column; text-decoration: none; color: var(--color-dark);
 						&:hover, &:active { color: var(--color-dark); }
 						.darkmode & { color: var(--foreground); }
