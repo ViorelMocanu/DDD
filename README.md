@@ -87,13 +87,13 @@ Un demo al template-ului este aici: [https://elderjs.pages.dev/](https://elderjs
 ### 1. Instalează dependințele
 
 ```bash
-npm install # or just yarn
+npm install # sau doar yarn
 ```
 
 ### Pornește proiectul local
 
 ```bash
-npm start # or npm run dev
+npm start # sau npm run dev
 ```
 
 Deschide [localhost:3000](http://localhost:3000) în browser pentru a vedea aplicația funcționând.
