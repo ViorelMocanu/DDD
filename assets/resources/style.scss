@@ -98,7 +98,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { width: 100%; overflow-x: hidden; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; }
+html { width: 100%; font-family: 'Archivo', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.5em; }
 
 body { display: block; min-height: 100vh; margin: 0; background: var(--background) url('/images/memphis-mini.webp') left top repeat; color: var(--foreground); text-rendering: optimizeSpeed; overflow-x: hidden; }
 
@@ -111,7 +111,7 @@ strong { font-weight: 700; }
 a { color: var(--color-primary);
 	&:hover { color: var(--color-dark); }
 	&:active { color: var(--color-secondary); }
-	.darkmode &:hover { color: var(--color-light); }
+	/* .darkmode &:hover { color: var(--color-light); } */
 }
 
 svg { fill: currentColor; }
@@ -185,7 +185,7 @@ a, button { cursor: pointer; }
 			@media (min-width: 1280px) { overflow: initial; }
 		}
 	}
-		.HeaderContainer { display: flex; justify-content: space-between; align-items: center;
+		.HeaderContainer { display: flex; justify-content: space-between; align-items: center; overflow: hidden;
 			@media (min-width: 850px) { flex-direction: column; align-items: flex-start; }
 			@media (min-width: 1280px) { flex-direction: row; }
 		}
@@ -222,24 +222,28 @@ a, button { cursor: pointer; }
 				}
 				@media (min-width: 850px) { display: flex; }
 			}
-				.MainMenuList { display: block; margin: 1rem 0 0 0; padding: 0;
-					@media (min-width: 850px) { display: flex; margin: 0; }
+				.MainMenuList { display: block; margin: 0; padding: 0;
+					@media (min-width: 850px) { display: flex; }
 					@media (min-width: 1280px) { flex-grow: 1; justify-content: center; }
 				}
 					.MainMenuItem { display: block; }
 						.MainMenuLink { display: block; padding: 1rem; color: var(--color-offwhite); font-weight: bold; font-size: 2rem; line-height: 1em; text-decoration: none;
-							&:hover { background: var(--color-light); color: var(--color-dark); }
-							&:active { background: var(--color-dark); color: var(--color-secondary); text-decoration: underline; }
+							&:hover { background: var(--color-light); color: var(--color-dark);
+								.darkmode & { color: var(--color-dark); }
+							}
+							&:active { background: var(--color-dark); color: var(--color-secondary); text-decoration: underline;
+								body.darkmode & { color: var(--color-secondary); }
+							}
 							.MainMenuItem.Active & { background: var(--color-light); color: var(--color-dark); }
 							@media (min-width: 850px) { font-size: 1.5rem; }
-							@media (min-width: 1280px) { display: flex; height: 100%; align-items: center; font-size: 1rem; font-weight: normal; }
+							@media (min-width: 1280px) { display: flex; height: 100%; align-items: center; font-size: 1rem; }
 						}
 				.CTAList { display: block; margin: 0; padding: 0; 
 					@media (min-width: 850px) { display: flex; position: absolute; right: 0.5rem; top: 0; }
 					@media (min-width: 1280px) { position: relative; right: auto; top: auto; margin-right: 1rem; }
 				}
 					.CTAItem { display: block; }
-						.CTAButton { margin: 1rem; padding: 1rem; text-align: left;
+						.CTAButton { margin: 1rem; padding: 0.5rem; text-align: left;
 							@media (min-width: 850px) { padding: 0.75rem 1rem; margin: 1rem 0.5rem; font-size: 1rem; }
 							@media (min-width: 1280px) { padding: 0.5rem 1rem; line-height: 1em; }
 						}
@@ -247,6 +251,7 @@ a, button { cursor: pointer; }
 								@media (min-width: 500px) { width: auto; }
 								@media (min-width: 1280px) { width: min-content; }
 							}
+							.CTAButton.ButtonPrimary .ButtonText { width: auto; }
 								.CTAButton .ButtonTextSecondary { white-space: nowrap; }
 							.CTAButton .ButtonIcon {
 								@media (min-width: 1280px) { width: 2em; height: 2em; }
@@ -337,7 +342,7 @@ a, button { cursor: pointer; }
 					.ArticleIndexLink .ArticleAuthor:before { display: none; }
 					.ArticleIndexLink .Button { margin: 1rem 0 0; }
 					.ArticleIndexLink .ArticleDuration { justify-content: flex-end; }
-					.ArticleIndexLink:hover .Button { background: var(--color-light); color: var(--color-dark); border-color: var(--color-light); }
+					.ArticleIndexLink:hover .Button { background: var(--color-light); color: var(--color-dark); border-color: var(--color-light); text-shadow: none; }
 	.BigArticle { display: block; margin: 0 0 1rem; padding: 1rem; position: relative; overflow: hidden; background: var(--background); font-size: 1rem; line-height: 1.5em; box-shadow: 0 0 2em var(--shadow);
 		@media (min-width: 480px) { font-size: 1.5rem; }
 		@media (min-width: 850px) { margin: 1rem; padding: 2vh 4vw; border-radius: 1rem; }
@@ -463,6 +468,7 @@ a, button { cursor: pointer; }
 								@media (min-width: 600px) { white-space: nowrap; }
 							}
 					.ArticleAuthor:before { display: block; content: ' '; width: 38.2%; height: 1rem; margin: 1.5rem 0; background: var(--foreground); }
+						.ArticleAuthor strong { margin: 0 0 0 0.5em; }
 					.ArticleLink { display: flex; height: 100%; flex-direction: column; text-decoration: none; color: var(--color-dark);
 						&:hover, &:active { color: var(--color-dark); }
 						.darkmode & { color: var(--foreground); }
@@ -576,6 +582,10 @@ a, button { cursor: pointer; }
 			.DarkModeButton { margin: 0; font-weight: normal;
 				@media (min-width: 1280px) { position: absolute; right: 3rem; bottom: 2rem; }
 			}
+
+			.BackTop { display: block; width: 3rem; height: 3rem; position: fixed; bottom: 0.5rem; right: 0.5rem; padding: 0.25rem; box-shadow: 0 0.25rem 0.5rem var(--darkgray); opacity: 1; will-change: opacity; transition: opacity 1s ease-in; }
+			.HideBackTop .BackTop { opacity: 0; }
+				.IconBack { display: block; height: 100%; width: auto; margin: auto; }
 
 /*********/
 /* PRINT */

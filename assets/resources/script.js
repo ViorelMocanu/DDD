@@ -7,6 +7,24 @@ menuToggle.addEventListener('click', () => {
   mainMenuParent.classList.toggle('Active');
 });
 
+/* Intersection observer pentru back to top link visibility */
+const body = document.body;
+const hero = document.getElementsByClassName('Hero')[0];
+const config = {
+	rootMargin: '0px 0px 1500px 0px',
+	threshold: 0
+};
+let scroll = new IntersectionObserver(function (entries, self) {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			body.classList.add('HideBackTop');
+		} else {
+			body.classList.remove('HideBackTop');
+		}
+	});
+}, config);
+scroll.observe(hero);
+
 /* mutation observer pentru ștergerea clasei Active de pe meniu */
 const mediaQuery = window.matchMedia('(min-width:850px)');
 mediaQuery.onchange = (e) => {

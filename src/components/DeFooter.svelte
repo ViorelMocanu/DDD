@@ -151,5 +151,11 @@
 				<path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)" />
 			</svg>
 		</button>
+		<a id="backTop" class="Button BackTop" href="#continut">
+			<span class="ScreenReaders">Înapoi la partea de sus a paginii</span>
+			<svg class="IconBack" viewBox="0 0 74 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M30.6 3.2L2.7 31C-0.9 34.6 -0.9 40.3 2.7 43.9C6.3 47.5 12 47.5 15.6 43.9L27.9 31.6V86.4C27.9 91.4 32 95.5 37 95.5C42 95.5 46.1 91.4 46.1 86.4V31.6L58.4 43.9C62 47.5 67.7 47.5 71.3 43.9C73.1 42.1 74 39.8 74 37.5C74 35.2 73 32.8 71.3 31L43.4 3.2C41.7 1.5 39.4 0.5 37 0.5C34.6 0.5 32.3 1.5 30.6 3.2Z" fill="currentColor" />
+			</svg>
+		</a>
 	</footer>
 </section>
