@@ -1,6 +1,6 @@
 <script>
 	import Articol from '../../components/Articol.svelte';
-	export let data, helpers, request, settings;
+	export let request, settings;
 </script>
 
 <svelte:head>

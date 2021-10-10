@@ -1,8 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
 	export let data, helpers, request, settings;
-	/*const urlParams = new URLSearchParams(window.location.search);
-	console.log(urlParams);*/
+	//const url = require('url');
+	//console.log(request.req.path, request.req.originalUrl, request.req.query, request.req.search);
+	//const current_url = new URL();
+	/*const search_params = current_url.searchParams;
+	const utm_source = search_params.get('utm_source');
+	console.log(utm_source);*/
+	/*var url_string = window.location.href;
+	var url = new URL(url_string);
+	var c = url.searchParams.get("c");
+	console.log(c);*/
 	const urlParams = [];
 	let result = null,
 		urlAjax = 'https://dedede.ro/sideform.php',
@@ -13,13 +21,18 @@
 		utm_content = urlParams['utm_content'] != undefined ? urlParams['utm_content'] : '',
 		utm_campaign = urlParams['utm_campaign'] != undefined ? urlParams['utm_campaign'] : '',
 		gclid = urlParams['gclid'] != undefined ? urlParams['gclid'] : '',
-		side_name = '',
-		side_telephone = '',
-		side_email = '',
-		side_tip = '',
-		side_mesaj = '';
+		side_name,
+		side_telephone,
+		side_email,
+		side_tip,
+		side_mesaj;
 
-	async function doPost() {
+	/*function handleMouseOver(e) {
+		console.log('mouseover peste ', urlAjax);
+	}
+	async function doPost(e) {
+		e.preventDefault();
+		console.log('FORMULAR de trimis la ', urlAjax);
 		const datasent = true;
 		const res = await fetch(urlAjax, {
 			method: 'POST',
@@ -43,7 +56,8 @@
 
 		const json = await res.json();
 		result = JSON.stringify(json);
-	}
+		console.log(result);
+	}*/
 </script>
 
 <svelte:head>
@@ -89,7 +103,7 @@
 	</div>
 </section>
 <main class="FormContainer LimitWidth">
-	<form id="sideform" class="Form" action="/sideform.php" method="post">
+	<form id="sideform" class="Form ContactForm" action="{urlAjax}" method="post">
 		<fieldset class="Fieldset">
 			<legend class="Legend">Introdu datele tale de contact</legend>
 			<label class="Label">
@@ -104,7 +118,6 @@
 					required="required"
 					aria-required="true"
 					autocomplete="on"
-					accesskey="n"
 					tabindex="1"
 					bind:value={side_name} />
 			</label>
@@ -117,13 +130,11 @@
 					class="Input"
 					placeholder="Completează telefonul aici..."
 					maxlength="15"
-					pattern="(+[0-9]{1})?[0-9]{3}?-[0-9]{10}"
 					required="required"
 					aria-required="true"
 					autocomplete="on"
-					accesskey="t"
-					tabindex="2"
 					title="Telefonul ar trebui să conțină numai cifre, eventual și simbolul +"
+					tabindex="2"
 					bind:value={side_telephone} />
 			</label>
 			<label class="Label">
@@ -138,7 +149,6 @@
 					required="required"
 					aria-required="true"
 					autocomplete="on"
-					accesskey="e"
 					tabindex="3"
 					bind:value={side_email} />
 			</label>
@@ -153,9 +163,9 @@
 					class="Select"
 					required="required"
 					aria-required="true"
-					accesskey="p"
 					tabindex="4"
-					bind:value={side_tip}>
+					bind:value={side_tip}
+				>
 					<option value="">Alege o opțiune...</option>
 					<option value="dezinsectie">Dezinsecție</option>
 					<option value="dezinfectie">Dezinfecție</option>
@@ -170,24 +180,22 @@
 					name="side_mesaj"
 					class="Textarea"
 					rows="15"
-					required="required"
-					aria-required="true"
 					autocomplete="on"
-					accesskey="m"
 					tabindex="5"
-					bind:value={side_mesaj} />
+					bind:value={side_mesaj}
+				/>
 			</label>
 		</fieldset>
 		<fieldset class="Fieldset CTAFieldset">
 			<legend class="Legend Hidden">Trimite un mesaj lui DeDeDe acum</legend>
-
 			<input
 				class="Hidden"
 				type="hidden"
 				id="urlAjax"
 				name="urlAjax"
 				value="https://dedede.ro/sideform.php"
-				bind:this={urlAjax} />
+				bind:this={urlAjax}
+			/>
 			<input class="Hidden" type="hidden" id="side_url" name="side_url" value="" bind:this={side_url} />
 			<input class="Hidden" type="hidden" id="utm_source" name="utm_source" value="" bind:this={utm_source} />
 			<input class="Hidden" type="hidden" id="utm_medium" name="utm_medium" value="" bind:this={utm_medium} />
@@ -196,6 +204,8 @@
 			<input class="Hidden" type="hidden" id="utm_campaign" name="utm_campaign" value="" bind:this={utm_campaign} />
 			<input class="Hidden" type="hidden" id="gclid" name="gclid" value="" bind:this={gclid} />
 
+			<output class="Raspuns" name="raspuns" id="raspuns" for="side_name side_telephone side_email side_tip side_mesaj" bind:this={result}>&nbsp;</output>
+
 			<button
 				type="submit"
 				id="side_submit"
@@ -203,8 +213,8 @@
 				class="Button ButtonPrimary"
 				title="Contactează-mă acum!"
 				tabindex="6"
-				on:click={doPost}>
-				<span class="ButtonText">Trimite mesajul acum &rarr;</span>
+			>
+				<span class="ButtonText" id="side_submit_text">Trimite mesajul acum &rarr;</span>
 				<svg
 					class="ButtonIcon"
 					width="30"

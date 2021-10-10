@@ -3,7 +3,7 @@
 	import DeHeader from '../components/DeHeader.svelte';
 	import DeFooter from '../components/DeFooter.svelte';
 	import { onMount } from 'svelte';
-	export let templateHtml, data, helpers, request, settings;
+	export let templateHtml, helpers, request;
 
 	let scriptReady = false;
 	let mounted = false;
@@ -74,6 +74,6 @@
 	<DeFooter {helpers} {request} />
 	<script defer src="/resources/script.js" on:load={scriptLoaded}></script>
 	<noscript>
-		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX" height="0" width="0" sandbox="allow-same-origin allow-scripts allow-forms allow-popups" style="display:none;visibility:hidden" />
+		<iframe id="noScriptIframe" title="Google Tag Manager Non-scripting Inject" src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX" height="0" width="0" sandbox="allow-same-origin allow-scripts allow-forms allow-popups" />
 	</noscript>
 </div>

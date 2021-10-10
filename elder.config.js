@@ -14,7 +14,7 @@ module.exports = {
 		hooks: false, // outputs the details of each hook as they are run.
 		performance: false, // outputs a full performance report of how long it took to run each page.
 		build: false, // gives additional details about the build process.
-		automagic: true,
+		automagic: false,
 	},
 	hooks: {
 		// disable: ['elderWriteHtmlFileToPublic'], // this is used to disable internal hooks. Uncomment this hook to disabled writing your files during build.
@@ -36,11 +36,23 @@ module.exports = {
 		'@elderjs/plugin-browser-reload': {
 			// this reloads your browser when nodemon restarts your server.
 			port: 8080,
-			reload: false, // if you are having issues with reloading not working, change to true.
+			reload: true, // if you are having issues with reloading not working, change to true.
 		},
 		'@elderjs/plugin-seo-check': {
-			display: ['errors', 'warnings'], // If the errors are too verbose remove 'warnings'
-			//writeLocation: './report.json', // if you want to write a report of errors
+			display: process.NODE_ENV === 'production' ? ['errors', 'warnings'] : [], // If the errors are too verbose remove 'warnings'
+			preferences: [], // define your own preferences. See below.
+			rules: [], // define your own rules. This overwrites existing rules. See below.
+			// writeLocation: './report.json' // used to write a JSON report. Relative to the root.
+			handleSiteResults: async ({ meta, ...results }) => {
+				// 'results' represents all of the issues found for the site wide build.
+				// power users can use this async function to post the issues to an endpoint or send an email
+				// so that the content or marketing team can address the issues.
+				if (Object.keys(results).length > 0) {
+					// console.log(results);
+				} else {
+					console.log(`No SEO issues detected.`);
+				}
+			},
 		},
 	},
 	shortcodes: { closePattern: '}}', openPattern: '{{' },
