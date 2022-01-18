@@ -497,13 +497,15 @@ a, button { cursor: pointer; }
 		.Form { display: block; padding: 0 1rem 2rem;
 			@media (min-width: 850px) { width: 61.8%; padding: 0 2rem 2rem; }
 			@media (min-width: 960px) { padding: 0 5.3rem 2rem; }
-			@media (min-width: 1280px) { flex-grow: 1; max-width: 55rem; padding: 0 5vw 2rem; margin-bottom: 3rem; position: relative; }
+			@media (min-width: 1280px) { flex-grow: 1; max-width: 55rem; padding: 0 5.3rem 2rem; margin-bottom: 3rem; position: relative; }
 		}
-			.Fieldset { display: block; margin: 0; padding: 0; background: var(--background); color: var(--foreground); border: none; border-radius: 1rem; will-change: height, opacity; transition: all 1s ease-out;
+			.Fieldset { display: block; height: auto; margin: 0; padding: 0; background: var(--background); color: var(--foreground); border: none; border-radius: 1rem; will-change: height, opacity; transition: all 1s ease-out;
 				@media (min-width: 1280px) { flex-grow: 1; padding: 0 0 1rem; margin: 0 0 2rem; border: 0.125rem solid var(--foreground); }
 			}
-				.Success .Fieldset { height: 0; opacity: 0; overflow: hidden; }
-				.Success .CTAFieldset { height: auto; opacity: 1; }
+			.CTAFieldset { border: none; padding: 0; }
+			.FinalFieldset { display: none; }
+				.Success .Fieldset { display: none; height: 0; padding: 0; margin: 0; flex-grow: 0; border: none; opacity: 0; overflow: hidden; }
+				.Success .FinalFieldset { display: block; height: auto; opacity: 1; border: none; border-radius: 1rem; }
 			.CTAFieldset { padding: 0; border: none; }
 				.Legend { display: none; padding: 0.5rem 1rem; background: var(--foreground); color: var(--background); border-radius: 1rem;
 					@media (min-width: 1280px) { display: block; }
@@ -524,8 +526,8 @@ a, button { cursor: pointer; }
 					.Textarea { display: block; height: 10rem;
 						@media (min-width: 1280px) { height: 15rem; }
 					}
-					.Raspuns { display: flex; height: 0; margin: 0 0 2rem; overflow: hidden; will-change: height, background; transition: all 1s ease-out; border-radius: 1rem; }
-						.Errors .Raspuns, .Success .Raspuns, .Sending .Raspuns { height: 3rem; }
+					.Raspuns { display: flex; height: 0; overflow: hidden; will-change: height, background; transition: all 1s ease-out; border-radius: 1rem; }
+						.Errors .Raspuns, .Success .Raspuns, .Sending .Raspuns { height: auto; padding: 2rem; }
 						.Errors .Raspuns { background: var(--error); }
 						.Success .Raspuns { background: var(--success); }
 						.Sending .Raspuns { background: var(--color-offwhite); color: var(--color-dark); }

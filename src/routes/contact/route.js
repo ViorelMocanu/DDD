@@ -6,11 +6,6 @@ module.exports = {
 	// the permalink function takes a 'request' object and returns a relative permalink. In this case "/"
 	permalink: '/:slug/',
 	middleware: ({ errors, query, req }) => {
-		/*
-		console.error(errors);
-		console.warn(req);
-		console.info(query);
-		*/
 		return req;
 	},
 	data: ({ data, req }) => {
