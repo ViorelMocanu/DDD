@@ -5,7 +5,6 @@ header("Content-Type: " . $mtype);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 if ( isset($_SERVER['HTTP_REFERER']) ) $referrer = $_SERVER['HTTP_REFERER']; else $referrer = 'no-referrer';
-// if ( !isset($_POST) || !isset($_POST['tech']) || $_POST['tech'] != 'ajax' ) die(json_encode('{error:"Wrong action: '.$referrer.'"}', JSON_PRETTY_PRINT));
 $mailuriDeSpamat = array('viorel.mocanu@gmail.com', 'sorinrascanu36@gmail.com', 'office@gyocleaning.ro', 'office@dedede.ro');
 $globalvars = [];
 
@@ -62,13 +61,7 @@ foreach( $_REQUEST as $key => $value ) {
 	eval('$globalvars["'.$key.'"] = "'.$value.'";');
 	$variabile[] = $key;
 }
-/*foreach( $_POST as $key => $value ) {
-	$key = sanitizeKey($key);
-	$value = sanitizeValue($value, $key, $filterz);
-	eval('$'.$key.' = "'.$value.'";');
-	eval('$globalvars["'.$key.'"] = "'.$value.'";');
-	$variabile[] = $key;
-}*/
+
 if ( !isset($side_name) ) {
 	$side_name = isset($_POST['side_name']) ? $_POST['side_name'] : false;
 	$globalvars['side_name'] = $side_name;
@@ -125,15 +118,6 @@ if ( !isset($side_url) ) {
 	$side_url = isset($_POST['side_url']) ? $_POST['side_url'] : false;
 	$globalvars['side_url'] = $side_url;
 }
-
-/*
-if ( isset($_POST['utm_source']) && $_POST['utm_source'] != '' ) $globalvars['utm_source'] = $_POST['utm_source'];
-if ( isset($_POST['utm_medium']) && $_POST['utm_medium'] != '' ) $globalvars['utm_medium'] = $_POST['utm_medium'];
-if ( isset($_POST['utm_term']) && $_POST['utm_term'] != '' ) $globalvars['utm_term'] = $_POST['utm_term'];
-if ( isset($_POST['utm_content']) && $_POST['utm_content'] != '' ) $globalvars['utm_content'] = $_POST['utm_content'];
-if ( isset($_POST['utm_campaign']) && $_POST['utm_campaign'] != '' ) $globalvars['utm_campaign'] = $_POST['utm_campaign'];
-if ( isset($_POST['gclid']) && $_POST['gclid'] != '' ) $globalvars['gclid'] = $_POST['gclid'];
-*/
 
 /*print_r($_POST);
 print_r($globalvars);

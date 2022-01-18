@@ -1,16 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	export let data, helpers, request, settings;
-	//const url = require('url');
-	//console.log(request.req.path, request.req.originalUrl, request.req.query, request.req.search);
-	//const current_url = new URL();
-	/*const search_params = current_url.searchParams;
-	const utm_source = search_params.get('utm_source');
-	console.log(utm_source);*/
-	/*var url_string = window.location.href;
-	var url = new URL(url_string);
-	var c = url.searchParams.get("c");
-	console.log(c);*/
 	const urlParams = [];
 	let result = null,
 		urlAjax = 'https://dedede.ro/sideform.php',
@@ -26,40 +16,6 @@
 		side_email,
 		side_tip,
 		side_mesaj;
-
-	/*
-	function handleMouseOver(e) {
-		console.log('mouseover peste ', urlAjax);
-	}
-	async function doPost(e) {
-		e.preventDefault();
-		console.log('FORMULAR de trimis la ', urlAjax);
-		const datasent = true;
-		const res = await fetch(urlAjax, {
-			method: 'POST',
-			body: JSON.stringify({
-				datasent,
-				side_name,
-				side_telephone,
-				side_email,
-				side_tip,
-				side_mesaj,
-				urlAjax,
-				side_url,
-				utm_source,
-				utm_medium,
-				utm_term,
-				utm_content,
-				utm_campaign,
-				gclid,
-			}),
-		});
-
-		const json = await res.json();
-		result = JSON.stringify(json);
-		console.log(result);
-	}
-	*/
 </script>
 
 <svelte:head>

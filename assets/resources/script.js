@@ -33,7 +33,7 @@ if (window.location.href.indexOf('contact') > -1) {
 	var el_side_submit = document.getElementById('side_submit');
 	var el_side_submit_text = document.getElementById('side_submit_text');
 
-	console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
+	// console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
 
 	/* Funcția care face handling event-ului de form send */
 	var trimiteFormular = function (event) {
@@ -47,7 +47,7 @@ if (window.location.href.indexOf('contact') > -1) {
 		side_telephone = el_side_telephone.value;
 		side_tip = el_side_tip.value;
 		side_mesaj = el_side_mesaj.value;
-		console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
+		// console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
 		const notRequiredFields = ['side_mesaj'];
 		window.dataLayer.push({
 			'event': 'formularInitializat'
@@ -69,7 +69,6 @@ if (window.location.href.indexOf('contact') > -1) {
 			/* Inițializare */
 			var parinte = inputObj.parentNode;
 			parinte.classList.remove('Eroare');
-			// console.error('side_telephone check', side_telephone, inputObj.value, id, id == 'side_telephone', regexPhone, regexPhone.test(inputObj.value));
 			var conditii = (
 				inputObj.value == '' ||
 				inputObj.value == 'null' ||
@@ -91,8 +90,6 @@ if (window.location.href.indexOf('contact') > -1) {
 				deTrimis = false;
 			}
 		}
-
-		// console.log('%c deTrimis:', 'color: #03f', deTrimis);
 
 		if (!deTrimis) {
 			alert('Te rugăm să completezi corect câmpurile din formular!');
@@ -130,8 +127,6 @@ if (window.location.href.indexOf('contact') > -1) {
 				gclid: document.getElementById('gclid').value
 			});
 			const urlAjax = 'https://dedede.ro/sideform.php';
-			// console.log('%c URL AJAX = ' + urlAjax, 'background: #222; color: #bada55');
-			// console.log('%c TheData:', 'color: #00f', theData);
 			raspuns.innerHTML = '<progress class="Progress" id="progres" max="4" value="1">Trimitem datele...</progress>';
 
 			postData(theData);
@@ -161,7 +156,7 @@ if (window.location.href.indexOf('contact') > -1) {
 		const response = await fetch(urlAjax, options)
 			.then((response) => response.text())
 			.then((messages) => {
-				console.log(messages);
+				// console.log(messages);
 				if (isJson(messages)) {
 					const dataJson = JSON.parse(messages);
 					raspuns = document.getElementById('raspuns');
