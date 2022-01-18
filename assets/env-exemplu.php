@@ -1,3 +1,5 @@
+<?php
+
 $DATABASE_HOST = "localhost";
 $DATABASE_NAME = "nume_baza_date";
 $DATABASE_USERNAME = "nume_user";

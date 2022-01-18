@@ -17,7 +17,7 @@ if (window.location.href.indexOf('contact') > -1) {
 	const form = document.getElementById('sideform');
 	const regexMail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	const regexPhone = /^[0-9]{3,24}$/;
-	const raspuns = document.getElementById('raspuns');
+	let raspuns = document.getElementById('raspuns');
 	var el_side_name = document.getElementById('side_name');
 	var el_side_email = document.getElementById('side_email');
 	var el_side_telephone = document.getElementById('side_telephone');
@@ -39,7 +39,6 @@ if (window.location.href.indexOf('contact') > -1) {
 	var trimiteFormular = function (event) {
 		/* Inițializare */
 		event.preventDefault();
-		console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
 		let deTrimis = true;
 		let focused = 100;
 		let focusedObj = false;
@@ -48,6 +47,7 @@ if (window.location.href.indexOf('contact') > -1) {
 		side_telephone = el_side_telephone.value;
 		side_tip = el_side_tip.value;
 		side_mesaj = el_side_mesaj.value;
+		console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
 		const notRequiredFields = ['side_mesaj'];
 		window.dataLayer.push({
 			'event': 'formularInitializat'
@@ -135,47 +135,6 @@ if (window.location.href.indexOf('contact') > -1) {
 			raspuns.innerHTML = '<progress class="Progress" id="progres" max="4" value="1">Trimitem datele...</progress>';
 
 			postData(theData);
-			/*
-			var xhr = new XMLHttpRequest();
-			xhr.open('POST', urlAjax, true);
-			//Send the proper header information along with the request
-			xhr.setRequestHeader('Content-type', 'application/json');
-			//Call a function when the state changes.
-			xhr.onreadystatechange = function () {
-				// In local files, status is 0 upon success in Mozilla Firefox
-				console.log('xhr.readyState', xhr.readyState);
-				var progres = document.getElementById('progres');
-				progres.setAttribute('value', xhr.readyState);
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					var status = xhr.status;
-					console.log('status', status);
-					if (status === 0 || (status >= 200 && status < 400)) {
-						// The request has been completed successfully
-						//console.info('Am primit răspuns de la server!', xhr.responseText, xhr);
-						console.warn('Am primit răspuns de la server!');
-						if (!raspuns)
-							raspuns = document.getElementById('raspuns');
-						raspuns.innerHTML = xhr.responseText;
-						window.dataLayer = window.dataLayer || [];
-						window.dataLayer.push({
-							'event': 'formularTrimis'
-						});
-						flashEroare(true);
-					} else {
-						// Oh no! There has been an error with the request!
-						//console.error('!!!!ERROR!!!!', status, xhr.readyState, xhr.responseText);
-						console.error('Am primit o eroare de la server!');
-						raspuns.innerHTML = xhr.responseText;
-						window.dataLayer = window.dataLayer || [];
-						window.dataLayer.push({
-							'event': 'formularEroare'
-						});
-						flashEroare(false);
-					}
-				}
-			}
-			xhr.send(JSON.stringify(theData));
-			*/
 		}
 		return false;
 	};
@@ -186,41 +145,42 @@ if (window.location.href.indexOf('contact') > -1) {
 			method: 'POST',
 			body: JSON.stringify(theData),
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
 			}
 		}
+		function isJson(str) {
+			try {
+				JSON.parse(str);
+			} catch (e) {
+				return false;
+			}
+			return true;
+		}
 		const urlAjax = 'https://dedede.ro/sideform.php';
-		const response = await fetch(urlAjax, options);
-		/*
-			.then(res => res.json())
-			.then(res => {
-				console.log('res = ', res);
-				console.warn('Am primit răspuns de la server!');
-				if (!raspuns)
+		const response = await fetch(urlAjax, options)
+			.then((response) => response.text())
+			.then((messages) => {
+				console.log(messages);
+				if (isJson(messages)) {
+					const dataJson = JSON.parse(messages);
 					raspuns = document.getElementById('raspuns');
-				raspuns.innerHTML = res;
-				window.dataLayer = window.dataLayer || [];
-				window.dataLayer.push({
-					'event': 'formularTrimis'
-				});
-				flashEroare(true);
-			})
-			.catch(err => {
-				console.error('err = ', err);
-				console.error('Am primit o eroare de la server!');
-				raspuns.innerHTML = err;
-				window.dataLayer = window.dataLayer || [];
-				window.dataLayer.push({
-					'event': 'formularEroare'
-				});
-				flashEroare(false);
+					raspuns.innerHTML = dataJson.message;
+					console.warn('Am primit răspuns de la server!');
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						'event': 'formularTrimis'
+					});
+					flashEroare(true);
+				} else {
+					raspuns.innerHTML = messages;
+					window.dataLayer = window.dataLayer || [];
+					window.dataLayer.push({
+						'event': 'formularEroare'
+					});
+					flashEroare(false);
+				}
 			});
-		*/
-		const data = await response.text();
-		console.log('response = ', response);
-		console.log('data = ', data);
-		const dataJson = JSON.parse(data);
-		console.log('dataJson = ', dataJson);
 	}
 	/* Funcția activată la răspunsul serverului        */
 	function flashEroare(daSauNu) {
@@ -230,14 +190,14 @@ if (window.location.href.indexOf('contact') > -1) {
 		if (form === undefined)
 			var form = document.getElementById('sideform');
 		if (daSauNu) {
-			console.warn('%c Formularul a fost trimis cu succes!', 'color: #0a0');
+			console.info('%c Formularul a fost trimis cu succes!', 'color: #0a0');
 			el_side_submit_text.innerHTML = 'Formularul a fost trimis!';
 			el_side_submit_text.setAttribute('disabled', 'disabled');
 			form.classList.remove("Sending");
 			form.classList.remove("Errors");
 			form.classList.add("Success");
 			window.dataLayer.push({
-				'event': 'conversie_acceptata'
+				'event': 'conversieAcceptata'
 			});
 		} else {
 			console.error('Formularul a răspuns cu o eroare pe server!');
