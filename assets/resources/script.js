@@ -13,6 +13,7 @@ console.info('Inițializez aplicația...');
 window.dataLayer = window.dataLayer || [];
 const body = document.body;
 if (window.location.href.indexOf('contact') > -1) {
+
 	const form = document.getElementById('sideform');
 	const regexMail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	const regexPhone = /^[0-9]{3,24}$/;
@@ -27,13 +28,18 @@ if (window.location.href.indexOf('contact') > -1) {
 	let side_telephone = el_side_telephone ? el_side_telephone.value : '';
 	let side_tip = el_side_tip ? el_side_tip.value : 0;
 	let side_mesaj = el_side_mesaj ? el_side_mesaj.value : '';
+
 	// @TODO de ce iau valoarea la dom ready?
 	var el_side_submit = document.getElementById('side_submit');
 	var el_side_submit_text = document.getElementById('side_submit_text');
+
+	console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
+
 	/* Funcția care face handling event-ului de form send */
 	var trimiteFormular = function (event) {
 		/* Inițializare */
 		event.preventDefault();
+		console.log('VARIABILE:', side_name, side_email, side_telephone, side_tip, side_mesaj);
 		let deTrimis = true;
 		let focused = 100;
 		let focusedObj = false;

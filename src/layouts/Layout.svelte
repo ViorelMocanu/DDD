@@ -23,7 +23,7 @@
 	}
 
 	function loadScriptElements() {
-		console.log('loadScriptElements ran');
+		console.warn('loadScriptElements ran');
 	}
 </script>
 

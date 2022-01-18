@@ -27,7 +27,8 @@
 		side_tip,
 		side_mesaj;
 
-	/*function handleMouseOver(e) {
+	/*
+	function handleMouseOver(e) {
 		console.log('mouseover peste ', urlAjax);
 	}
 	async function doPost(e) {
@@ -57,7 +58,8 @@
 		const json = await res.json();
 		result = JSON.stringify(json);
 		console.log(result);
-	}*/
+	}
+	*/
 </script>
 
 <svelte:head>
