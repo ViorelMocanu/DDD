@@ -4,7 +4,7 @@ const { getConfig } = require('@elderjs/elderjs');
 
 const { distDir } = getConfig();
 
-console.log(' Clearing out public folder.');
+console.warn('Clearing out public folder.');
 del.sync(path.join(distDir, '*'));
 
 // this file is optional, but is included in the template

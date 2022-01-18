@@ -22,6 +22,8 @@
 	--background: var(--color-offwhite);
 	--shadow: var(--color-darkgray);
 	--light-shadow: var(--color-lightgray);
+	--error: #f00;
+	--success: #090;
 
 	@media (min-width: 1280px) { --shadow: var(--light-shadow); }
 }
@@ -146,6 +148,8 @@ a, button { cursor: pointer; }
 .HighResOnly { display: none;
 	@media (min-width: 1280px) { display: inline; }
 }
+
+.ReallyHidden, #noScriptIframe { display: none; visibility: hidden; }
 
 .Hidden, .ScreenReaders { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);white-space: nowrap; border-width: 0; }
 
@@ -495,25 +499,37 @@ a, button { cursor: pointer; }
 			@media (min-width: 960px) { padding: 0 5.3rem 2rem; }
 			@media (min-width: 1280px) { flex-grow: 1; max-width: 55rem; padding: 0 5vw 2rem; margin-bottom: 3rem; position: relative; }
 		}
-			.Fieldset { display: block; margin: 0; padding: 0; background: var(--background); color: var(--foreground); border: none; border-radius: 1rem; 
+			.Fieldset { display: block; margin: 0; padding: 0; background: var(--background); color: var(--foreground); border: none; border-radius: 1rem; will-change: height, opacity; transition: all 1s ease-out;
 				@media (min-width: 1280px) { flex-grow: 1; padding: 0 0 1rem; margin: 0 0 2rem; border: 0.125rem solid var(--foreground); }
 			}
-			.CTAFieldset { padding: 0; border: none;
-				@media (min-width: 1280px) {  }
-			}
+				.Success .Fieldset { height: 0; opacity: 0; overflow: hidden; }
+				.Success .CTAFieldset { height: auto; opacity: 1; }
+			.CTAFieldset { padding: 0; border: none; }
 				.Legend { display: none; padding: 0.5rem 1rem; background: var(--foreground); color: var(--background); border-radius: 1rem;
 					@media (min-width: 1280px) { display: block; }
 				}
+				.Errors .Legend { background: var(--error); color: var(--color-offwhite); }
+				.Sending .Legend { background: var(--color-dark); color: var(--color-offwhite); }
+				.Success .Legend { background: var(--success); color: var(--color-dark); }
 				.Label { display: block; margin: 0; padding: 0.5rem 0; cursor: pointer;
 					&:hover { opacity: 0.9; }
 					@media (min-width: 1280px) { padding: 1vh 2vw; }
 				}
 					.LabelText { display: block; font-size: 1.5rem; line-height: 1.5em; }
-					.Input, .Select, Textarea { display: block; width: 100%; padding: 0.5rem 1rem; font-size: 1.125rem; line-height: 1.5em; background: var(--background); color: var(--foreground); border: 0.125rem solid var(--foreground); border-radius: 0.5rem; }
+						.Eroare .LabelText { color: var(--error); }
+					.Input, .Select, .Textarea { display: block; width: 100%; padding: 0.5rem 1rem; font-size: 1.125rem; line-height: 1.5em; background: var(--background); color: var(--foreground); border: 0.125rem solid var(--foreground); border-radius: 0.5rem; }
+						.Eroare .Input, .Eroare .Select, .Eroare .Textarea { border-color: var(--error); }
+						.Success .Input, .Success .Select, .Success .Textarea { border-color: var(--success); }
 					.Select { display: block; }
-					.Textarea { display: block;
-						@media (min-width: 1280px) { height: 10rem; }
+					.Textarea { display: block; height: 10rem;
+						@media (min-width: 1280px) { height: 15rem; }
 					}
+					.Raspuns { display: flex; height: 0; margin: 0 0 2rem; overflow: hidden; will-change: height, background; transition: all 1s ease-out; border-radius: 1rem; }
+						.Errors .Raspuns, .Success .Raspuns, .Sending .Raspuns { height: 3rem; }
+						.Errors .Raspuns { background: var(--error); }
+						.Success .Raspuns { background: var(--success); }
+						.Sending .Raspuns { background: var(--color-offwhite); color: var(--color-dark); }
+							.Progress { display: block; width: 100%; height: 100%; }
 					.FormContainer .Button { width: 100%;
 						@media (min-width: 850px) { font-size: 1.5rem; }
 					}
