@@ -5,7 +5,6 @@ header("Content-Type: " . $mtype);
 
 $_POST = json_decode(file_get_contents('php://input'), true);
 if ( isset($_SERVER['HTTP_REFERER']) ) $referrer = $_SERVER['HTTP_REFERER']; else $referrer = 'no-referrer';
-$mailuriDeSpamat = array('viorel.mocanu@gmail.com', 'sorinrascanu36@gmail.com', 'office@gyocleaning.ro', 'office@dedede.ro');
 $globalvars = [];
 
 // @TODO - Honeypot pentru spambots care nu respectă robots.txt în /hp
@@ -154,6 +153,9 @@ if( $datasent == 'true' ) {
 		$errormessage = '{"error": "true", "message": "Te rugăm să încerci să retrimiți formularul, pentru că ", "errors": ['.$errormessage.']}';
 	} else {
 		require_once('env.php');
+		if ( !isset($mailuriDeSpamat) || !isset($ALLOWED_SERVER) || !isset($DATABASE_HOST) ) {
+			die('{"error": "true", "message": "Probleme la evaluarea fișierelor critice"}');
+		}
 		$link = false;
 		if( $server == $ALLOWED_SERVER || $server == $ALLOWED_SERVER_2 || $server == $ALLOWED_SERVER_3 ) {
 			$link = mysqli_connect( $DATABASE_HOST, $DATABASE_USERNAME, $DATABASE_PASSWORD, $DATABASE_NAME );
