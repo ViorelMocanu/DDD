@@ -152,6 +152,8 @@ if (window.location.href.indexOf('contact') > -1) {
 			}
 			return true;
 		}
+		function gtag() { window.dataLayer.push(arguments); }
+		console.warn('Trimiterea de date a fost începută...');
 		const urlAjax = 'https://dedede.ro/sideform.php';
 		const response = await fetch(urlAjax, options)
 			.then((response) => response.text())
@@ -166,6 +168,8 @@ if (window.location.href.indexOf('contact') > -1) {
 					window.dataLayer.push({
 						'event': 'formularTrimis'
 					});
+					gtag('event', 'conversion', { 'send_to': 'AW-10780123066/z7EnCLOqwPcCELq_rpQo' });
+					console.warn('Eveniment succes: formularTrimis');
 					flashEroare(true);
 				} else {
 					raspuns.innerHTML = messages;
@@ -173,9 +177,11 @@ if (window.location.href.indexOf('contact') > -1) {
 					window.dataLayer.push({
 						'event': 'formularEroare'
 					});
+					console.error('Eveniment eroare: formularEroare');
 					flashEroare(false);
 				}
 			});
+		console.log(response);
 	}
 	/* Funcția activată la răspunsul serverului        */
 	function flashEroare(daSauNu) {
@@ -194,6 +200,7 @@ if (window.location.href.indexOf('contact') > -1) {
 			window.dataLayer.push({
 				'event': 'conversieAcceptata'
 			});
+			console.warn('Eveniment succes: conversieAcceptata');
 		} else {
 			console.error('Formularul a răspuns cu o eroare pe server!');
 			el_side_submit_text.innerHTML = 'Retrimite formularul &rarr;';
@@ -202,6 +209,7 @@ if (window.location.href.indexOf('contact') > -1) {
 			window.dataLayer.push({
 				'event': 'formularEroare'
 			});
+			console.error('Eveniment eroare: formularEroare 2');
 		}
 		console.groupEnd();
 	}
@@ -280,15 +288,17 @@ darkModeToggle.addEventListener('click', () => {
 /************************************/
 /* PWA                              */
 /* Instanțierea service worker-ului */
-if ('serviceWorker' in navigator) {
+/*if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
     console.log('Service worker registration succeeded:', registration);
-  }, /*catch*/ function (error) {
+  },
+  // catch
+  function (error) {
     console.log('Service worker registration failed:', error);
   });
 } else {
   console.log('Service workers are not supported.');
-}
+}*/
 
 /************************************/
 /* Google Tag Manager               */
@@ -306,3 +316,17 @@ console.log('Pornesc Google Tag Manager');
 	f.parentNode.insertBefore(j, f);
 	console.log('Am pornit Google Tag Manager');
 })(window, document, 'script', 'dataLayer', 'GTM-NGTSNLX');
+/************************************/
+/* Google Ads                       */
+console.log('Pornesc Google Ads');
+(function (w, d, s, l, i) {
+	w[l] = w[l] || [];
+	function gtag() { w[l].push(arguments); }
+	gtag('js', new Date());
+	gtag('config', 'AW-10780123066');
+	let f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+	j.async = true;
+	j.src = 'https://www.googletagmanager.com/gtag/js?id=' + i;
+	f.parentNode.insertBefore(j, f);
+	console.log('Am pornit Google Ads');
+})(window, document, 'script', 'dataLayer', 'AW-10780123066');
