@@ -109,3 +109,44 @@ npm run build
 ```
 
 După ce se termină build-ul, el va pune toate fișierele care trebuiesc deployate în folder-ul `./public`.
+
+## Structura de foldere și fișiere root
+
+```
+.
+├── _backup				# folder exclus în .gitignore cu fișiere de care am nevoie just in case
+├── _static				# folder cu fișierele statice la care am lucrat inițial (HTML, CSS, resurse)
+│   ├── images			# folder cu imagini statice pentru design-ul site-ului
+│   ├── readme-images	# folder cu imagini statice folosite în readme.md
+│   └── resources		# folder cu CSS, font-uri, SVG-uri și JS-uri
+├── .vscode				# folder exclus în .gitignore cu date de conectare la SFTP din VSCode
+├── assets				# folder cu resurse statice copiate în root-ul site-ului deployat
+│   ├── images			# folder cu imagini statice pentru design-ul site-ului
+│   └── resources		# folder cu CSS, font-uri și JS-uri statice
+├── node_modules		# folder autogenerat exclus în .gitignore cu toate dependințele din NPM
+├── public				# folder autogenerat exclus în .gitignore cu fișierele compilate pentru deploy
+├── src					# folder cu sursele SVELTE ale proiectului
+│   ├── components		# folder cu componentele reutilizabile de tip Svelte din proiect
+│   ├── layouts			# folder cu layout-urile de tip Svelte folosite în proiect
+│   └── routes			# folder cu rutele (paginile) de tip Svelte + JS folosite în proiect
+│       ├── confidentialitate
+│       ├── contact
+│       ├── cookies
+│       ├── home
+│       ├── informatii-utile
+│       └── termeni-si-conditii
+├── .editorconfig		# fișier cu configurări de editor, în speță de VSCode
+├── .env				# fișier exclus în .gitignore cu useri și parole critice
+├── .eslintignore		# fișier cu configurări de ESLint (ce fișiere să ignore ESLint-ul)
+├── .eslintrc.js		# fișier cu configurări de ESLint
+├── .gitignore			# fișier cu configurări de GIT (ce fișiere să ignore GIT-ul?)
+├── .prettierrc			# fișier cu configurări de Prettier
+├── elder.config.js		# fișier cu configurări de ElderJS
+├── LICENSE				# fișier cu licența folosită de proiect
+├── netlify.toml		# fișier cu configurări de Netlify pentru deploy
+├── package-lock.json	# fișier autogenerat de lockfile pentru pachete
+├── package.json		# fișier cu definiția pachetelor și funcțiilor de Node
+├── README.md			# fișier cu detalii despre proiect
+├── rollup.config.js	# fișier cu configurări de Rollup
+└── svelte.config.js	# fișier cu configurări de Svelte
+```
