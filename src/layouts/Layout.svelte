@@ -39,7 +39,7 @@
 	<meta name="og:image:width" content="1200" />
 	<meta name="og:image:height" content="630" />
 	<meta name="og:email" content="contact@dedede.ro" />
-	<meta name="og:phone_number" content="+40749263606" />
+	<meta name="og:phone_number" content="0040744885566" />
 	<meta name="article:publisher" content="DeDeDe.ro" />
 	<meta name="fb:app_id" content="811489239521802" />
 	<meta name="twitter:site" content="@TODO" />

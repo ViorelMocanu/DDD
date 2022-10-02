@@ -34,7 +34,7 @@
     "ncp": "2.0.0",
     "polka": "^0.5.2",
     "sirv": "^2.0.2",
-    "svelte": "3.46.3",
+    "svelte": "^3.50.1",
     "svelte-preprocess": "^4.10.3"
   },
   "devDependencies": {
@@ -75,8 +75,8 @@
     "dedede.ro",
     "DDD",
     "dezinsectie",
-	"dezinfectie",
-	"deratizare"
+    "dezinfectie",
+    "deratizare"
   ],
   "bugs": {
     "url": "https://github.com/ViorelMocanu/DDD/issues"
