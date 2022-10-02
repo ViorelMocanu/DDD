@@ -11,7 +11,7 @@
 	<div class="ContactContainer">
 		<img class="ScreenReaders" src="./images/dedede-logo-mobile.png" alt="DeDeDe.ro - Spații fără dăunători - Logo" loading="lazy" width="102" height="34" itemprop="image" />
 		<span class="ScreenReaders" itemprop="priceRange">$$</span>
-		<span class="ScreenReaders" itemprop="telephone">+40749263606</span>
+		<span class="ScreenReaders" itemprop="telephone">0040744885566</span>
 		<h2 class="SectionTitle">Cum îl chemi pe <strong class="Highlight" itemprop="name">DeDeDe.ro</strong>?</h2>
 		<p class="ScreenReaders" itemprop="description"> DeDeDe este un serviciu de Dezinsecție, Dezinfecție și Deratizare care te ajută să scapi de gândaci, șobolani, ploșnițe, suprafețe infectate și orice altceva din sfera DDD. </p>
 		<p class="ContactText"> Sunt 3 metode de a-l chema pe dedede la tine acasă. Pe a 4-a i-a împrumutat-o lui Batman și n-a mai primit-o înapoi. :) </p>
@@ -25,8 +25,8 @@
 			<span itemprop="addressCountry">RO</span>
 		</div>
 		<p class="ContactText"> Răspunde la telefon <time itemprop="openingHours" datetime="Mo-Sa 09:00-20:00">de luni până sâmbătă de la 09:00 la 20:00</time> </p>
-		<a href="tel:+40749263606" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
-			<span class="ButtonText">0749 263 606</span>
+		<a href="tel:0040744885566" class="FooterButton Button ButtonTertiary" title="Sună-l pe DeDeDe chiar acum!">
+			<span class="ButtonText">0744 88 55 66</span>
 			<svg class="ButtonIcon" width="30" height="30" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 31.9 30.6" alt="Sună-l pe dedede pentru dezinsecție, dezinfecție sau deratizare!">
 				<path
 					d="M2.3,16.6c2.5,5,6.6,9.1,11.7,11.7l2.2,1.1c1.5,0.8,3.2,1.2,4.9,1.2c0.9,0,1.8-0.1,2.6-0.3c2.6-0.7,4.7-2.5,5.8-4.9l0.6-1.2
@@ -41,7 +41,7 @@
 			</svg>
 		</a>
 		<p class="ContactText">Numărul funcționează și pe Whatsapp! Dacă vrei, îi poți trimite un mesaj direct pe Whatsapp – click pe:</p>
-		<a href="https://wa.me/%2B40749263606/?text=Servicii%20DeDeDe" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
+		<a href="https://wa.me/%2B40744885566/?text=Servicii%20DeDeDe" class="FooterButton Button ButtonTertiary" title="Scrie-i pe Whatsapp lui DeDeDe chiar acum!">
 			<span class="ButtonText">Mesaj Whatsapp &rarr;</span>
 			<svg
 				class="ButtonIcon"

@@ -182,7 +182,7 @@
 	<p class="ServiceText">Cheamă-l pe <strong class="Highlight">dedede</strong> la tine acasă! E doar la un click distanță:</p>
 	<a
 		class="CTAServices Button ButtonPrimary"
-		href="tel:+40749263606"
+		href="tel:0040744885566"
 		title="Intră în contact cu specialiștii dedede pentru o programare imediată">
 		<span class="ButtonText">Sună-mă acum!</span>
 		<svg
