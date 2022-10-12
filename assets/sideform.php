@@ -201,7 +201,7 @@ if( $datasent == 'true' ) {
 				) VALUES ( 
 				  1,
 				  '".$username."',
-				  '".md5($password)."'
+				  '".password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);"'
 				);";
 			$sql_auth = "SELECT * FROM dedede_admin WHERE 1";
 			$resource_auth = mysqli_query($link, $sql_auth);
