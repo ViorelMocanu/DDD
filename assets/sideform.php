@@ -250,6 +250,8 @@ if( $datasent == 'true' ) {
 ';
 				$headers .= 'X-Organization: DeDeDe
 ';
+				$headers .= 'Content-Transfer-Encoding: base64
+';
 				$headers .= 'X-Priority: 2
 ';
 				$message = "<html>
@@ -295,11 +297,38 @@ if( $datasent == 'true' ) {
 	</body>
 </html>";
 				$additional = '-f'.$side_email;
-				foreach ( $mailuriDeSpamat as $m ) {
-					if( !mail( $m, "$subject", "$message", "$headers", "$additional" ) ) {
-					$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
-					}
+
+
+				/*error_reporting(-1);
+				ini_set('display_errors', 'On');
+				set_error_handler("var_dump");*/
+				require_once 'sendgrid-php/sendgrid-php.php';
+				use SendGrid\Mail\Mail;
+				$email = new Mail();
+				$email->setFrom("no-reply@dedede.ro", "DeDeDe.ro");
+				$email->setSubject($subject);
+				$email->setTo("no-reply@dedede.ro", "DeDeDe.ro");
+				$email->addBccs($tos);
+				$email->addContent("text/plain", $message);
+				$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+				try {
+					$response = $sendgrid->send($email);
+					$errormessage .= ',{"text": "Status Code: '.$response->statusCode().'"}';
+					$errormessage .= ',{"text": "Response Headers: '.implode($response->headers()).'"}';
+					$errormessage .= ',{"text": "Response Body: '.$response->body().'"}';
+				} catch (Exception $e) {
+					$errormessage .= ',{"text": "Caught exception: '.$e->getMessage().'"}';
 				}
+				/*foreach ( $mailuriDeSpamat as $m ) {
+					if( !mail( $m, "$subject", "$message", "$headers", "$additional" ) ) {
+						$m = (null !== error_get_last()) ? error_get_last()['message'] : '';
+						$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail: '.$m.'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
+						if ( !imap_mail( $m, "$subject", "$message", "$headers" ) ) {
+							$m = (null !== error_get_last()) ? (error_get_last()['message']) : ('');
+							$errormessage .= ',{"text": "NU MERGE NICI CU IMAP '.$m.'"}';
+						}
+					}
+				}*/
 
 				if ( $errormessage == '' ) {
 					$subject = "DeDeDe te va contacta cât se poate de repede!";
@@ -318,6 +347,8 @@ if( $datasent == 'true' ) {
 					$headers .= 'X-Mailer: PHP/'.phpversion().'
 ';
 					$headers .= 'X-Organization: DeDeDe
+';
+					$headers .= 'Content-Transfer-Encoding: base64
 ';
 					$headers .= 'X-Priority: 2
 ';
@@ -342,7 +373,8 @@ if( $datasent == 'true' ) {
 </html>";
 					$additional = '-f' . $side_email;
 					if (!mail("$side_email", "$subject", "$message", "$headers", "$additional")) {
-					$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
+						$m = (null !== error_get_last()) ? error_get_last()['message'] : '';
+						$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail: '.$m.'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
 					}
 				}
 			}

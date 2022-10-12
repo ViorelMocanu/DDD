@@ -4,6 +4,7 @@
 /build/
 .DS_Store
 env.php
+.env
 sftp.json
 /.vscode/
 /_backup/
