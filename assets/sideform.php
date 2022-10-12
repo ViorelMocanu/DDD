@@ -1,5 +1,7 @@
 <?php
-
+define('__ROOT__', dirname(__FILE__));
+require_once(__ROOT__.'/sendgrid-php/sendgrid-php.php');
+use SendGrid\Mail\Mail;
 $mtype = "application/json";
 header("Content-Type: " . $mtype);
 
@@ -224,7 +226,8 @@ if( $datasent == 'true' ) {
 				$queryLead = "INSERT INTO
 					dedede_contact (  `side_name` , `side_url` , `side_email`, `side_telephone` , `side_mesaj` , `side_tip` , `data` , `ip` )
 					     VALUES ( '$side_name', '$side_url', '$side_email', '$side_telephone', '$side_mesaj', '$side_tip', NOW( ) , '" . $ip . "' ); ";
-				if ( !mysqli_query($link, $queryLead) ) {
+				$queryLeadSanitized = sprintf('INSERT INTO dedede_contact (  `side_name` , `side_url` , `side_email`, `side_telephone` , `side_mesaj` , `side_tip` , `data` , `ip` ) VALUES ( "%1$s", "%2$s", "%3$s", "%4$s", "%5$s", "%6$s", NOW(), "%7$s" );', $side_name, $side_url, $side_email, $side_telephone, $side_mesaj, $side_tip, $ip);
+				if ( !mysqli_query($link, $queryLeadSanitized) ) {
 					$errormessage .= ',{"text": "Eroare la introducerea în baza de date."}';
 				}
 				mysqli_close($link);
@@ -297,25 +300,26 @@ if( $datasent == 'true' ) {
 	</body>
 </html>";
 				$additional = '-f'.$side_email;
-
-
 				/*error_reporting(-1);
 				ini_set('display_errors', 'On');
 				set_error_handler("var_dump");*/
-				require_once 'sendgrid-php/sendgrid-php.php';
-				use SendGrid\Mail\Mail;
 				$email = new Mail();
 				$email->setFrom("no-reply@dedede.ro", "DeDeDe.ro");
 				$email->setSubject($subject);
-				$email->setTo("no-reply@dedede.ro", "DeDeDe.ro");
+				$email->addTo("office@dedede.ro", "Echipa DeDeDe.ro");
 				$email->addBccs($tos);
-				$email->addContent("text/plain", $message);
+				$email->addContent("text/html", $message);
 				$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
 				try {
 					$response = $sendgrid->send($email);
-					$errormessage .= ',{"text": "Status Code: '.$response->statusCode().'"}';
+					if ( $response->statusCode() >= 200 && $response->statusCode() < 300 ) {
+						// all good
+					} else {
+						$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail: '.$response->statusCode().' = '.$response->body().'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
+					}
+					/*$errormessage .= ',{"text": "Status Code: '.$response->statusCode().'"}';
 					$errormessage .= ',{"text": "Response Headers: '.implode($response->headers()).'"}';
-					$errormessage .= ',{"text": "Response Body: '.$response->body().'"}';
+					$errormessage .= ',{"text": "Response Body: '.$response->body().'"}';*/
 				} catch (Exception $e) {
 					$errormessage .= ',{"text": "Caught exception: '.$e->getMessage().'"}';
 				}
@@ -372,10 +376,32 @@ if( $datasent == 'true' ) {
 	</body>
 </html>";
 					$additional = '-f' . $side_email;
+					$email2 = new Mail();
+					$email2->setFrom("no-reply@dedede.ro", "DeDeDe.ro");
+					$email2->setSubject($subject);
+					$email2->addTo($side_email, $side_name);
+					// $email2->addBccs($tos);
+					$email2->addContent("text/html", $message);
+					$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+					try {
+						$response = $sendgrid->send($email2);
+						if ( $response->statusCode() >= 200 && $response->statusCode() < 300 ) {
+							// all good
+						} else {
+							$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail: '.$response->statusCode().' = '.$response->body().'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
+						}
+						/*$errormessage .= ',{"text": "Status Code: '.$response->statusCode().'"}';
+						$errormessage .= ',{"text": "Response Headers: '.implode($response->headers()).'"}';
+						$errormessage .= ',{"text": "Response Body: '.$response->body().'"}';*/
+					} catch (Exception $e) {
+						$errormessage .= ',{"text": "Avem o problemă excepțională cu serverul de e-mail: '.$e->getMessage().'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
+					}
+					/*
 					if (!mail("$side_email", "$subject", "$message", "$headers", "$additional")) {
 						$m = (null !== error_get_last()) ? error_get_last()['message'] : '';
 						$errormessage .= ',{"text": "Avem o problemă cu serverul de e-mail: '.$m.'. Te rugăm să ne contactezi direct la: <a href="mailto:office@dedede.ro" title="Trimite-ne un mail!">office@dedede.ro</a>!"}';
 					}
+					*/
 				}
 			}
 		}

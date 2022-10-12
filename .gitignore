@@ -5,6 +5,7 @@
 .DS_Store
 env.php
 .env
+/assets/.env
 sftp.json
 /.vscode/
 /_backup/
