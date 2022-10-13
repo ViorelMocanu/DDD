@@ -30,7 +30,7 @@
     "dotenv": "^14.3.0",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.3",
-    "intersection-observer": "^0.12.0",
+    "intersection-observer": "^0.12.2",
     "ncp": "2.0.0",
     "polka": "^0.5.2",
     "sirv": "^2.0.2",
