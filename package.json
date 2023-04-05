@@ -34,7 +34,7 @@
     "ncp": "2.0.0",
     "polka": "^0.5.2",
     "sirv": "^2.0.2",
-    "svelte": "^3.51.0",
+    "svelte": "^3.57.0",
     "svelte-preprocess": "^4.10.3"
   },
   "devDependencies": {
