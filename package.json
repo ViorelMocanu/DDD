@@ -35,7 +35,7 @@
     "polka": "^0.5.2",
     "sirv": "^2.0.3",
     "svelte": "^3.57.0",
-    "svelte-preprocess": "^4.10.3"
+    "svelte-preprocess": "^5.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
