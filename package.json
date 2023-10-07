@@ -29,7 +29,7 @@
     "del": "^6.1.1",
     "dotenv": "^14.3.0",
     "fs-extra": "^10.1.0",
-    "glob": "^7.2.3",
+    "glob": "^10.3.4",
     "intersection-observer": "^0.12.2",
     "ncp": "2.0.0",
     "polka": "^0.5.2",
