@@ -146,6 +146,10 @@
 		</fieldset>
 		<fieldset class="Fieldset CTAFieldset">
 			<legend class="Legend Hidden">Trimite un mesaj lui DeDeDe acum</legend>
+			<label class="Label LabelCheckbox">
+				<input class="Checkbox" type="checkbox" id="gdpr" name="gdpr" value="1" required="required" aria-required="true" tabindex="6" />
+				<span class="CheckboxText">"Am citit și sunt de acord cu <a href="/termeni-si-conditii" target="_blank" rel="noopener noreferrer">Termenii și condițiile</a> de prelucrare a datelor.</span>
+			</label>
 			<input
 				class="Hidden"
 				type="hidden"
@@ -167,7 +171,7 @@
 				name="side_submit"
 				class="Button ButtonPrimary"
 				title="Contactează-mă acum!"
-				tabindex="6"
+				tabindex="7"
 			>
 				<span class="ButtonText" id="side_submit_text">Trimite mesajul acum &rarr;</span>
 				<svg

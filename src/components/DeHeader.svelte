@@ -45,7 +45,7 @@
 			</ul>
 			<ul class="CTAList">
 				<li class="CTAItem">
-					<a href="tel:0040744885566" class="CTAButton Button ButtonSecondary">
+					<a href="tel:0744885566" class="CTAButton Button ButtonSecondary">
 						<span class="ButtonText">
 							<span class="ButtonTextSecondary">Sună-l pe DeDeDe</span>
 							<strong class="ButtonTextPrimary">0744 88 55 66</strong>

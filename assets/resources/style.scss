@@ -517,6 +517,7 @@ a, button { cursor: pointer; }
 					&:hover { opacity: 0.9; }
 					@media (min-width: 1280px) { padding: 1vh 2vw; }
 				}
+				.LabelCheckbox { margin-bottom:1rem;margin-top:-1rem; }
 					.LabelText { display: block; font-size: 1.5rem; line-height: 1.5em; }
 						.Eroare .LabelText { color: var(--error); }
 					.Input, .Select, .Textarea { display: block; width: 100%; padding: 0.5rem 1rem; font-size: 1.125rem; line-height: 1.5em; background: var(--background); color: var(--foreground); border: 0.125rem solid var(--foreground); border-radius: 0.5rem; }
