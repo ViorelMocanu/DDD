@@ -1,17 +1,27 @@
 {
-	"semi": true,
-	"trailingComma": "all",
-	"tabWidth": 4,
 	"useTabs": true,
-	"singleQuote": true,
+	"semi": true,
+	"singleQuote": false,
+	"quoteProps": "consistent",
+	"jsxSingleQuote": false,
+	"trailingComma": "all",
 	"bracketSpacing": true,
-	"bracketSameLine": true,
+	"bracketSameLine": false,
 	"arrowParens": "always",
+	"endOfLine": "lf",
 	"proseWrap": "never",
-	"printWidth": 240,
-	"svelteSortOrder": "scripts-styles-markup",
-	"svelteStrictMode": false,
-	"svelteBracketNewLine": false,
-	"svelteAllowShorthand": true,
-	"svelteIndentScriptAndStyle": true
+	"tabWidth": 4,
+	"htmlWhitespaceSensitivity": "css",
+	"plugins": ["prettier-plugin-astro"],
+	"printWidth": 3000,
+	"overrides": [
+		{
+			"files": "*.md",
+			"options": { "useTabs": false, "tabWidth": 4 }
+		},
+		{
+			"files": "*.astro",
+			"options": { "singleAttributePerLine": false }
+		}
+	]
 }

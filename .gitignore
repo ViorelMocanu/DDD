@@ -12,3 +12,35 @@ sftp.json
 /_backup
 .vscode
 _backup
+livesite/
+
+# Phase-1 parity capture toolkit — scripts are committed, their deps are not
+**/node_modules/
+/parity/tools/node_modules/
+# Transient capture working files (validation diffs, browser traces)
+/parity/baseline/_validate/
+
+# AI scratch / reference material (not a deliverable)
+/tmp/
+
+# ── Astro ────────────────────────────────────────────────────────────────────
+.astro/
+dist/
+
+# ── Wrangler / Cloudflare ────────────────────────────────────────────────────
+.wrangler/
+.dev.vars
+
+# ── Environment secrets ──────────────────────────────────────────────────────
+# .env is already ignored above; .env.example is intentionally tracked (shape doc).
+.env.local
+.env.*.local
+
+# ── Test output ──────────────────────────────────────────────────────────────
+playwright-report/
+test-results/
+coverage/
+.lighthouseci/
+
+# ── pnpm ─────────────────────────────────────────────────────────────────────
+# pnpm-lock.yaml is committed; node_modules is already ignored.

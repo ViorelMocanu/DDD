@@ -1,0 +1,88 @@
+---
+// src/layouts/BaseLayout.astro
+// The HTML shell every page renders into. Reproduces the deployed <body> structure
+// (parity/baseline/html/<route>/index.html) byte-for-byte: <div class="Container">,
+// skip-nav, <DeHeader>, post-header skip link, <slot/>, <DeFooter>, deferred
+// script.js, and the GTM <noscript>.
+//
+// Contract (the props ALL 9 routes pass): meta props forward to <BaseHead>; `analytics`
+// gates the GTM/Ads markup; `bodyClass` sets the per-route <body class>.
+//
+// ANALYTICS GATE (PLAN Task 20 line 343 / SPEC lines 115, 291 / WAIVER tripwire line 140):
+//   analytics === true  -> emit the GTM-NGTSNLX <noscript> iframe (the 6 non-legal routes).
+//                          GTM + Ads AW-10780123066 are injected at runtime by script.js
+//                          (its trailing IIFEs), exactly as the deployed site does — there is
+//                          NO inline <head> GTM/gtag block in the baseline static HTML.
+//   analytics === false -> emit NOTHING analytics-related (the 3 legal pages). This is a
+//                          DELIBERATE deviation from the raw baseline (whose static HTML
+//                          carries the noscript on every page); the rebuild gates it off on
+//                          legal routes per spec. Analytics hosts are blocked during pixel
+//                          capture, so this does not affect parity. dist/ string assertions
+//                          verify GTM-NGTSNLX / AW-10780123066 are absent on legal pages.
+//
+// DARK-MODE NO-FLASH: an early inline <head> script reads localStorage key `darkMode`
+//   (values 'enabled' | 'disabled' — the legacy script.js contract) and applies the
+//   `darkmode` / `lightmode` class to <html> BEFORE first paint, so the brand --foreground
+//   / --background tokens (which inherit from the documentElement) resolve correctly with no
+//   flash. script.js later mirrors the class onto <body> on DOM-ready (the body.darkmode
+//   cascade); by the time any body.darkmode :active state can fire, that class is present.
+
+import BaseHead from "@components/BaseHead.astro";
+import DeHeader from "@components/DeHeader.astro";
+import DeFooter from "@components/DeFooter.astro";
+import "@styles/global.scss";
+
+interface Props {
+	title: string;
+	description: string;
+	canonical: string; // absolute, trailing-slash
+	ogImage: string; // absolute OR root-relative (BaseHead resolves per WAIVER-SEO-02)
+	ogImageAlt: string;
+	ogType?: "website" | "article";
+	articlePublishedTime?: string;
+	articleModifiedTime?: string;
+	analytics: boolean; // true => GTM <noscript> (6 non-legal routes); false => none (3 legal)
+	bodyClass?: string; // per-route <body class> from the baseline (e.g. "home", "termeni-si-conditii")
+}
+
+const { title, description, canonical, ogImage, ogImageAlt, ogType = "website", articlePublishedTime, articleModifiedTime, analytics, bodyClass = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ro">
+	<head>
+		<BaseHead title={title} description={description} canonical={canonical} ogImage={ogImage} ogImageAlt={ogImageAlt} ogType={ogType} articlePublishedTime={articlePublishedTime} articleModifiedTime={articleModifiedTime} />
+		{/* Dark-mode no-flash: apply the saved theme class to <html> before first paint. */}
+		<script is:inline>
+			(function () {
+				try {
+					var theme = localStorage.getItem("darkMode");
+					if (theme === "enabled") {
+						document.documentElement.classList.add("darkmode");
+						document.documentElement.classList.remove("lightmode");
+					} else if (theme === "disabled") {
+						document.documentElement.classList.add("lightmode");
+						document.documentElement.classList.remove("darkmode");
+					}
+				} catch (e) {}
+			})();
+		</script>
+	</head>
+	<body class={bodyClass}>
+		<div class="Container">
+			<a href="#continut" class="ScreenReaders">Sari la conținut</a>
+			<DeHeader bodyClass={bodyClass} />
+			<a href="#header" id="continut" class="ScreenReaders">Accesează meniul</a>
+			<slot />
+			<DeFooter />
+			<script is:inline defer src="/resources/script.js"></script>
+			{
+				analytics && (
+					<noscript>
+						<iframe id="noScriptIframe" title="Google Tag Manager Non-scripting Inject" src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX" height="0" width="0" sandbox="allow-same-origin allow-scripts allow-forms allow-popups" />
+					</noscript>
+				)
+			}
+		</div>
+	</body>
+</html>

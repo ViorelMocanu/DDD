@@ -1,0 +1,21 @@
+// wrangler.jsonc — Cloudflare Workers config for @astrojs/cloudflare v13.
+//
+// @astrojs/cloudflare v13 is a WORKERS adapter (NOT Pages). `astro build` (via the
+// bundled @cloudflare/vite-plugin) emits the static page HTML + public assets into dist/
+// plus a Worker for the single on-demand route (/api/contact, prerender=false). The
+// adapter/plugin manage the worker entry (`main`) and the ASSETS static-assets binding
+// internally — do NOT set `main`, `assets`, or `pages_build_output_dir` here (the plugin
+// validates `main` before the build creates it, and `pages_build_output_dir` forces Pages
+// mode where the adapter's reserved `ASSETS` binding is rejected).
+//
+// Deploy with `wrangler deploy` (NOT `wrangler pages deploy`). Bind RESEND_API_KEY /
+// RESEND_FROM / CONTACT_TO as secrets (Preview + Production) before production; a missing
+// binding is a runtime 500.
+{
+	"name": "dedede-ro",
+	"compatibility_date": "2025-01-01",
+	"compatibility_flags": ["nodejs_compat"],
+	"observability": {
+		"enabled": true,
+	},
+}

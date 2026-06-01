@@ -1,0 +1,47 @@
+{
+  "url": "http://localhost:4321/contact/",
+  "requestCount": 8,
+  "thirdPartyHosts": [],
+  "requests": [
+    {
+      "url": "http://localhost:4321/_elderjs/assets/svelte-85ed3d00.css",
+      "status": 200,
+      "type": "stylesheet"
+    },
+    {
+      "url": "http://localhost:4321/contact/",
+      "status": 200,
+      "type": "document"
+    },
+    {
+      "url": "http://localhost:4321/images/cityscape.svg",
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "url": "http://localhost:4321/images/dedede-hero.svg",
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "url": "http://localhost:4321/images/dedede-logo-desktop.svg",
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "url": "http://localhost:4321/images/memphis-mini.webp",
+      "status": 200,
+      "type": "image"
+    },
+    {
+      "url": "http://localhost:4321/resources/archivo-var.woff2",
+      "status": 200,
+      "type": "font"
+    },
+    {
+      "url": "http://localhost:4321/resources/script.js",
+      "status": 200,
+      "type": "script"
+    }
+  ]
+}

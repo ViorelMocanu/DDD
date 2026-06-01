@@ -1,0 +1,54 @@
+---
+// src/pages/informatii-utile.astro
+// Blog index page — lists all blog articles sorted DESCENDING by date (newest first).
+//
+// PARITY ORACLE: parity/baseline/html/informatii-utile/index.html
+// HEAD: parity/baseline/meta/informatii-utile.json
+//
+// BODY (slot content for BaseLayout):
+//   1. <section class="Hero ContentPage"> — hero with breadcrumbs, h1, tagline (verbatim)
+//   2. <main> with <ol class="ArticleIndexList"> — dynamic article cards via <Articol>
+//
+// The <header>, <footer> (Contact section), <script>, and GTM noscript are all
+// rendered by BaseLayout/DeHeader/DeFooter — NOT repeated here.
+//
+// SORT ORDER: descending by data.date (ISO string lexicographic, newest first).
+//   totul-despre-dezinsectie (2021-09-14) → cum-scapi-de-gandaci (2021-09-13) → ddd-diferente (2021-09-12)
+//
+// ANALYTICS: true (non-legal route — emits GTM-NGTSNLX noscript iframe).
+// BODY CLASS: "informatii-utile" (verbatim from baseline).
+// OG IMAGE: "https://dedede.ro/images/og-image-blogindex.jpg" (blog-index specific, not the generic og-image).
+// OG TYPE: "website" (not "article" — this is an index page, WAIVER-SEO-03 does not apply here).
+
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Articol from "@components/Articol.astro";
+import { getArticles, sortNewestFirst } from "@utils/articles";
+
+// Sort descending: newest first (ISO string lexicographic comparison is correct for same-timezone dates)
+const articles = sortNewestFirst(await getArticles());
+---
+
+<BaseLayout title="Informații utile pentru Dezinsecție, Dezinfecție, Deratizare" description="Citește toate articolele scrise de echipa DeDeDe în legătură cu felul cum ai putea și tu să scapi de 🐜 gândaci, 🐀 șobolani, 🦟 ploșnițe sau alți ☠️ dăunători." canonical="https://dedede.ro/informatii-utile/" ogImage="https://dedede.ro/images/og-image-blogindex.jpg" ogImageAlt="DeDeDe.ro - Articole utile despre Dezinfecție, Dezinsecție sau Deratizare" ogType="website" articlePublishedTime="2021-09-19T19:35:55+03:00" articleModifiedTime="2021-09-19T19:35:55+03:00" analytics={true} bodyClass="informatii-utile">
+	<section class="Hero ContentPage" role="banner">
+		<div class="HeroContainer IndexHeroContainer LimitWidth">
+			<ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a class="BreadcrumbLink" itemprop="item" href="/"><span class="BreadcrumbText" itemprop="name">DeDeDe.ro</span></a>
+					<span class="ScreenReaders" itemprop="position">1</span>
+				</li>
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<span class="BreadcrumbText" itemprop="name">Informații utile</span>
+					<span class="ScreenReaders" itemprop="position">2</span>
+				</li>
+			</ol>
+			<h1 class="HeroTitle">Informații utile</h1>
+			<p class="HeroText">Articole folositoare dacă vrei să scapi de 🐜 gândaci, 🐀 șobolani, 🦟 ploșnițe sau alți ☠️ dăunători.</p>
+		</div>
+	</section>
+
+	<main>
+		<ol class="ArticleIndexList">
+			{articles.map((article) => <Articol article={article} />)}
+		</ol>
+	</main>
+</BaseLayout>

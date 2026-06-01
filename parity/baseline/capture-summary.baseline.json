@@ -1,0 +1,295 @@
+{
+  "label": "baseline",
+  "base": "http://localhost:4321",
+  "capturedAt": "2026-05-30T20:53:50.805Z",
+  "routes": [
+    {
+      "name": "index",
+      "path": "/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 5615,
+          "screenshot": "screenshots/index__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 4016,
+          "screenshot": "screenshots/index__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 3118,
+          "screenshot": "screenshots/index__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 36,
+      "a11y": {
+        "violations": 1,
+        "serious": 1
+      },
+      "requestCount": 12,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "contact",
+      "path": "/contact/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 2595,
+          "screenshot": "screenshots/contact__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 2381,
+          "screenshot": "screenshots/contact__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 2307,
+          "screenshot": "screenshots/contact__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 23,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 8,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "informatii-utile",
+      "path": "/informatii-utile/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 3679,
+          "screenshot": "screenshots/informatii-utile__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 3818,
+          "screenshot": "screenshots/informatii-utile__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 2642,
+          "screenshot": "screenshots/informatii-utile__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 30,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 10,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "termeni-si-conditii",
+      "path": "/termeni-si-conditii/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 6901,
+          "screenshot": "screenshots/termeni-si-conditii__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 7423,
+          "screenshot": "screenshots/termeni-si-conditii__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 6093,
+          "screenshot": "screenshots/termeni-si-conditii__desktop.png"
+        }
+      },
+      "blockedRequests": 0,
+      "allowedRequests": 21,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 7,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "confidentialitate",
+      "path": "/confidentialitate/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 9144,
+          "screenshot": "screenshots/confidentialitate__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 9712,
+          "screenshot": "screenshots/confidentialitate__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 7497,
+          "screenshot": "screenshots/confidentialitate__desktop.png"
+        }
+      },
+      "blockedRequests": 0,
+      "allowedRequests": 21,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 7,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "cookies",
+      "path": "/cookies/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 8923,
+          "screenshot": "screenshots/cookies__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 9970,
+          "screenshot": "screenshots/cookies__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 8217,
+          "screenshot": "screenshots/cookies__desktop.png"
+        }
+      },
+      "blockedRequests": 0,
+      "allowedRequests": 21,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 7,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "totul-despre-dezinsectie",
+      "path": "/totul-despre-dezinsectie/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 8599,
+          "screenshot": "screenshots/totul-despre-dezinsectie__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 9710,
+          "screenshot": "screenshots/totul-despre-dezinsectie__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 8109,
+          "screenshot": "screenshots/totul-despre-dezinsectie__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 24,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 8,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "cum-scapi-de-gandaci",
+      "path": "/cum-scapi-de-gandaci/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 7161,
+          "screenshot": "screenshots/cum-scapi-de-gandaci__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 7876,
+          "screenshot": "screenshots/cum-scapi-de-gandaci__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 6426,
+          "screenshot": "screenshots/cum-scapi-de-gandaci__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 24,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 8,
+      "thirdPartyHosts": []
+    },
+    {
+      "name": "dezinfectie-dezinsectie-deratizare-diferente",
+      "path": "/dezinfectie-dezinsectie-deratizare-diferente/",
+      "viewports": {
+        "mobile": {
+          "width": 375,
+          "height": 812,
+          "fullHeight": 6139,
+          "screenshot": "screenshots/dezinfectie-dezinsectie-deratizare-diferente__mobile.png"
+        },
+        "tablet": {
+          "width": 768,
+          "height": 1024,
+          "fullHeight": 6736,
+          "screenshot": "screenshots/dezinfectie-dezinsectie-deratizare-diferente__tablet.png"
+        },
+        "desktop": {
+          "width": 1440,
+          "height": 900,
+          "fullHeight": 5704,
+          "screenshot": "screenshots/dezinfectie-dezinsectie-deratizare-diferente__desktop.png"
+        }
+      },
+      "blockedRequests": 6,
+      "allowedRequests": 24,
+      "a11y": {
+        "violations": 0,
+        "serious": 0
+      },
+      "requestCount": 8,
+      "thirdPartyHosts": []
+    }
+  ]
+}
