@@ -1,0 +1,76 @@
+---
+// src/components/BaseHead.astro
+// The head meta engine — single source of <head> metadata for all 9 routes.
+// Verified against parity/baseline/meta/<route>.json (union of all routes).
+// Bakes in WAIVER-SEO-01..04 so individual pages need no special-casing:
+//   SEO-01  OMIT twitter:site + twitter:creator (@TODO placeholders); keep twitter:card.
+//   SEO-02  Resolve root-relative og:image to absolute https://dedede.ro (articles).
+//   SEO-03  ogType passes through; [slug].astro sends "article" for the 3 posts.
+//   SEO-04  og:description emitted as name= (all og:* are name=) — normalises /cookies/.
+// NOTE: rel=prev/next head links are NOT emitted here (WAIVER-SEO-05 (ii)).
+// NOTE: microdata (itemscope/itemprop) lives in page bodies, not here.
+
+interface Props {
+	title: string;
+	description: string;
+	canonical: string; // absolute, trailing-slash
+	ogImage: string; // absolute OR root-relative (resolved below per WAIVER-SEO-02)
+	ogImageAlt: string;
+	ogType?: "website" | "article"; // default website; articles pass "article" (WAIVER-SEO-03)
+	// `| undefined` is explicit so BaseLayout can forward these optionals unconditionally
+	// under exactOptionalPropertyTypes (astro/tsconfigs/strictest): a present-but-undefined
+	// value is accepted, not just an absent key.
+	articlePublishedTime?: string | undefined; // verbatim; mixed TZ / no-TZ preserved per route
+	articleModifiedTime?: string | undefined; // verbatim
+}
+
+const SITE = "https://dedede.ro";
+
+const { title, description, canonical, ogImage, ogImageAlt, ogType = "website", articlePublishedTime, articleModifiedTime } = Astro.props;
+
+// WAIVER-SEO-02: root-relative og:image -> absolute (the 3 articles);
+// already-absolute values (the 6 non-article routes) pass through unchanged.
+const resolvedOgImage = ogImage.startsWith("/") ? `${SITE}${ogImage}` : ogImage;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{/* og:title always mirrors the page <title> (verified across all 9 baseline routes) */}
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content={canonical} />
+<meta name="og:image" content={resolvedOgImage} />
+<meta name="og:image:alt" content={ogImageAlt} />
+{articlePublishedTime && <meta name="article:published_time" content={articlePublishedTime} />}
+{articleModifiedTime && <meta name="article:modified_time" content={articleModifiedTime} />}
+<link rel="preload" href="/resources/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="og:site_name" content="DeDeDe.ro" />
+<meta name="og:type" content={ogType} />
+<meta name="og:locale" content="ro_RO" />
+<meta name="og:image:width" content="1200" />
+<meta name="og:image:height" content="630" />
+<meta name="og:email" content="contact@dedede.ro" />
+<meta name="og:phone_number" content="0744885566" />
+<meta name="article:publisher" content="DeDeDe.ro" />
+<meta name="fb:app_id" content="811489239521802" />
+{/* WAIVER-SEO-01: twitter:site / twitter:creator ("@TODO") intentionally OMITTED; card kept */}
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
+<meta name="msapplication-TileColor" content="#fde24f" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="apple-mobile-web-app-title" content="DeDeDe.ro - Spații fără dăunători" />
+<meta name="application-name" content="DeDeDe.ro" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="theme-color" content="#fde24f" />

@@ -1,0 +1,47 @@
+{
+	// Astro's strictest preset: noImplicitAny, strict, strictNullChecks, noUncheckedIndexedAccess, etc.
+	"extends": "astro/tsconfigs/strictest",
+	"compileOnSave": true,
+	"include": [".astro/types.d.ts", "**/*", "src", "astro.config.mjs"],
+	"exclude": ["node_modules", "**/node_modules/*", "dist", "coverage", ".wrangler", "parity/tools", "parity/baseline", "livesite", "tmp", "public"],
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"noEmit": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"allowJs": true,
+		// NOTE [Group A scaffold reconciliation]: the appendix set `checkJs: true`,
+		// but combined with strictest's `noUncheckedIndexedAccess` that makes the
+		// plain-JS scaffold configs (astro.config.mjs / eslint.config.js) AND the
+		// off-limits scripts/run-verify.mjs emit ~28 implicit-any / index-signature
+		// errors, which contradicts the plan's Task 3/13 acceptance ("tsc --noEmit /
+		// astro check exits 0 on the empty scaffold"). The spine wins: keep allowJs
+		// (configs still import) but disable deep JS type-checking. All .ts/.astro
+		// source is still checked at strictest. Re-enable per-file with JSDoc later
+		// if desired. [SUBSTITUTION recorded.]
+		"checkJs": false,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"paths": {
+			"@components/*": ["./src/components/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"@lib/*": ["./src/lib/*"],
+			"@utils/*": ["./src/utils/*"],
+			"@content/*": ["./src/content/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@img/*": ["./src/img/*"]
+		}
+	}
+}

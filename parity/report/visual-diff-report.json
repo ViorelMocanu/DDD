@@ -1,0 +1,332 @@
+{
+  "a": "G:\\Workshops\\DDD2\\parity\\baseline\\screenshots",
+  "b": "G:\\Workshops\\DDD2\\parity\\baseline\\_validate\\final\\screenshots",
+  "threshold": 0.001,
+  "results": [
+    {
+      "file": "confidentialitate__desktop.png",
+      "mismatched": 8546,
+      "totalPixels": 10795680,
+      "ratio": 0.000792,
+      "ratioPct": 0.0792,
+      "pass": true,
+      "dims": {
+        "a": "1440x7497",
+        "b": "1440x7497"
+      }
+    },
+    {
+      "file": "confidentialitate__mobile.png",
+      "mismatched": 2288,
+      "totalPixels": 3429000,
+      "ratio": 0.000667,
+      "ratioPct": 0.0667,
+      "pass": true,
+      "dims": {
+        "a": "375x9144",
+        "b": "375x9144"
+      }
+    },
+    {
+      "file": "confidentialitate__tablet.png",
+      "mismatched": 4299,
+      "totalPixels": 7458816,
+      "ratio": 0.000576,
+      "ratioPct": 0.0576,
+      "pass": true,
+      "dims": {
+        "a": "768x9712",
+        "b": "768x9712"
+      }
+    },
+    {
+      "file": "contact__desktop.png",
+      "mismatched": 559,
+      "totalPixels": 3322080,
+      "ratio": 0.000168,
+      "ratioPct": 0.0168,
+      "pass": true,
+      "dims": {
+        "a": "1440x2307",
+        "b": "1440x2307"
+      }
+    },
+    {
+      "file": "contact__mobile.png",
+      "mismatched": 278,
+      "totalPixels": 973125,
+      "ratio": 0.000286,
+      "ratioPct": 0.0286,
+      "pass": true,
+      "dims": {
+        "a": "375x2595",
+        "b": "375x2595"
+      }
+    },
+    {
+      "file": "contact__tablet.png",
+      "mismatched": 559,
+      "totalPixels": 1828608,
+      "ratio": 0.000306,
+      "ratioPct": 0.0306,
+      "pass": true,
+      "dims": {
+        "a": "768x2381",
+        "b": "768x2381"
+      }
+    },
+    {
+      "file": "cookies__desktop.png",
+      "mismatched": 9175,
+      "totalPixels": 11832480,
+      "ratio": 0.000775,
+      "ratioPct": 0.0775,
+      "pass": true,
+      "dims": {
+        "a": "1440x8217",
+        "b": "1440x8217"
+      }
+    },
+    {
+      "file": "cookies__mobile.png",
+      "mismatched": 2743,
+      "totalPixels": 3346125,
+      "ratio": 0.00082,
+      "ratioPct": 0.082,
+      "pass": true,
+      "dims": {
+        "a": "375x8923",
+        "b": "375x8923"
+      }
+    },
+    {
+      "file": "cookies__tablet.png",
+      "mismatched": 5469,
+      "totalPixels": 7656960,
+      "ratio": 0.000714,
+      "ratioPct": 0.0714,
+      "pass": true,
+      "dims": {
+        "a": "768x9970",
+        "b": "768x9970"
+      }
+    },
+    {
+      "file": "cum-scapi-de-gandaci__desktop.png",
+      "mismatched": 621,
+      "totalPixels": 9253440,
+      "ratio": 0.000067,
+      "ratioPct": 0.0067,
+      "pass": true,
+      "dims": {
+        "a": "1440x6426",
+        "b": "1440x6426"
+      }
+    },
+    {
+      "file": "cum-scapi-de-gandaci__mobile.png",
+      "mismatched": 300,
+      "totalPixels": 2685375,
+      "ratio": 0.000112,
+      "ratioPct": 0.0112,
+      "pass": true,
+      "dims": {
+        "a": "375x7161",
+        "b": "375x7161"
+      }
+    },
+    {
+      "file": "cum-scapi-de-gandaci__tablet.png",
+      "mismatched": 622,
+      "totalPixels": 6048768,
+      "ratio": 0.000103,
+      "ratioPct": 0.0103,
+      "pass": true,
+      "dims": {
+        "a": "768x7876",
+        "b": "768x7876"
+      }
+    },
+    {
+      "file": "dezinfectie-dezinsectie-deratizare-diferente__desktop.png",
+      "mismatched": 577,
+      "totalPixels": 8213760,
+      "ratio": 0.00007,
+      "ratioPct": 0.007,
+      "pass": true,
+      "dims": {
+        "a": "1440x5704",
+        "b": "1440x5704"
+      }
+    },
+    {
+      "file": "dezinfectie-dezinsectie-deratizare-diferente__mobile.png",
+      "mismatched": 287,
+      "totalPixels": 2302125,
+      "ratio": 0.000125,
+      "ratioPct": 0.0125,
+      "pass": true,
+      "dims": {
+        "a": "375x6139",
+        "b": "375x6139"
+      }
+    },
+    {
+      "file": "dezinfectie-dezinsectie-deratizare-diferente__tablet.png",
+      "mismatched": 577,
+      "totalPixels": 5173248,
+      "ratio": 0.000112,
+      "ratioPct": 0.0112,
+      "pass": true,
+      "dims": {
+        "a": "768x6736",
+        "b": "768x6736"
+      }
+    },
+    {
+      "file": "index__desktop.png",
+      "mismatched": 1506,
+      "totalPixels": 4489920,
+      "ratio": 0.000335,
+      "ratioPct": 0.0335,
+      "pass": true,
+      "dims": {
+        "a": "1440x3118",
+        "b": "1440x3118"
+      }
+    },
+    {
+      "file": "index__mobile.png",
+      "mismatched": 1252,
+      "totalPixels": 2105625,
+      "ratio": 0.000595,
+      "ratioPct": 0.0595,
+      "pass": true,
+      "dims": {
+        "a": "375x5615",
+        "b": "375x5615"
+      }
+    },
+    {
+      "file": "index__tablet.png",
+      "mismatched": 1521,
+      "totalPixels": 3084288,
+      "ratio": 0.000493,
+      "ratioPct": 0.0493,
+      "pass": true,
+      "dims": {
+        "a": "768x4016",
+        "b": "768x4016"
+      }
+    },
+    {
+      "file": "informatii-utile__desktop.png",
+      "mismatched": 949,
+      "totalPixels": 3804480,
+      "ratio": 0.000249,
+      "ratioPct": 0.0249,
+      "pass": true,
+      "dims": {
+        "a": "1440x2642",
+        "b": "1440x2642"
+      }
+    },
+    {
+      "file": "informatii-utile__mobile.png",
+      "mismatched": 668,
+      "totalPixels": 1379625,
+      "ratio": 0.000484,
+      "ratioPct": 0.0484,
+      "pass": true,
+      "dims": {
+        "a": "375x3679",
+        "b": "375x3679"
+      }
+    },
+    {
+      "file": "informatii-utile__tablet.png",
+      "mismatched": 949,
+      "totalPixels": 2932224,
+      "ratio": 0.000324,
+      "ratioPct": 0.0324,
+      "pass": true,
+      "dims": {
+        "a": "768x3818",
+        "b": "768x3818"
+      }
+    },
+    {
+      "file": "termeni-si-conditii__desktop.png",
+      "mismatched": 559,
+      "totalPixels": 8773920,
+      "ratio": 0.000064,
+      "ratioPct": 0.0064,
+      "pass": true,
+      "dims": {
+        "a": "1440x6093",
+        "b": "1440x6093"
+      }
+    },
+    {
+      "file": "termeni-si-conditii__mobile.png",
+      "mismatched": 278,
+      "totalPixels": 2587875,
+      "ratio": 0.000107,
+      "ratioPct": 0.0107,
+      "pass": true,
+      "dims": {
+        "a": "375x6901",
+        "b": "375x6901"
+      }
+    },
+    {
+      "file": "termeni-si-conditii__tablet.png",
+      "mismatched": 559,
+      "totalPixels": 5700864,
+      "ratio": 0.000098,
+      "ratioPct": 0.0098,
+      "pass": true,
+      "dims": {
+        "a": "768x7423",
+        "b": "768x7423"
+      }
+    },
+    {
+      "file": "totul-despre-dezinsectie__desktop.png",
+      "mismatched": 608,
+      "totalPixels": 11676960,
+      "ratio": 0.000052,
+      "ratioPct": 0.0052,
+      "pass": true,
+      "dims": {
+        "a": "1440x8109",
+        "b": "1440x8109"
+      }
+    },
+    {
+      "file": "totul-despre-dezinsectie__mobile.png",
+      "mismatched": 296,
+      "totalPixels": 3224625,
+      "ratio": 0.000092,
+      "ratioPct": 0.0092,
+      "pass": true,
+      "dims": {
+        "a": "375x8599",
+        "b": "375x8599"
+      }
+    },
+    {
+      "file": "totul-despre-dezinsectie__tablet.png",
+      "mismatched": 604,
+      "totalPixels": 7457280,
+      "ratio": 0.000081,
+      "ratioPct": 0.0081,
+      "pass": true,
+      "dims": {
+        "a": "768x9710",
+        "b": "768x9710"
+      }
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,145 @@
+{
+  "title": "Totul despre Dezinsecție: Ce este și când ai nevoie de ea",
+  "htmlLang": "ro",
+  "canonical": "https://dedede.ro/totul-despre-dezinsectie/",
+  "metaName": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "Am concentrat toate informațiile utile despre Dezinsecție în acest articol, pentru a-ți arăta cum te poate ajuta eroul nostru, DeDeDe.ro. Citește acum »",
+    "og:title": "Totul despre Dezinsecție: Ce este și când ai nevoie de ea",
+    "og:description": "Am concentrat toate informațiile utile despre Dezinsecție în acest articol, pentru a-ți arăta cum te poate ajuta eroul nostru, DeDeDe.ro. Citește acum »",
+    "og:url": "https://dedede.ro/totul-despre-dezinsectie/",
+    "og:image": "/images/totul-despre-dezinsectie-og.jpg",
+    "og:image:alt": "Totul despre Dezinsecție - detalii și recomandări",
+    "article:published_time": "2021-09-14T11:40:00",
+    "article:modified_time": "2021-09-14T11:40:00",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "og:site_name": "DeDeDe.ro",
+    "og:type": "website",
+    "og:locale": "ro_RO",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:email": "contact@dedede.ro",
+    "og:phone_number": "0744885566",
+    "article:publisher": "DeDeDe.ro",
+    "fb:app_id": "811489239521802",
+    "twitter:site": "@TODO",
+    "twitter:creator": "@TODO",
+    "twitter:card": "summary_large_image",
+    "msapplication-TileColor": "#fde24f",
+    "apple-mobile-web-app-title": "DeDeDe.ro - Spații fără dăunători",
+    "application-name": "DeDeDe.ro",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "mobile-web-app-capable": "yes",
+    "apple-touch-fullscreen": "yes",
+    "theme-color": "#fde24f"
+  },
+  "metaProperty": {},
+  "metaHttpEquiv": {},
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "https://dedede.ro/totul-despre-dezinsectie/",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "prev",
+      "href": "/cum-scapi-de-gandaci/",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "preload",
+      "href": "/resources/archivo-var.woff2",
+      "hreflang": null,
+      "type": "font/woff2",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-32x32.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-16x16.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico",
+      "hreflang": null,
+      "type": "image/x-icon",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.svg",
+      "hreflang": null,
+      "type": "image/svg+xml",
+      "sizes": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/apple-touch-icon.png",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "mask-icon",
+      "href": "/safari-pinned-tab.svg",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "manifest",
+      "href": "/site.webmanifest",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "stylesheet",
+      "href": "/_elderjs/assets/svelte-85ed3d00.css",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    }
+  ],
+  "jsonld": [],
+  "h1": [
+    "Totul despre Dezinsecție: Ce este și când ai nevoie de ea"
+  ],
+  "headingOutline": [
+    "H1: Totul despre Dezinsecție: Ce este și când ai nevoie de ea",
+    "H2: Ce este dezinsecția și de ce trebuie făcută?",
+    "H2: Când trebuie făcută dezinsecția?",
+    "H2: Există mai multe tipuri de dezinsecție?",
+    "H3: Dezinsecția preventivă",
+    "H3: Dezinsecția curativă",
+    "H2: Cum se face dezinsecția?",
+    "H2: Cât de des ar trebui să faci o dezinsecție?",
+    "H2: Cum îl chemi pe DeDeDe.ro?",
+    "H3: Sună-l pe DeDeDe",
+    "H3: Dă-i un email lui DeDede",
+    "H3: Dă-i un mesaj rapid lui DeDeDe",
+    "H2: Navighează prin site"
+  ],
+  "imgCount": 3,
+  "imgMissingAlt": 0,
+  "formCount": 0,
+  "scriptSrcs": [
+    "https://www.googletagmanager.com/gtag/js?id=AW-10780123066",
+    "https://www.googletagmanager.com/gtm.js?id=GTM-NGTSNLX",
+    "/resources/script.js"
+  ]
+}

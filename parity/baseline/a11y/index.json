@@ -1,0 +1,21 @@
+{
+  "url": "http://localhost:4321/",
+  "violations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "nodes": 4,
+      "targets": [
+        ".ServicesItem[itemtype=\"https://schema.org/Service\"][itemscope=\"\"]:nth-child(1) > .ServiceContainer > .ServiceText[itemprop=\"description\"] > .Highlight",
+        ".ServicesItemDeratizare > .ServiceContainer > .ServiceText[itemprop=\"description\"] > .Highlight",
+        ".ServicesItem[itemtype=\"https://schema.org/Service\"][itemscope=\"\"]:nth-child(3) > .ServiceContainer > .ServiceText[itemprop=\"description\"] > .Highlight",
+        "#servicii > .ServiceText > .Highlight"
+      ]
+    }
+  ],
+  "violationCount": 1,
+  "serious": 1,
+  "passes": 17,
+  "incomplete": 1
+}

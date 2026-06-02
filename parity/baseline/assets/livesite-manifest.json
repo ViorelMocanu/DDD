@@ -1,0 +1,968 @@
+[
+  {
+    "path": "_elderjs/assets/svelte-5b523cb2.css",
+    "bytes": 37253,
+    "type": "text/css",
+    "category": "css-elderjs",
+    "referenced": false,
+    "note": "Unused hashed CSS variant (not loaded by any page; svelte-85ed3d00.css is the active one)"
+  },
+  {
+    "path": "_elderjs/assets/svelte-85ed3d00.css",
+    "bytes": 37338,
+    "type": "text/css",
+    "category": "css-elderjs",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=stylesheet>"],
+    "note": "Active Elder.js compiled Svelte CSS; includes background-image: url('/images/cityscape.svg') and url('/images/memphis-mini.webp')"
+  },
+  {
+    "path": "_elderjs/assets/svelte-bf8c91b8.css",
+    "bytes": 37240,
+    "type": "text/css",
+    "category": "css-elderjs",
+    "referenced": false,
+    "note": "Unused hashed CSS variant"
+  },
+  {
+    "path": "_elderjs/assets/svelte-c9b35fb8.css",
+    "bytes": 37287,
+    "type": "text/css",
+    "category": "css-elderjs",
+    "referenced": false,
+    "note": "Unused hashed CSS variant"
+  },
+  {
+    "path": "_elderjs/assets/svelte-cd09cda2.css",
+    "bytes": 37905,
+    "type": "text/css",
+    "category": "css-elderjs",
+    "referenced": false,
+    "note": "Unused hashed CSS variant"
+  },
+  {
+    "path": "_elderjs/assets/svelte.css-3450e0d1.map",
+    "bytes": 96051,
+    "type": "application/json",
+    "category": "css-elderjs",
+    "referenced": false,
+    "note": "CSS source map; development/build artifact only"
+  },
+  {
+    "path": "_elderjs/static/intersection-observer.js",
+    "bytes": 8995,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Polyfill bundled by Elder.js; not referenced in any page <script> tag"
+  },
+  {
+    "path": "_elderjs/svelte/components/Articol.915b7c0f.js",
+    "bytes": 10879,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (Articol, unused hash variant)"
+  },
+  {
+    "path": "_elderjs/svelte/components/Articol.928f1280.js",
+    "bytes": 10871,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (Articol, unused hash variant)"
+  },
+  {
+    "path": "_elderjs/svelte/components/Articol.e90e8ea2.js",
+    "bytes": 39745,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (Articol)"
+  },
+  {
+    "path": "_elderjs/svelte/components/DataCitibila.1643e47e.js",
+    "bytes": 953,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (DataCitibila)"
+  },
+  {
+    "path": "_elderjs/svelte/components/DataCitibila.627abc20.js",
+    "bytes": 949,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (DataCitibila)"
+  },
+  {
+    "path": "_elderjs/svelte/components/DataCitibila.802a1038.js",
+    "bytes": 8491,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js SSR/client component bundle (DataCitibila)"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeFooter.50db8bc7.js",
+    "bytes": 36150,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeFooter Svelte component; references images/dedede-logo-mobile.png internally"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeFooter.76b5f7a7.js",
+    "bytes": 105692,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeFooter Svelte component (large variant with Svelte runtime)"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeFooter.bb2586de.js",
+    "bytes": 36122,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeFooter Svelte component"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeHeader.21cc8363.js",
+    "bytes": 47263,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeHeader Svelte component; references logo images internally"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeHeader.38ba749c.js",
+    "bytes": 13057,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeHeader Svelte component"
+  },
+  {
+    "path": "_elderjs/svelte/components/DeHeader.b5eadf87.js",
+    "bytes": 13046,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled DeHeader Svelte component"
+  },
+  {
+    "path": "_elderjs/svelte/components/TimpCitire.5c0c2084.js",
+    "bytes": 4492,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled TimpCitire Svelte component"
+  },
+  {
+    "path": "_elderjs/svelte/components/TimpCitire.a043a1c3.js",
+    "bytes": 545,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled TimpCitire Svelte component (stub)"
+  },
+  {
+    "path": "_elderjs/svelte/components/TimpCitire.e4f64cc1.js",
+    "bytes": 537,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js compiled TimpCitire Svelte component (stub)"
+  },
+  {
+    "path": "_elderjs/svelte/index-46d26637.js",
+    "bytes": 3601,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js Svelte runtime entry (unused hash variant)"
+  },
+  {
+    "path": "_elderjs/svelte/index-676b81d2.js",
+    "bytes": 5730,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js Svelte runtime entry (unused hash variant)"
+  },
+  {
+    "path": "_elderjs/svelte/index-acb1e5e9.js",
+    "bytes": 389902,
+    "type": "application/javascript",
+    "category": "js-elderjs",
+    "referenced": false,
+    "note": "Elder.js main Svelte runtime bundle (389 KB); SSR artifact not loaded as browser <script>"
+  },
+  {
+    "path": "android-chrome-192x192.png",
+    "bytes": 3842,
+    "type": "image/png",
+    "category": "icon-pwa",
+    "referenced": true,
+    "referencedBy": ["site.webmanifest icons[0]"],
+    "note": "PWA icon 192x192"
+  },
+  {
+    "path": "android-chrome-512x512.png",
+    "bytes": 18003,
+    "type": "image/png",
+    "category": "icon-pwa",
+    "referenced": true,
+    "referencedBy": ["site.webmanifest icons[1]"],
+    "note": "PWA icon 512x512"
+  },
+  {
+    "path": "apple-touch-icon.png",
+    "bytes": 3632,
+    "type": "image/png",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=apple-touch-icon>"],
+    "note": "Apple touch icon"
+  },
+  {
+    "path": "browserconfig.xml",
+    "bytes": 246,
+    "type": "application/xml",
+    "category": "pwa",
+    "referenced": false,
+    "note": "MS tile config; references /mstile-150x150.png only. No <meta name=msapplication-config> in HTML - browser auto-discovery only."
+  },
+  {
+    "path": "env-exemplu.php",
+    "bytes": 320,
+    "type": "application/x-php",
+    "category": "php-backend",
+    "referenced": false,
+    "note": "PHP env example template; contents not read (sensitive config)"
+  },
+  {
+    "path": "env.php",
+    "bytes": 636,
+    "type": "application/x-php",
+    "category": "php-backend",
+    "referenced": false,
+    "note": "PHP env file with live credentials; contents not read (sensitive)"
+  },
+  {
+    "path": "favicon-16x16.png",
+    "bytes": 832,
+    "type": "image/png",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=icon sizes=16x16>"],
+    "note": "Favicon 16x16"
+  },
+  {
+    "path": "favicon-32x32.png",
+    "bytes": 1188,
+    "type": "image/png",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=icon sizes=32x32>"],
+    "note": "Favicon 32x32"
+  },
+  {
+    "path": "favicon.ico",
+    "bytes": 7406,
+    "type": "image/x-icon",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=icon type=image/x-icon>"],
+    "note": "Favicon ICO (legacy fallback)"
+  },
+  {
+    "path": "favicon.svg",
+    "bytes": 2829,
+    "type": "image/svg+xml",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=icon type=image/svg+xml>"],
+    "note": "Favicon SVG (modern browser preferred)"
+  },
+  {
+    "path": "google8bed9638f272a4f6.html",
+    "bytes": 53,
+    "type": "text/html",
+    "category": "seo",
+    "referenced": false,
+    "note": "Google Search Console domain verification HTML file"
+  },
+  {
+    "path": "humans.txt",
+    "bytes": 447,
+    "type": "text/plain",
+    "category": "seo",
+    "referenced": false,
+    "note": "humans.txt credits file"
+  },
+  {
+    "path": "images/cityscape.svg",
+    "bytes": 9171,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via CSS background-image url() in svelte-85ed3d00.css and resources/style.css"],
+    "note": "Background cityscape decorative SVG; CSS-only reference (no <img> tag)"
+  },
+  {
+    "path": "images/cum-scapi-de-gandaci-desktop.jpg",
+    "bytes": 364951,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Article hero desktop JPEG source; NOT loaded by browser (webp variant used: cum-scapi-de-gandaci-desktop.webp). Preserve as source file."
+  },
+  {
+    "path": "images/cum-scapi-de-gandaci-desktop.webp",
+    "bytes": 64854,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["cum-scapi-de-gandaci", "index", "informatii-utile"],
+    "note": "Article hero desktop WebP; used in <picture><source srcset>"
+  },
+  {
+    "path": "images/cum-scapi-de-gandaci-mobile.jpg",
+    "bytes": 51500,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["cum-scapi-de-gandaci", "index", "informatii-utile"],
+    "note": "Article hero mobile JPEG; used as <img src> fallback in <picture>"
+  },
+  {
+    "path": "images/cum-scapi-de-gandaci-mobile.webp",
+    "bytes": 14106,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["cum-scapi-de-gandaci", "index", "informatii-utile"],
+    "note": "Article hero mobile WebP; used in <picture><source srcset>"
+  },
+  {
+    "path": "images/cum-scapi-de-gandaci-og.jpg",
+    "bytes": 140575,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["cum-scapi-de-gandaci via og:image meta"],
+    "note": "OG image for cum-scapi-de-gandaci article (1200x630)"
+  },
+  {
+    "path": "images/ddd-diferente-desktop.jpg",
+    "bytes": 224844,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Article hero desktop JPEG source; NOT loaded by browser (webp variant used). Preserve as source file."
+  },
+  {
+    "path": "images/ddd-diferente-desktop.webp",
+    "bytes": 53044,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["dezinfectie-dezinsectie-deratizare-diferente", "index", "informatii-utile"],
+    "note": "Article hero desktop WebP"
+  },
+  {
+    "path": "images/ddd-diferente-mobile.jpg",
+    "bytes": 49199,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["dezinfectie-dezinsectie-deratizare-diferente", "index", "informatii-utile"],
+    "note": "Article hero mobile JPEG fallback"
+  },
+  {
+    "path": "images/ddd-diferente-mobile.webp",
+    "bytes": 13278,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["dezinfectie-dezinsectie-deratizare-diferente", "index", "informatii-utile"],
+    "note": "Article hero mobile WebP"
+  },
+  {
+    "path": "images/ddd-diferente-og.jpg",
+    "bytes": 146364,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["dezinfectie-dezinsectie-deratizare-diferente via og:image meta"],
+    "note": "OG image for ddd-diferente article (1200x630)"
+  },
+  {
+    "path": "images/dedede-hero.svg",
+    "bytes": 118397,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["index", "contact"],
+    "note": "Homepage/contact hero illustration SVG (118 KB)"
+  },
+  {
+    "path": "images/dedede-logo-desktop.svg",
+    "bytes": 25470,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <img> in header"],
+    "note": "Desktop logo SVG"
+  },
+  {
+    "path": "images/dedede-logo-mobile.png",
+    "bytes": 7338,
+    "type": "image/png",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <img> in header and footer"],
+    "note": "Mobile logo PNG; also embedded in elder.js JS component bundles"
+  },
+  {
+    "path": "images/dedede-logo-mobile.svg",
+    "bytes": 20505,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <img> in header"],
+    "note": "Mobile logo SVG"
+  },
+  {
+    "path": "images/dedede-logo-sqare-light.svg",
+    "bytes": 4193,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": false,
+    "note": "Square light logo variant; not referenced by any HTML, CSS, or JS in the current build"
+  },
+  {
+    "path": "images/generic-avatar-desktop.jpg",
+    "bytes": 4598,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic author avatar desktop JPEG; not referenced by any page"
+  },
+  {
+    "path": "images/generic-avatar-desktop.webp",
+    "bytes": 4226,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic author avatar desktop WebP; not referenced by any page"
+  },
+  {
+    "path": "images/generic-avatar-mobile.webp",
+    "bytes": 1540,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic author avatar mobile WebP; not referenced by any page"
+  },
+  {
+    "path": "images/generic-thumbnail-desktop.webp",
+    "bytes": 14370,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic article thumbnail desktop WebP; not referenced by any page"
+  },
+  {
+    "path": "images/generic-thumbnail-mobile.jpg",
+    "bytes": 9150,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic article thumbnail mobile JPEG; not referenced by any page"
+  },
+  {
+    "path": "images/generic-thumbnail-mobile.webp",
+    "bytes": 9716,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": false,
+    "note": "Generic article thumbnail mobile WebP; not referenced by any page"
+  },
+  {
+    "path": "images/icon-arrow-up.svg",
+    "bytes": 425,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Back-to-top arrow icon; content inline-embedded as SVG in all pages"
+  },
+  {
+    "path": "images/icon-arrow.svg",
+    "bytes": 415,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Arrow icon; inline-embedded SVG content"
+  },
+  {
+    "path": "images/icon-calendar.svg",
+    "bytes": 4004,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in article pages (Svelte DataCitibila component)"],
+    "note": "Calendar icon for article publication dates; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-call.svg",
+    "bytes": 1173,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Phone call icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-cart.svg",
+    "bytes": 1036,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Cart icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-close.svg",
+    "bytes": 701,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Close/X icon for mobile nav; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-delivery.svg",
+    "bytes": 1477,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Delivery icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-deratizare.svg",
+    "bytes": 5376,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in index page (Svelte ServicesIcon component)"],
+    "note": "Deratizare service icon; inline-embedded SVG with itemprop=image"
+  },
+  {
+    "path": "images/icon-dezinfectie.svg",
+    "bytes": 4542,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in index page (Svelte ServicesIcon component)"],
+    "note": "Dezinfectie service icon; inline-embedded SVG with itemprop=image"
+  },
+  {
+    "path": "images/icon-dezinsectie.svg",
+    "bytes": 5588,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in index page (Svelte ServicesIcon component)"],
+    "note": "Dezinsectie service icon; inline-embedded SVG with itemprop=image"
+  },
+  {
+    "path": "images/icon-email.svg",
+    "bytes": 2174,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Email contact icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-gift.svg",
+    "bytes": 951,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Gift icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-info.svg",
+    "bytes": 1816,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Info icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-menu.svg",
+    "bytes": 881,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in DeHeader component (all pages)"],
+    "note": "Hamburger menu icon for mobile nav; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-mesaj.svg",
+    "bytes": 1157,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Message/chat icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-package.svg",
+    "bytes": 977,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Package icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-pay.svg",
+    "bytes": 2146,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Pay icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-price.svg",
+    "bytes": 3141,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "Price tag icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-search.svg",
+    "bytes": 977,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": false,
+    "note": "Search icon; not observed in any rendered page HTML"
+  },
+  {
+    "path": "images/icon-time.svg",
+    "bytes": 1687,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG in article pages (Svelte TimpCitire component)"],
+    "note": "Reading time clock icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/icon-whatsapp.svg",
+    "bytes": 7297,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["inline SVG embedded in rendered HTML (Svelte component)"],
+    "note": "WhatsApp icon; inline-embedded SVG"
+  },
+  {
+    "path": "images/memphis-mini.jpg",
+    "bytes": 10837,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Memphis pattern JPEG source; NOT loaded by browser (webp variant used: memphis-mini.webp)"
+  },
+  {
+    "path": "images/memphis-mini.webp",
+    "bytes": 17302,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via CSS background-image url() in svelte-85ed3d00.css and resources/style.css"],
+    "note": "Memphis background pattern WebP; CSS background-image only"
+  },
+  {
+    "path": "images/og-image-blogindex.jpg",
+    "bytes": 122194,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["informatii-utile via og:image meta"],
+    "note": "OG image for blog index / informatii-utile page"
+  },
+  {
+    "path": "images/og-image-contact.jpg",
+    "bytes": 171536,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["contact via og:image meta"],
+    "note": "OG image for contact page"
+  },
+  {
+    "path": "images/og-image.jpg",
+    "bytes": 0,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["index, termeni-si-conditii, confidentialitate, cookies via og:image meta"],
+    "note": "CRITICAL BUG: Homepage/default OG image is 0 bytes (empty file). Referenced by 4 routes as og:image but serves no image. Must be created for Astro rebuild."
+  },
+  {
+    "path": "images/servicii.jpg",
+    "bytes": 134561,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Services section JPEG; not referenced by any HTML, CSS, or JS. Likely superseded by servicii.svg."
+  },
+  {
+    "path": "images/servicii.svg",
+    "bytes": 697685,
+    "type": "image/svg+xml",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["index via <img src>"],
+    "note": "Services illustration SVG (697 KB - extremely large, optimization candidate). Referenced only on homepage."
+  },
+  {
+    "path": "images/signal.svg",
+    "bytes": 6939,
+    "type": "image/svg+xml",
+    "category": "image-icon",
+    "referenced": true,
+    "referencedBy": ["index via inline SVG (.BatmanSignal element in Svelte component)"],
+    "note": "DDD-themed signal/batman-signal SVG; inline-embedded in index page"
+  },
+  {
+    "path": "images/totul-despre-dezinsectie-desktop.jpg",
+    "bytes": 577036,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": false,
+    "note": "Article hero desktop JPEG source (577 KB); NOT loaded by browser (webp variant used). Preserve as source."
+  },
+  {
+    "path": "images/totul-despre-dezinsectie-desktop.webp",
+    "bytes": 127192,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["totul-despre-dezinsectie", "index", "informatii-utile"],
+    "note": "Article hero desktop WebP"
+  },
+  {
+    "path": "images/totul-despre-dezinsectie-mobile.jpg",
+    "bytes": 58723,
+    "type": "image/jpeg",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["totul-despre-dezinsectie", "index", "informatii-utile"],
+    "note": "Article hero mobile JPEG fallback"
+  },
+  {
+    "path": "images/totul-despre-dezinsectie-mobile.webp",
+    "bytes": 15938,
+    "type": "image/webp",
+    "category": "image",
+    "referenced": true,
+    "referencedBy": ["totul-despre-dezinsectie", "index", "informatii-utile"],
+    "note": "Article hero mobile WebP"
+  },
+  {
+    "path": "images/totul-despre-dezinsectie-og.jpg",
+    "bytes": 202660,
+    "type": "image/jpeg",
+    "category": "image-og",
+    "referenced": true,
+    "referencedBy": ["totul-despre-dezinsectie via og:image meta"],
+    "note": "OG image for totul-despre-dezinsectie article (1200x630)"
+  },
+  {
+    "path": "maskable_icon.png",
+    "bytes": 51820,
+    "type": "image/png",
+    "category": "icon-pwa",
+    "referenced": true,
+    "referencedBy": ["site.webmanifest icons[2] purpose=any maskable"],
+    "note": "PWA maskable icon 1024x1024"
+  },
+  {
+    "path": "mstile-144x144.png",
+    "bytes": 3020,
+    "type": "image/png",
+    "category": "icon-mstile",
+    "referenced": false,
+    "note": "MS tile 144x144; not referenced in browserconfig.xml or any HTML <meta>"
+  },
+  {
+    "path": "mstile-150x150.png",
+    "bytes": 2997,
+    "type": "image/png",
+    "category": "icon-mstile",
+    "referenced": true,
+    "referencedBy": ["browserconfig.xml <square150x150logo>"],
+    "note": "MS tile 150x150; the only mstile referenced in browserconfig.xml"
+  },
+  {
+    "path": "mstile-310x150.png",
+    "bytes": 3397,
+    "type": "image/png",
+    "category": "icon-mstile",
+    "referenced": false,
+    "note": "MS tile 310x150; not referenced in browserconfig.xml or any HTML <meta>"
+  },
+  {
+    "path": "mstile-310x310.png",
+    "bytes": 6421,
+    "type": "image/png",
+    "category": "icon-mstile",
+    "referenced": false,
+    "note": "MS tile 310x310; not referenced in browserconfig.xml or any HTML <meta>"
+  },
+  {
+    "path": "mstile-70x70.png",
+    "bytes": 2364,
+    "type": "image/png",
+    "category": "icon-mstile",
+    "referenced": false,
+    "note": "MS tile 70x70; not referenced in browserconfig.xml or any HTML <meta>"
+  },
+  {
+    "path": "php_errorlog",
+    "bytes": 11448,
+    "type": "text/plain",
+    "category": "php-backend",
+    "referenced": false,
+    "note": "PHP server error log. Contents not read. Must NOT be deployed to Astro static site."
+  },
+  {
+    "path": "resources/archivo-var.woff2",
+    "bytes": 31580,
+    "type": "font/woff2",
+    "category": "font",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=preload as=font> and CSS @font-face in svelte-85ed3d00.css and style.css"],
+    "note": "Archivo variable font (self-hosted woff2). Only font file on the site."
+  },
+  {
+    "path": "resources/script.js",
+    "bytes": 15211,
+    "type": "application/javascript",
+    "category": "js-main",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <script src=/resources/script.js>"],
+    "note": "Main site JS: dark mode toggle, scroll-to-top, GTM initialization. Must be re-evaluated for Astro."
+  },
+  {
+    "path": "resources/style.css",
+    "bytes": 37904,
+    "type": "text/css",
+    "category": "css-main",
+    "referenced": true,
+    "referencedBy": ["service-worker.js PRECACHE_URLS"],
+    "note": "Compiled CSS from style.scss; NOT loaded via <link> in HTML (Elder.js compiled svelte CSS is loaded instead). Only precached by the service worker. Astro will generate its own compiled CSS."
+  },
+  {
+    "path": "resources/style.css.map",
+    "bytes": 40613,
+    "type": "application/json",
+    "category": "css-main",
+    "referenced": false,
+    "note": "CSS source map; development artifact only, do not deploy"
+  },
+  {
+    "path": "resources/style.scss",
+    "bytes": 35507,
+    "type": "text/x-scss",
+    "category": "css-main",
+    "referenced": false,
+    "note": "SCSS source file; build artifact, not served to browsers"
+  },
+  {
+    "path": "robotfilter.htm",
+    "bytes": 164,
+    "type": "text/html",
+    "category": "seo",
+    "referenced": false,
+    "note": "Legacy robot filter page; not linked from any route, not in sitemap"
+  },
+  {
+    "path": "robots.txt",
+    "bytes": 70,
+    "type": "text/plain",
+    "category": "seo",
+    "referenced": false,
+    "note": "Robots.txt; auto-discovered by crawlers. Must be reproduced in Astro."
+  },
+  {
+    "path": "safari-pinned-tab.svg",
+    "bytes": 2612,
+    "type": "image/svg+xml",
+    "category": "icon-favicon",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=mask-icon>"],
+    "note": "Safari pinned tab monochrome SVG"
+  },
+  {
+    "path": "sendgrid-php/ [non-vendor, 42 files listed]",
+    "bytes": 721499,
+    "type": "mixed",
+    "category": "php-backend",
+    "referenced": false,
+    "note": "SendGrid PHP SDK non-vendor files (lib/, examples/, configs, docs). ~705 KB. Not needed for Astro static rebuild."
+  },
+  {
+    "path": "sendgrid-php/vendor/ [45 files, enumerated as group]",
+    "bytes": 240951,
+    "type": "mixed",
+    "category": "php-backend",
+    "referenced": false,
+    "note": "Vendored Composer PHP dependencies (45 files, 240,951 bytes). Excluded from individual enumeration per task spec."
+  },
+  {
+    "path": "service-worker.js",
+    "bytes": 2519,
+    "type": "application/javascript",
+    "category": "js-main",
+    "referenced": false,
+    "note": "Service worker; precaches index.html and resources/style.css. Not registered via <script> in any HTML. Re-implement for Astro using @vite-pwa/astro or equivalent."
+  },
+  {
+    "path": "sideform.php",
+    "bytes": 19062,
+    "type": "application/x-php",
+    "category": "php-backend",
+    "referenced": true,
+    "referencedBy": ["contact page form action POST /sideform.php"],
+    "note": "Contact form handler using SendGrid. Must be replaced in Astro rebuild with a Netlify Function or edge function."
+  },
+  {
+    "path": "site.webmanifest",
+    "bytes": 640,
+    "type": "application/manifest+json",
+    "category": "pwa",
+    "referenced": true,
+    "referencedBy": ["all 9 routes via <link rel=manifest href=/site.webmanifest>"],
+    "note": "PWA web app manifest. Theme/background color: #fde24f. Icons: android-chrome-192, android-chrome-512, maskable_icon."
+  },
+  {
+    "path": "sitemap.xml",
+    "bytes": 1448,
+    "type": "application/xml",
+    "category": "seo",
+    "referenced": false,
+    "note": "XML sitemap covering all 9 routes. Auto-discovered via robots.txt. Must be reproduced in Astro (use @astrojs/sitemap)."
+  }
+]

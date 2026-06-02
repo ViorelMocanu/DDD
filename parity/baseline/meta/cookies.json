@@ -1,0 +1,140 @@
+{
+  "title": "Politica de cookies a site-ului DeDeDe.ro",
+  "htmlLang": "ro",
+  "canonical": "https://dedede.ro/cookies/",
+  "metaName": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "Află politica de cookies folosită pentru site-ul DeDeDe.ro și pentru serviciile noastre de Dezinfecție, Dezinsecție și Deratizare.",
+    "og:title": "Politica de cookies a site-ului DeDeDe.ro",
+    "og:url": "https://dedede.ro/cookies/",
+    "og:image": "https://dedede.ro/images/og-image.jpg",
+    "og:image:alt": "DeDeDe.ro - Spații fără dăunători",
+    "article:published_time": "2021-09-27T19:35:55+03:00",
+    "article:modified_time": "2021-09-27T19:35:55+03:00",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "og:site_name": "DeDeDe.ro",
+    "og:type": "website",
+    "og:locale": "ro_RO",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:email": "contact@dedede.ro",
+    "og:phone_number": "0744885566",
+    "article:publisher": "DeDeDe.ro",
+    "fb:app_id": "811489239521802",
+    "twitter:site": "@TODO",
+    "twitter:creator": "@TODO",
+    "twitter:card": "summary_large_image",
+    "msapplication-TileColor": "#fde24f",
+    "apple-mobile-web-app-title": "DeDeDe.ro - Spații fără dăunători",
+    "application-name": "DeDeDe.ro",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "mobile-web-app-capable": "yes",
+    "apple-touch-fullscreen": "yes",
+    "theme-color": "#fde24f"
+  },
+  "metaProperty": {
+    "og:description": "Află politica de cookies folosită pentru site-ul DeDeDe.ro și pentru serviciile noastre de Dezinfecție, Dezinsecție și Deratizare."
+  },
+  "metaHttpEquiv": {},
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "https://dedede.ro/cookies/",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "preload",
+      "href": "/resources/archivo-var.woff2",
+      "hreflang": null,
+      "type": "font/woff2",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-32x32.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-16x16.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico",
+      "hreflang": null,
+      "type": "image/x-icon",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.svg",
+      "hreflang": null,
+      "type": "image/svg+xml",
+      "sizes": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/apple-touch-icon.png",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "mask-icon",
+      "href": "/safari-pinned-tab.svg",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "manifest",
+      "href": "/site.webmanifest",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "stylesheet",
+      "href": "/_elderjs/assets/svelte-85ed3d00.css",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    }
+  ],
+  "jsonld": [],
+  "h1": [
+    "Politica de cookies"
+  ],
+  "headingOutline": [
+    "H1: Politica de cookies",
+    "H2: Ce este un cookie?",
+    "H2: La ce sunt folosite cookies?",
+    "H2: Ce cookies folosim?",
+    "H2: Cum sunt folosite cookies de catre acest site?",
+    "H2: Contin cookies date personale?",
+    "H2: Retentia si stergerea cookies",
+    "H2: Securitate si probleme legate de confidentialitate",
+    "H2: Alte aspecte de securitate legate de cookie-uri",
+    "H2: Sfaturi pentru o navigare sigura si responsabila, bazata pe cookies.",
+    "H2: Linkuri utile",
+    "H2: Cum îl chemi pe DeDeDe.ro?",
+    "H3: Sună-l pe DeDeDe",
+    "H3: Dă-i un email lui DeDede",
+    "H3: Dă-i un mesaj rapid lui DeDeDe",
+    "H2: Navighează prin site"
+  ],
+  "imgCount": 2,
+  "imgMissingAlt": 0,
+  "formCount": 0,
+  "scriptSrcs": [
+    "/resources/script.js"
+  ]
+}

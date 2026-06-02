@@ -1,0 +1,51 @@
+# .prettierignore — keep the `pnpm format` gate scoped to project source.
+# Mirrors the eslint globalIgnores / tsconfig exclude / knip ignore boundaries
+# so the format gate is green and never touches committed inputs or generated files.
+
+# Dependencies & build output
+node_modules/
+dist/
+.astro/
+.wrangler/
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+
+# Parity harness + baseline fixtures — committed INPUTS, never reformatted
+parity/
+
+# Gitignored FTP snapshot of the legacy site (non-deliverable)
+livesite/
+
+# AI scratch / reference material (non-deliverable)
+tmp/
+
+# Generated / machine-owned files
+pnpm-lock.yaml
+skills-lock.json
+
+# Legacy & meta docs not owned by this rebuild's style
+suggested_AGENTS.md
+suggested_CODING_PRINCIPLES.md
+
+# Authored documentation with intentional hard-wrapped prose. Prettier's
+# `proseWrap: "never"` would collapse every paragraph to one long line and
+# destructively reflow the human-authored ADRs / plan / context. These are
+# deliverable docs, not scaffold-owned source — keep them out of the code
+# format gate.
+docs/
+.claude/
+.agents/
+.github/
+.qodo/
+/AGENTS.md
+/CODING_PRINCIPLES.md
+/CONTEXT.md
+/CLAUDE.md
+/README.md
+
+# Verbatim-copied article content (parity-critical: diacritics, inline <br/>,
+# legacy encoding). Prettier must NOT touch these — they are copied byte-faithful
+# from the baseline, not formatted. (Populated in Group C.)
+src/content/blog/

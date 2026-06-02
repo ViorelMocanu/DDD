@@ -1,0 +1,4 @@
+#!/bin/sh
+# Pre-commit hook: format check + lint only (fast gate).
+# Full verify (typecheck + unit + e2e) runs in CI and via `pnpm verify`.
+pnpm format && pnpm lint

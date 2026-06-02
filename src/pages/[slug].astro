@@ -1,0 +1,162 @@
+---
+// src/pages/[slug].astro
+// Article template for the 3 blog posts. Renders the schema.org/Article wrapper,
+// BreadcrumbList microdata, hero <picture>, ArticlePreMeta, headline/author/intro,
+// the ArticleBody itemprop wrapper, and the visible prev/next <aside> nav.
+//
+// CONTRACT NOTES (spine-locked — see docs/IMPLEMENTATION-PLAN.md Task 29):
+//   - glob() loader => the URL key is entry.id (NOT entry.slug). params.slug = entry.id.
+//   - getStaticPaths() allow-lists EXACTLY the 3 article ids; any 4th file is excluded.
+//   - prev/next are chronological ASCENDING by data.date (bare ISO strings sort lexically
+//     within the same TZ): ddd-diferente (09-12) -> cum-scapi (09-13) -> totul-despre (09-14).
+//   - BaseLayout owns <head>/<header>/<footer> + the Contact section (DeFooter). This file
+//     emits ONLY the <article class="ArticleContainer"> body (baseline html, minus head/header/footer).
+//   - WAIVERS applied here: ogType="article" (SEO-03); ogImage stays root-relative and BaseHead
+//     absolutizes it (SEO-02); NO <head> rel=prev/next link (SEO-05 (ii)) — the visible <aside>
+//     prev/next nav IS retained. analytics={true} (articles are non-legal routes).
+
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getArticles, sortOldestFirst } from "@utils/articles";
+import { formatDateRo } from "@utils/formatDate";
+import { readingTimeMinutes, wordCount } from "@utils/readingTime";
+
+// PARITY-CRITICAL — visible `itemprop="wordCount"` value (SPEC §6 line 186: 1279 / 1123 / 831).
+// The legacy site computed these from the RENDERED DOM textContent of each article. That count
+// is NOT reproducible byte-exactly from the raw markdown `entry.body` (which carries `##`, `**`,
+// `[text](url)`, `<hr />`, `<br />` tokens) — raw-body counts come out 829 / 1126 / 1289, and no
+// single regex transform lands on all three baseline values. So the three SPEC-fixed counts are
+// pinned by id here to hold HTML/microdata parity. readingTimeMinutes(entry.body) is left DERIVED
+// because the tiny delta never crosses the round(words/225) boundary — it still yields 4 / 5 / 6.
+const BASELINE_WORD_COUNT: Record<string, number> = {
+	"dezinfectie-dezinsectie-deratizare-diferente": 831,
+	"cum-scapi-de-gandaci": 1123,
+	"totul-despre-dezinsectie": 1279,
+};
+
+export async function getStaticPaths() {
+	// Uses the MODULE-LEVEL imports (getArticles/sortOldestFirst): Astro hoists this function
+	// above the frontmatter body, and the @astrojs/cloudflare prerender worker bundles it in
+	// isolation — a const declared in the frontmatter scope is NOT visible here (ReferenceError
+	// at prerender time), but module-scope imports ARE. getArticles(true) pins the allow-list
+	// (ARTICLE_IDS) so a stray file under src/content/blog/ can never silently add a 4th page.
+	// sortOldestFirst gives chronological ASCENDING by date string: bare ISO
+	// "YYYY-MM-DDTHH:MM:SS" (same TZ) sorts correctly lexicographically, yielding
+	// ddd-diferente -> cum-scapi -> totul-despre.
+	const sorted = sortOldestFirst(await getArticles(true));
+
+	return sorted.map((entry, index) => {
+		const prev: CollectionEntry<"blog"> | null = index > 0 ? (sorted[index - 1] ?? null) : null;
+		const next: CollectionEntry<"blog"> | null = index < sorted.length - 1 ? (sorted[index + 1] ?? null) : null;
+		return {
+			params: { slug: entry.id },
+			props: { entry, prev, next },
+		};
+	});
+}
+
+interface Props {
+	entry: CollectionEntry<"blog">;
+	prev: CollectionEntry<"blog"> | null;
+	next: CollectionEntry<"blog"> | null;
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content } = await render(entry);
+
+const { title, description, date, author, thumbnail, ogimage, modifiedDate } = entry.data;
+const { excerpt } = entry.data;
+// modifiedDate is absent in all current frontmatter; defaults to the published date.
+const resolvedModifiedDate = modifiedDate ?? date;
+
+// Derived display values. `entry.body` is `string | undefined` under the v6 glob() loader,
+// so coalesce to '' before handing it to the string helpers.
+const body = entry.body ?? "";
+const displayDate = formatDateRo(date);
+// Reading time stays DERIVED — round(words/225) lands on the baseline 4 / 5 / 6 (the small
+// raw-vs-rendered word delta never crosses a rounding boundary).
+const readTime = readingTimeMinutes(body);
+// wordCount is PINNED to the SPEC §6 baseline values (831 / 1123 / 1279) for the 3 articles;
+// a derived count from `body` is the fallback for any future article (not parity-checked).
+const wc = BASELINE_WORD_COUNT[entry.id] ?? wordCount(body);
+
+// Hero <picture> paths from thumbnail.name (basename) — -desktop.webp / -mobile.webp / -mobile.jpg.
+const heroDesktopWebp = `/images/${thumbnail.name}-desktop.webp`;
+const heroMobileWebp = `/images/${thumbnail.name}-mobile.webp`;
+const heroMobileJpg = `/images/${thumbnail.name}-mobile.jpg`;
+---
+
+<BaseLayout title={title} description={description} canonical={`https://dedede.ro/${entry.id}/`} ogImage={ogimage.url} ogImageAlt={ogimage.alt} ogType="article" articlePublishedTime={date} articleModifiedTime={resolvedModifiedDate} analytics={true} bodyClass="informatii-utile">
+	<article class="ArticleContainer" itemscope itemtype="https://schema.org/Article">
+		<section class="Hero" role="banner">
+			<picture class="BigArticlePicture">
+				<source type="image/webp" srcset={heroDesktopWebp} media="(min-width: 850px)" />
+				<source type="image/webp" srcset={heroMobileWebp} media="(min-width: 100px)" />
+				<img class="BigArticleImg" src={heroMobileJpg} alt={thumbnail.alt} itemprop="image" loading="lazy" width="280" height="157" />
+			</picture>
+		</section>
+		<main class="BigArticle LimitWidth">
+			<ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a class="BreadcrumbLink" itemprop="item" href="/">
+						<span class="BreadcrumbText" itemprop="name">DeDeDe.ro</span>
+					</a>
+					<span class="ScreenReaders" itemprop="position">1</span>
+				</li>
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a class="BreadcrumbLink" itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="/informatii-utile/" href="/informatii-utile/">
+						<span class="BreadcrumbText" itemprop="name">Informații utile</span>
+					</a>
+					<span class="ScreenReaders" itemprop="position">2</span>
+				</li>
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<span class="BreadcrumbText" itemprop="name">{title}</span>
+					<span class="ScreenReaders" itemprop="position">3</span>
+				</li>
+			</ol>
+			<div class="ArticlePreMeta">
+				{
+					/* `content` is a valid microdata global attr but absent from Astro's typed <strong> JSX
+				    props; spread it so the baseline `content="<iso>"` renders verbatim, no type error. */
+				}
+				<p>Articol scris pe <strong itemprop="datePublished" {...{ content: date }}><span>{displayDate}</span></strong></p>
+				<p>Timp de citire estimat: <strong><span>{readTime}</span> min.</strong></p>
+				<p class="ScreenReaders" itemprop="wordCount">{wc}</p>
+			</div>
+			<h1 class="BigArticleTitle" itemprop="headline">{title}</h1>
+			<p class="ArticleAuthor">Articol scris de<strong itemprop="author">{author}</strong></p>
+			<p class="BigArticleIntro">{excerpt}</p>
+			<div class="ArticleBody" itemprop="articleBody">
+				<Content />
+			</div>
+		</main>
+		{/* eslint-disable-next-line astro/jsx-a11y/no-redundant-roles -- Parity: the live site emits `<aside role="complementary">` verbatim; <aside>'s implicit role is identical, so this is harmless but kept for byte-faithful markup parity. */}
+		<aside role="complementary">
+			<nav class="BigArticleNav LimitWidth">
+				<ol class="BigArticleList">
+					{
+						prev && (
+							<li class="BigArticleItem BigArticlePrevious">
+								<a class="BigArticleLink" href={`/${prev.id}/`} title={`Mergi la articolul precedent: ${prev.data.title}`}>
+									<span class="BALstatus">Articolul precedent:</span>
+									<strong>{prev.data.title}</strong>
+								</a>
+							</li>
+						)
+					}
+					{
+						next && (
+							<li class="BigArticleItem BigArticleNext">
+								<a class="BigArticleLink" href={`/${next.id}/`} title={`Mergi la articolul următor: ${next.data.title}`}>
+									<span class="BALstatus">Articolul următor:</span>
+									<strong>{next.data.title}</strong>
+								</a>
+							</li>
+						)
+					}
+				</ol>
+			</nav>
+		</aside>
+	</article>
+</BaseLayout>

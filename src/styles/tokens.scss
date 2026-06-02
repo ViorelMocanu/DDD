@@ -1,0 +1,148 @@
+// =============================================================================
+// tokens.scss — Brand design tokens (CSS custom properties + Sass vars)
+// -----------------------------------------------------------------------------
+// Ported VERBATIM from the deployed visual oracle:
+//   livesite/_elderjs/assets/svelte-85ed3d00.css  (the stylesheet every baseline
+//   route links: <link href="/_elderjs/assets/svelte-85ed3d00.css">)
+//   cross-referenced against the legacy source livesite/resources/style.scss.
+//
+// These are the brand `:root` custom properties + the theme/dark mode overrides.
+// global.scss does `@use "tokens"` to pull this block in. Consumers reference the
+// CSS custom properties (var(--color-...)) — NOT the Sass mirrors — so the cascade
+// (dark-mode media query, .darkmode / .lightmode class overrides) stays identical
+// to the deployed output. The Sass mirrors below exist only as a convenience for
+// any future build-time math; nothing in the oracle depends on them.
+//
+// Theme color (manifest / msapplication-TileColor): #fde24f  -> --color-light
+// Dark brand color (safari-pinned-tab / theme-color dark): #00214d -> --color-dark
+// Font: Archivo (variable woff2, self-hosted at /resources/archivo-var.woff2)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Sass-level brand mirrors (build-time only; the cascade uses the CSS vars below)
+// -----------------------------------------------------------------------------
+$color-primary: #ff5470;
+$color-secondary: #00ebc7;
+$color-dark: #00214d; // dark brand
+$color-darker: #001633;
+$color-almostdark: rgba(0, 22, 51, 0.9);
+$color-light: #fde24f; // theme color (#fde24f)
+$color-offwhite: #fdfdfd;
+$color-lightgray: rgba(12, 11, 11, 0.1);
+$color-darkgray: rgba(0, 0, 0, 0.5);
+$color-transparentwhite: rgba(255, 255, 255, 0.1);
+$color-lightwhite: rgba(255, 255, 255, 0.5);
+$color-almostwhite: rgba(255, 255, 255, 0.9);
+$color-error: #f00;
+$color-success: #090;
+
+// -----------------------------------------------------------------------------
+// :root custom properties — ported verbatim from the deployed CSS.
+// -----------------------------------------------------------------------------
+:root {
+	--color-primary: #ff5470;
+	--color-secondary: #00ebc7;
+	--color-dark: #00214d;
+	--color-darker: #001633;
+	--color-almostdark: rgba(0, 22, 51, 0.9);
+	--color-light: #fde24f;
+	--color-offwhite: #fdfdfd;
+	--color-lightgray: rgba(12, 11, 11, 0.1);
+	--color-darkgray: rgba(0, 0, 0, 0.5);
+	--color-transparentwhite: rgba(255, 255, 255, 0.1);
+	--color-lightwhite: rgba(255, 255, 255, 0.5);
+	--color-almostwhite: rgba(255, 255, 255, 0.9);
+	--foreground: var(--color-dark);
+	--background: var(--color-offwhite);
+	--shadow: var(--color-darkgray);
+	--light-shadow: var(--color-lightgray);
+	--error: #f00;
+	--success: #090;
+
+	// ===========================================================================
+	// WAIVER-VISUAL-01 — accessible service-description highlight (scheme-aware).
+	// ---------------------------------------------------------------------------
+	// The legacy `.Highlight` (#ff5470 = --color-primary) inside the homepage service
+	// descriptions (`.ServiceText .Highlight`, 4 spans) fails WCAG AA — but the failing
+	// background DEPENDS ON THE COLOR SCHEME, so the fix must too:
+	//   • LIGHT scheme: `.Services` bg = --background = #fdfdfd (near-white). #ff5470 =
+	//     3.06:1 (FAILS). Darken to #cc2952 = 5.15:1 (PASSES). ← this :root value.
+	//   • DARK scheme:  `.Services` bg = --color-darker = #001633 (navy). There #cc2952
+	//     drops to 3.45:1 (FAILS) while the original #ff5470 = 5.81:1 (PASSES). The
+	//     dark-scheme blocks below restore #ff5470 for that context.
+	// This is the ONE pre-existing serious axe violation on the site. Only
+	// `.ServiceText .Highlight` consumes this token; the GLOBAL `.Highlight` is
+	// UNCHANGED. (NB: the plan said "Hero h1"; the real failing element is the service
+	// descriptions — corrected here and in parity/WAIVERS.md.) The scheme-aware split
+	// touches NO baseline-parity pixel: all 27 baseline screenshots capture the default
+	// LIGHT scheme, where this :root #cc2952 renders.
+	--color-highlight-accessible: #cc2952;
+	// ===========================================================================
+}
+
+// `--shadow` is upgraded to the soft "light" shadow on wide viewports.
+@media (min-width: 1280px) {
+	:root {
+		--shadow: var(--light-shadow);
+	}
+}
+
+// -----------------------------------------------------------------------------
+// prefers-color-scheme: dark — system dark mode token overrides.
+// (Component-level dark rules — .Header, .Services, .BigArticle, etc. — live in
+// global.scss next to their light-mode definitions, matching the deployed CSS.)
+// -----------------------------------------------------------------------------
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground: var(--color-offwhite);
+		--background: var(--color-dark);
+		--shadow: var(--color-lightwhite);
+		--light-shadow: var(--color-transparentwhite);
+		// WAIVER-VISUAL-01 (dark scheme): in dark mode `.ServiceText` sits on navy
+		// (`.Services` background = --color-darker = #001633), where the darkened
+		// #cc2952 only reaches 3.45:1 (fails AA) but the original brand #ff5470 reaches
+		// 5.81:1 (passes). So restore the brand pink for the dark scheme. This touches
+		// NO baseline-parity pixel (all 27 baseline screenshots are captured in the
+		// default LIGHT scheme); it only fixes the dark-mode color-contrast that
+		// Lighthouse's dark-emulation flagged on the homepage.
+		--color-highlight-accessible: #ff5470;
+	}
+}
+
+// -----------------------------------------------------------------------------
+// Manual theme classes (.darkmode / .lightmode) — the JS dark-mode toggle adds
+// one of these to <body>, overriding the system preference. Ported verbatim.
+// NOTE: the .lightmode 1280px `--shadow: var(--light-darkgray)` references an
+// UNDEFINED custom property — this is a pre-existing quirk in the deployed CSS
+// (and in livesite/resources/style.scss). Reproduced verbatim so output is
+// byte-identical to the oracle; it resolves to the initial value (no shadow
+// upgrade) on .lightmode at >=1280px exactly as the live site does.
+// -----------------------------------------------------------------------------
+.darkmode {
+	--foreground: var(--color-offwhite);
+	--background: var(--color-dark);
+	--shadow: var(--color-lightwhite);
+	--light-shadow: var(--color-transparentwhite);
+	// WAIVER-VISUAL-01 (manual dark toggle): mirror the prefers-color-scheme:dark fix —
+	// brand #ff5470 (5.81:1 on the navy `.Services` bg) instead of #cc2952 (3.45:1, fails).
+	--color-highlight-accessible: #ff5470;
+}
+
+@media (min-width: 1280px) {
+	.darkmode {
+		--shadow: var(--color-transparentwhite);
+	}
+}
+
+.lightmode {
+	--foreground: var(--color-dark);
+	--background: var(--color-offwhite);
+	--shadow: var(--color-darkgray);
+	--light-shadow: var(--color-lightgray);
+}
+
+@media (min-width: 1280px) {
+	.lightmode {
+		--shadow: var(--light-darkgray); // verbatim oracle quirk — undefined var
+	}
+}

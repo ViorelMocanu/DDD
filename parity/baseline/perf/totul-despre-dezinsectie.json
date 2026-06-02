@@ -1,0 +1,10 @@
+{
+  "domContentLoaded": 31,
+  "loadEvent": 98,
+  "transferSize": 47700,
+  "paints": {
+    "first-paint": 116,
+    "first-contentful-paint": 116
+  },
+  "resourceCount": 9
+}

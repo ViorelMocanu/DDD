@@ -1,0 +1,131 @@
+{
+  "title": "Contactează specialiștii în DeDeDe chiar acum!",
+  "htmlLang": "ro",
+  "canonical": "https://dedede.ro/contact/",
+  "metaName": {
+    "viewport": "width=device-width, initial-scale=1",
+    "description": "Programează-te acum la Dezinfecție, Dezinsecție sau Deratizare! Scapă de 🐜 gândaci, 🐀 șobolani, 🦟 ploșnițe, 🦠 viruși sau alți ☠️ dăunători! București + Ilfov",
+    "og:title": "Contactează specialiștii în DeDeDe chiar acum!",
+    "og:description": "Programează-te acum la Dezinfecție, Dezinsecție sau Deratizare! Scapă de 🐜 gândaci, 🐀 șobolani, 🦟 ploșnițe, 🦠 viruși sau alți ☠️ dăunători! București + Ilfov",
+    "og:url": "https://dedede.ro/contact/",
+    "og:image": "https://dedede.ro/images/og-image-contact.jpg",
+    "og:image:alt": "DeDeDe.ro - Programează-te la Dezinsecție, Dezinfecție sau Deratizare",
+    "article:published_time": "2021-09-19T19:35:55+03:00",
+    "article:modified_time": "2021-09-19T19:35:55+03:00",
+    "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    "og:site_name": "DeDeDe.ro",
+    "og:type": "website",
+    "og:locale": "ro_RO",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:email": "contact@dedede.ro",
+    "og:phone_number": "0744885566",
+    "article:publisher": "DeDeDe.ro",
+    "fb:app_id": "811489239521802",
+    "twitter:site": "@TODO",
+    "twitter:creator": "@TODO",
+    "twitter:card": "summary_large_image",
+    "msapplication-TileColor": "#fde24f",
+    "apple-mobile-web-app-title": "DeDeDe.ro - Spații fără dăunători",
+    "application-name": "DeDeDe.ro",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "mobile-web-app-capable": "yes",
+    "apple-touch-fullscreen": "yes",
+    "theme-color": "#fde24f"
+  },
+  "metaProperty": {},
+  "metaHttpEquiv": {},
+  "links": [
+    {
+      "rel": "canonical",
+      "href": "https://dedede.ro/contact/",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "preload",
+      "href": "/resources/archivo-var.woff2",
+      "hreflang": null,
+      "type": "font/woff2",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-32x32.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon-16x16.png",
+      "hreflang": null,
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.ico",
+      "hreflang": null,
+      "type": "image/x-icon",
+      "sizes": null
+    },
+    {
+      "rel": "icon",
+      "href": "/favicon.svg",
+      "hreflang": null,
+      "type": "image/svg+xml",
+      "sizes": null
+    },
+    {
+      "rel": "apple-touch-icon",
+      "href": "/apple-touch-icon.png",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "mask-icon",
+      "href": "/safari-pinned-tab.svg",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "manifest",
+      "href": "/site.webmanifest",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    },
+    {
+      "rel": "stylesheet",
+      "href": "/_elderjs/assets/svelte-85ed3d00.css",
+      "hreflang": null,
+      "type": null,
+      "sizes": null
+    }
+  ],
+  "jsonld": [],
+  "h1": [
+    "Contact DeDeDe"
+  ],
+  "headingOutline": [
+    "H1: Contact DeDeDe",
+    "H2: Cum îl chemi pe DeDeDe.ro?",
+    "H3: Sună-l pe DeDeDe",
+    "H3: Dă-i un email lui DeDede",
+    "H3: Dă-i un mesaj rapid lui DeDeDe",
+    "H2: Navighează prin site"
+  ],
+  "imgCount": 3,
+  "imgMissingAlt": 0,
+  "formCount": 1,
+  "scriptSrcs": [
+    "https://www.googletagmanager.com/gtag/js?id=AW-10780123066",
+    "https://www.googletagmanager.com/gtm.js?id=GTM-NGTSNLX",
+    "/resources/script.js"
+  ]
+}
