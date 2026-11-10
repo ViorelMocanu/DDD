@@ -107,8 +107,16 @@ describe.skipIf(!dockerRuns)("sideform.php", () => {
 	test("invalid fields are listed and nothing is stored or sent", async () => {
 		const reply = await post({ ...valid, side_name: "", side_email: "not-an-email", side_telephone: "12", side_tip: "altceva" });
 		expect(reply.error).toBe("true");
-		expect(reply.errors?.map((error) => error.text.replace(/<[^>]+>/g, ""))).toEqual(["nu ai introdus numele tău", "ai introdus un email greșit", "ai introdus un telefon invalid", "nu ai ales tipul problemei"]);
-		expect(reply.errors?.[0]?.text).toContain('href="#side_name"');
+		// One reason per invalid field, in form order, each linking to its field.
+		const reasons = reply.errors?.map((error) => error.text) ?? [];
+		const expected = [
+			['href="#side_name"', "numele tău</a>"],
+			['href="#side_email"', "email greșit</a>"],
+			['href="#side_telephone"', "telefon invalid</a>"],
+			['href="#side_tip"', "tipul problemei</a>"],
+		];
+		expect(reasons).toHaveLength(expected.length);
+		for (const [index, parts] of expected.entries()) for (const part of parts) expect(reasons[index], part).toContain(part);
 		expect((await post({ ...valid, side_email: "" })).errors?.[0]?.text).toContain("nu ai introdus");
 		expect((await post({ ...valid, side_email: "ion@example.com\r\nBcc: evil@example.com" })).error).toBe("true");
 		expect((await post({ ...valid, side_name: ["array"] })).error).toBe("true");
