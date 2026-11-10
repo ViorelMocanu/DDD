@@ -1,0 +1,59 @@
+name: Deploy to SiteGround
+
+# Manual only: Actions tab > Deploy to SiteGround > Run workflow. Setup is described in DEPLOY.md.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only list what would change on the server"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency: deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - run: pnpm test
+
+      - name: Mirror dist/ to the server
+        env:
+          SSH_KEY: ${{ secrets.SITEGROUND_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.SITEGROUND_KNOWN_HOSTS }}
+          SSH_HOST: ${{ secrets.SITEGROUND_HOST }}
+          SSH_PORT: ${{ secrets.SITEGROUND_PORT }}
+          SSH_USER: ${{ secrets.SITEGROUND_USER }}
+          REMOTE_PATH: ${{ secrets.SITEGROUND_PATH }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          # With an empty or wrong path, rsync --delete would be pointed at the wrong folder on the server.
+          case "$REMOTE_PATH" in
+            */public_html) ;;
+            *) echo "SITEGROUND_PATH must end in /public_html"; exit 1 ;;
+          esac
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key && chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          # "P" filters protect server-only files from --delete.
+          # The last two keep the old site's CSS and JS for browsers that still hold a cached old page; remove them (and the files) a week after the first deploy.
+          rsync --recursive --links --times --compress --delete --itemize-changes $DRY_RUN \
+            --filter='P env.php' --filter='P .well-known/' --filter='P php_errorlog' \
+            --filter='P _elderjs/' --filter='P resources/script.js' \
+            -e "ssh -p $SSH_PORT -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            dist/ "$SSH_USER@$SSH_HOST:$REMOTE_PATH/"
+
+      - name: Check the live site
+        if: ${{ !inputs.dry_run }}
+        run: pnpm verify:live

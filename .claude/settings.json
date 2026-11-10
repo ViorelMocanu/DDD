@@ -1,0 +1,5 @@
+{
+	"permissions": {
+		"deny": ["Read(.env)", "Read(.env.*)", "Edit(.env)", "Edit(.env.*)", "Edit(_backup/**)", "Read(**/env.php)", "Edit(**/env.php)"]
+	}
+}

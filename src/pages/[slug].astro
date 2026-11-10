@@ -1,0 +1,95 @@
+---
+import { dataCitibila, vecini } from "../lib/format";
+import { type Articol, getArticole } from "../lib/articole";
+import type { GetStaticPaths } from "astro";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+	articol: Articol;
+	precedent: Articol | undefined;
+	urmator: Articol | undefined;
+}
+
+export const getStaticPaths = (async () => {
+	const articole = await getArticole();
+	return articole.map((articol) => ({ params: { slug: articol.slug }, props: { articol, ...vecini(articole, articol.slug) } }));
+}) satisfies GetStaticPaths;
+
+const { articol, precedent, urmator } = Astro.props;
+const { data, html } = articol;
+---
+
+<Layout route="informatii-utile" title={data.title} description={data.description} ogImage={data.ogimage.url} ogImageAlt={data.ogimage.alt} published={data.date}>
+	<Fragment slot="head">
+		{precedent && <link rel="prev" href={`/${precedent.slug}/`} />}
+		{urmator && <link rel="next" href={`/${urmator.slug}/`} />}
+	</Fragment>
+	<article class="ArticleContainer" itemscope itemtype="https://schema.org/Article">
+		<section class="Hero" role="banner">
+			{
+				data.thumbnail && (
+					<picture class="BigArticlePicture">
+						<source type="image/webp" srcset={`/images/${data.thumbnail.name}-desktop.webp`} media="(min-width: 850px)" />
+						<source type="image/webp" srcset={`/images/${data.thumbnail.name}-mobile.webp`} media="(min-width: 100px)" />
+						<img class="BigArticleImg" src={`/images/${data.thumbnail.name}-mobile.jpg`} alt={data.thumbnail.alt} itemprop="image" loading="lazy" width="280" height="157" />
+					</picture>
+				)
+			}
+		</section>
+		<main class="BigArticle LimitWidth">
+			<ol class="Breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a class="BreadcrumbLink" itemprop="item" href="/">
+						<span class="BreadcrumbText" itemprop="name">DeDeDe.ro</span>
+					</a>
+					<span class="ScreenReaders" itemprop="position">1</span>
+				</li>
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<a class="BreadcrumbLink" itemscope itemtype="https://schema.org/WebPage" itemprop="item" itemid="/informatii-utile/" href="/informatii-utile/">
+						<span class="BreadcrumbText" itemprop="name">Informații utile</span>
+					</a>
+					<span class="ScreenReaders" itemprop="position">2</span>
+				</li>
+				<li class="BreadcrumbItem" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<span class="BreadcrumbText" itemprop="name">{data.title}</span>
+					<span class="ScreenReaders" itemprop="position">3</span>
+				</li>
+			</ol>
+			<div class="ArticlePreMeta">
+				<p>Articol scris pe <strong itemprop="datePublished" content={data.date}><span>{dataCitibila(data.date, false)}</span></strong></p>
+				<p>Timp de citire estimat: <strong><span>{articol.minute}</span> min.</strong></p>
+				<p class="ScreenReaders" itemprop="wordCount">{articol.cuvinte}</p>
+			</div>
+			<h1 class="BigArticleTitle" itemprop="headline">{data.title}</h1>
+			{data.author && <p class="ArticleAuthor">Articol scris de<strong itemprop="author">{data.author}</strong></p>}
+			<p class="BigArticleIntro">{data.excerpt}</p>
+			<div class="ArticleBody" itemprop="articleBody" set:html={html} />
+		</main>
+		<aside role="complementary">
+			<nav class="BigArticleNav LimitWidth">
+				<ol class="BigArticleList">
+					{
+						precedent && (
+							<li class="BigArticleItem BigArticlePrevious">
+								<a class="BigArticleLink" href={`/${precedent.slug}/`} title={`Mergi la articolul precedent: ${precedent.data.title}`}>
+									<span class="BALstatus">Articolul precedent:</span>
+									<strong>{precedent.data.title}</strong>
+								</a>
+							</li>
+						)
+					}
+					{
+						urmator && (
+							<li class="BigArticleItem BigArticleNext">
+								<a class="BigArticleLink" href={`/${urmator.slug}/`} title={`Mergi la articolul următor: ${urmator.data.title}`}>
+									<span class="BALstatus">Articolul următor:</span>
+									<strong>{urmator.data.title}</strong>
+								</a>
+							</li>
+						)
+					}
+				</ol>
+			</nav>
+		</aside>
+	</article>
+</Layout>

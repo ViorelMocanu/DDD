@@ -1,0 +1,28 @@
+schema: spec-driven
+
+context: |
+  Project: dedede.ro, a nine-page Romanian brochure site for a pest-control company. Read AGENTS.md and CONTEXT.md first.
+  Tech stack: Astro (static output, no adapter, no UI framework), TypeScript strictest, plain CSS, Vitest, Playwright, one PHP file for the contact form.
+  Hosting: SiteGround shared hosting (Apache, .htaccess, PHP). dist/ is mirrored to public_html.
+  Architecture: static first. Do not add server rendering, adapters, UI frameworks or runtime dependencies without a written justification.
+  Parity: visible content, URLs, design, analytics ids and dataLayer event names do not change unless the owner asks.
+  Security: the contact endpoint never executes, concatenates into SQL or prints unescaped anything from a request. Secrets live only in env.php on the server.
+  Testing: logic, endpoint and browser behaviour are built test-first. A change is done when pnpm verify, pnpm test and pnpm test:e2e pass.
+  API research: before using a library or Astro API for the first time, check its current official documentation.
+  Git: the owner commits and pushes. Never list a commit as a task.
+
+rules:
+  proposal:
+    - Keep it short and always include Non-goals.
+    - State whether visitors will see a difference, and if so exactly what.
+    - Justify every new dependency against the small-dependency-list rule.
+  design:
+    - Frame implementation details as suggested approaches; the implementer verifies exact APIs.
+    - List every deliberate difference from the current live behaviour.
+  specs:
+    - Write requirements as observable outcomes with GIVEN/WHEN/THEN scenarios, not mechanisms.
+    - Name spec folders with a domain prefix and double dash, for example site--pages or contact--form.
+  tasks:
+    - Describe outcomes, not mechanisms. Start each behaviour task with its failing test.
+    - End every phase with pnpm verify, pnpm test and, when pages or scripts changed, pnpm test:e2e.
+    - End every phase by updating docs/agent/session-resume.md.

@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+import DeFooter from "../components/DeFooter.astro";
+import DeHeader from "../components/DeHeader.astro";
+
+interface Props {
+	/** Route name: sets the `<body>` class and the active menu item. */
+	route: string;
+	title: string;
+	description: string;
+	ogImage: string;
+	ogImageAlt: string;
+	/** ISO date used for the article published and modified times. */
+	published: string;
+}
+
+const { route, title, description, ogImage, ogImageAlt, published } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imagine = new URL(ogImage, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="ro">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="preload" href="/resources/archivo-var.woff2" as="font" type="font/woff2" crossorigin />
+
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={imagine} />
+		<meta property="og:image:alt" content={ogImageAlt} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:site_name" content="DeDeDe.ro" />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ro_RO" />
+		<meta property="og:email" content="contact@dedede.ro" />
+		<meta property="og:phone_number" content="0744885566" />
+		<meta property="article:published_time" content={published} />
+		<meta property="article:modified_time" content={published} />
+		<meta property="article:publisher" content="DeDeDe.ro" />
+		<meta property="fb:app_id" content="811489239521802" />
+		<meta name="twitter:card" content="summary_large_image" />
+
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00214d" />
+		<meta name="msapplication-TileColor" content="#fde24f" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta name="apple-mobile-web-app-title" content="DeDeDe.ro - Spații fără dăunători" />
+		<meta name="application-name" content="DeDeDe.ro" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="theme-color" content="#fde24f" />
+		<slot name="head" />
+	</head>
+	<body class={route}>
+		<div class="Container">
+			<a href="#continut" class="ScreenReaders">Sari la conținut</a>
+			<DeHeader route={route} />
+			<a href="#header" id="continut" class="ScreenReaders">Accesează meniul</a>
+			<slot />
+			<DeFooter />
+			<script src="../scripts/site.ts"></script>
+			<noscript>
+				<iframe id="noScriptIframe" title="Google Tag Manager Non-scripting Inject" src="https://www.googletagmanager.com/ns.html?id=GTM-NGTSNLX" height="0" width="0" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+			</noscript>
+		</div>
+	</body>
+</html>

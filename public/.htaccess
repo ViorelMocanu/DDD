@@ -1,0 +1,135 @@
+AddDefaultCharset utf-8
+
+<IfModule mod_headers.c>
+
+	# Protejeaza impotriva page-framing si click-jacking - dezactiveaza daca e important sa faci framing
+	Header always set X-Frame-Options "SAMEORIGIN"
+
+	# Protejeaza impotriva content-sniffing
+	Header set X-Content-Type-Options "nosniff"
+
+	# Porneste HSTS pentru Preloading
+	Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+	# Protejeaza impotriva cross domain policy abuse
+	Header set X-Permitted-Cross-Domain-Policies "none"
+
+	# Content Security Policy trebuie definita corect pentru fiecare site in parte, in functie de resurse
+	Header set Content-Security-Policy "default-src 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; child-src 'self'; frame-ancestors 'none'; frame-src 'self' www.google.com *.doubleclick.net *.googletagmanager.com *.cookiebot.com; manifest-src 'self'; style-src 'self' https: *.google.com 'unsafe-inline'; script-src 'self' https: 'unsafe-inline' *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net; connect-src 'self' https: *.google-analytics.com *.googletagmanager.com *.google.com *.googleapis.com data: cdn.jsdelivr.net stats.g.doubleclick.net; font-src 'self' https: data:; img-src https: data:; upgrade-insecure-requests; block-all-mixed-content;"
+
+	# Porneste politicile de transmisie de referrers
+	Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+	# Controlul feature-urilor din browser
+	Header set Permissions-Policy "accelerometer=(), camera=(), microphone=(), geolocation=(self), autoplay=(self), fullscreen=(self)"
+
+	# Compatibilitate cu IE-uri mai vechi
+	Header set X-UA-Compatible "IE=edge"
+
+	# `mod_headers` nu poate match-ui pe baza content-type, insa
+	# headerul `X-UA-Compatible` trebuie trimis doar pentru documente HTML si nu pentru alte resurse
+	<FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
+		Header unset X-UA-Compatible
+	</FilesMatch>
+
+	# Scoate semnatura serverului
+	Header always unset X-Powered-By
+	Header always unset server
+	Header unset X-Powered-By
+	Header unset server
+
+	# Setam cache-ul unor extensii sa expire mai repede
+	# Meta-urile = 1 luna
+	<FilesMatch "\.(webmanifest|txt|ico|woff2)$">
+		Header set Cache-Control "max-age=2592000"
+	</FilesMatch>
+	# Pozele = 1 saptamana
+	<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+		Header set Cache-Control "max-age=604800, public"
+	</FilesMatch>
+	# Staticele si sitemap-ul = 1 zi
+	<FilesMatch "\.(js|css|xml)$">
+		Header set Cache-Control "max-age=86400"
+	</FilesMatch>
+	# Paginile se revalideaza la fiecare vizita, ca sa nu ceara fisiere CSS/JS sterse la un deploy
+	<FilesMatch "\.(html|php)$">
+		Header set Cache-Control "no-cache"
+	</FilesMatch>
+	# Raspunsurile formularului nu se pastreaza nicaieri
+	<Files "sideform.php">
+		Header set Cache-Control "no-store"
+	</Files>
+	# Fisierele generate de Astro au hash in nume, deci pot fi tinute un an
+	<If "%{REQUEST_URI} =~ m#^/_astro/#">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</If>
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Fisierele si folderele ascunse nu se servesc (exceptie: .well-known pentru certificatul SSL)
+	RewriteRule (^|/)\.(?!well-known/) - [F]
+
+	# Blocam user agents care sunt goi
+	RewriteCond %{HTTPS} !on
+	RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+	RewriteCond %{HTTP_USER_AGENT} ^-?$
+	RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+	RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+	RewriteRule ^ - [F]
+
+	# Redirectam http://www.dedede.ro + https://www.dedede.ro + http://dedede.ro catre https://dedede.ro
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+	RewriteCond %{ENV:HTTPS} !on
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+<IfModule mod_setenvif.c>
+	# Blocam user agents cunoscut malitiosi
+	SetEnvIfNoCase User-Agent ^$ keep_out
+	SetEnvIfNoCase User-Agent (binlar|casper|cmsworldmap|comodo|diavol|dotbot|feedfinder|flicky|ia_archiver|jakarta|kmccrew|nutch|planetwork|purebot|pycurl|skygrid|sucker|turnit|vikspider|zmeu|curl|perl|java) keep_out
+	<limit GET POST PUT>
+		Order Allow,Deny
+		Allow from all
+		Deny from env=keep_out
+	</limit>
+</IfModule>
+
+# "-Indexes" va bloca userii din a accesa indexurile de foldere fara index file (index.html spre ex)
+<IfModule mod_autoindex.c>
+	Options -Indexes
+</IfModule>
+
+# Scoatem din index fisiere sensibile
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+# Setari de GET si POST - @TODO de reconfigurat mai tarziu
+<Limit GET POST>
+	order deny,allow
+	allow from all
+</Limit>
+
+# Setari de PUT si DELETE blocate
+<Limit PUT DELETE>
+	order deny,allow
+	deny from all
+</Limit>
+
+# Fisiere care nu trebuie servite niciodata
+<FilesMatch "(?i)^(env.*\.php.*|php_errorlog|error_log)$|\.(map|scss|log|sql|bak|old|orig|zip|gz|tar|swp)$|~$">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
+
+# Setarea fisierelor standard de index de director
+# Reset any previously registered directory-index candidates.
+DirectoryIndex disabled
+DirectoryIndex index.html index.htm index.php
+# Linia de mai jos este gestionata de SiteGround (Site Tools > Devs > PHP Manager). Actualizeaz-o aici cand schimbi versiunea de PHP.
+AddHandler application/x-httpd-php86 .php .php5 .php4 .php3

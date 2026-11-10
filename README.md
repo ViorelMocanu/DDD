@@ -1,6 +1,6 @@
 # DDD: Dezinsecție Dezinfecție Deratizare
 
-Un proiect Svelte + Elder în care încerc să fac un site complet și funcțional de la zero.
+Site-ul [DeDeDe.ro](https://dedede.ro/), construit de la zero în live-uri. A pornit ca proiect Svelte + Elder.js și a fost rescris 1:1 în [Astro](https://astro.build/) în 2026.
 
 ## Care e povestea acestui proiect?
 
@@ -12,141 +12,115 @@ Proiectul de față documentează, deci, toți pașii prin care am trecut să aj
 
 Rezultatul final arată așa:
 
-[![Site-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede.jpg?raw=true)](https://dedede.ro/)
+[![Site-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede.jpg?raw=true)](https://dedede.ro/)
 
 ### Pasul 1: Design de logo
 
-[![Primul video live de pe YouTube în care desenăm logo-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep01.jpg?raw=true)](https://www.youtube.com/watch?v=pvt1e4rft2Y&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=12)
+[![Primul video live de pe YouTube în care desenăm logo-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep01.jpg?raw=true)](https://www.youtube.com/watch?v=pvt1e4rft2Y&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=12)
 
 Deși voiam să intru și în layout, în live-ul ăsta am desenat exclusiv logo-ul DeDeDe, de la zero, în Figma.
 
 ### Pasul 2: Design de layout
 
-[![Al doilea video live de pe YouTube în care desenăm layout-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep02.jpg?raw=true)](https://www.youtube.com/watch?v=g_KwnJZ7cSk&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=14)
+[![Al doilea video live de pe YouTube în care desenăm layout-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep02.jpg?raw=true)](https://www.youtube.com/watch?v=g_KwnJZ7cSk&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=14)
 
 În live-ul ăsta am desenat layout-ul de homepage pentru DeDeDe, de la zero, în Figma.
 
 ### Pasul 3: Mobile first responsive web design (HTML)
 
-[![Al treilea video live de pe YouTube în care construim HTML-ul static pentru homepage-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep03.jpg?raw=true)](https://www.youtube.com/watch?v=L9iFeI1mgMo&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=15)
+[![Al treilea video live de pe YouTube în care construim HTML-ul static pentru homepage-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep03.jpg?raw=true)](https://www.youtube.com/watch?v=L9iFeI1mgMo&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=15)
 
 În acest live am început munca de Front End cu HTML-ul de homepage pentru DeDeDe, de la zero, în Visual Studio Code.
 
 ### Pasul 4: Mobile first responsive web design (CSS)
 
-[![Al patrulea video live de pe YouTube în care construim CSS-ul static pentru homepage-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep04.jpg?raw=true)](https://www.youtube.com/watch?v=8sY12JpTD6o&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=16)
+[![Al patrulea video live de pe YouTube în care construim CSS-ul static pentru homepage-ul DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep04.jpg?raw=true)](https://www.youtube.com/watch?v=8sY12JpTD6o&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=16)
 
 După ce live-ul trecut am făcut HTML-ul, în acest live am continuat munca de Front End cu CSS-ul de homepage pentru DeDeDe.
 
 ### Pasul 5: Pagina de contact, dark mode și animații în CSS și JS
 
-[![Al cincilea video live de pe YouTube în care construim HTML-ul și CSS-ul static pentru DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep05.jpg?raw=true)](https://www.youtube.com/watch?v=wRAQQJ5qlCI&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=17)
+[![Al cincilea video live de pe YouTube în care construim HTML-ul și CSS-ul static pentru DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep05.jpg?raw=true)](https://www.youtube.com/watch?v=wRAQQJ5qlCI&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=17)
 
 În acest live am construit pagina de Contact derivată din cea de Homepage și am adăugat niște efecte speciale pentru DeDeDe.
 
 ### Pasul 6: Back end în Svelte cu CMS și rute
 
-[![Al șaselea video live de pe YouTube în care ne apucăm să facem site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep06.jpg?raw=true)](https://www.youtube.com/watch?v=BTkF13qKxMs&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=18)
+[![Al șaselea video live de pe YouTube în care ne apucăm să facem site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep06.jpg?raw=true)](https://www.youtube.com/watch?v=BTkF13qKxMs&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=18)
 
 Dacă până acum am făcut numai muncă statică, din acest video începe transformarea template-urilor în site dinamic, folosind Svelte și ElderJS.
 
 ### Pasul 7: CMS în Svelte și bug fixing, open graph și meta tags
 
-[![Al șaptelea video live de pe YouTube în care continuăm să facem site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep07.jpg?raw=true)](https://www.youtube.com/watch?v=WkABLfXWdis&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=19)
+[![Al șaptelea video live de pe YouTube în care continuăm să facem site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep07.jpg?raw=true)](https://www.youtube.com/watch?v=WkABLfXWdis&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=19)
 
 Mă lovesc de niște probleme de cod în Svelte, încerc să fac bug fixing pe ele și construiesc Open Graph și Meta Tags pentru DeDeDe.
 
 ### Pasul 8: Finalizarea muncii de back end în Svelte și ElderJS
 
-[![Al optulea video live de pe YouTube în care finalizăm munca de Svelte și ElderJS pentru a face site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep08.jpg?raw=true)](https://www.youtube.com/watch?v=5XzHSbbZ9VY&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=20)
+[![Al optulea video live de pe YouTube în care finalizăm munca de Svelte și ElderJS pentru a face site-ul DeDeDe.ro dinamic](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep08.jpg?raw=true)](https://www.youtube.com/watch?v=5XzHSbbZ9VY&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=20)
 
 După debugging cu succes, ne ocupăm de ce feature-uri mai e nevoie să implementăm dinamic pentru site și îl pregătim de lansare.
 
 ### Pasul 9: Lansare și setup de marketing online
 
-[![Al nouălea video live de pe YouTube prezintă procesul de lansare a DeDeDe.ro și primele eforturi de marketing online](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep09.jpg?raw=true)](https://www.youtube.com/watch?v=NMJD4JIuvp8&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=21)
+[![Al nouălea video live de pe YouTube prezintă procesul de lansare a DeDeDe.ro și primele eforturi de marketing online](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep09.jpg?raw=true)](https://www.youtube.com/watch?v=NMJD4JIuvp8&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=21)
 
 În sfârșit, vedem site-ul live. Facem un ultim debugging și pregătim tracking-ul și viitoarele campanii de marketing online.
 
 ### Pasul 10: Strângem clienți printr-o campanie de marketing pe Google Ads
 
-[![Al zecelea video live de pe YouTube prezintă procesul de creare a unei campanii de marketing destinată strângerii de clienți pentru DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/_static/readme-images/dedede-live-ep10.jpg?raw=true)](https://www.youtube.com/watch?v=KN3Wjlld7y8&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=22)
+[![Al zecelea video live de pe YouTube prezintă procesul de creare a unei campanii de marketing destinată strângerii de clienți pentru DeDeDe.ro](https://github.com/ViorelMocanu/DDD/blob/main/docs/readme-images/dedede-live-ep10.jpg?raw=true)](https://www.youtube.com/watch?v=KN3Wjlld7y8&list=PLfTqvIG4roBqeTMQpBr3vupPv1vCBY1_c&index=22)
 
 În acest ultim live, creăm efectiv campania de marketing pentru DeDeDe în Google Ads și o setăm astfel încât să aibă șanse maxime de reușită cu buget cât mai mic.
 
-## Bazat pe Elder.js Template Project
+## Cum e construit acum
 
-<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Node&query=engines.node&url=https%3A%2F%2Fraw.githubusercontent.com%2Felderjs%2Ftemplate%2Fmaster%2Fpackage.json" alt="node version" />
-
-Acesta este un proiect bazat pe [Elder.js](https://elderguide.com/tech/elderjs/). Template-ul e luat de pe `https://github.com/elderjs/template` și sursa Elder.js este aici: `https://github.com/elderjs/elderjs`
-
-Un demo al template-ului este aici: [https://elderjs.pages.dev/](https://elderjs.pages.dev/)
+- **Astro**, cu output static: fără framework de UI și fără adaptor. Folderul `dist/` se urcă direct pe hosting.
+- **Articolele** sunt fișiere Markdown în `src/content/articole/`.
+- **Stilurile** sunt într-un singur fișier CSS simplu: `src/styles/global.css`.
+- **Formularul de contact** trimite datele către `public/sideform.php`, un singur fișier PHP fără dependințe.
+- **Hosting**: SiteGround. Pașii de deploy sunt în [DEPLOY.md](DEPLOY.md).
 
 ## Cum pornești proiectul
 
-### 1. Instalează dependințele
+Ai nevoie de Node 24+ și pnpm 10+.
 
 ```bash
-npm install # sau doar yarn
+pnpm install
+pnpm dev        # server local pe http://localhost:4321
+pnpm build      # construiește site-ul în dist/
+pnpm preview    # servește local ce e în dist/
 ```
 
-### Pornește proiectul local
+## Verificări
 
 ```bash
-npm start # sau npm run dev
+pnpm verify     # ESLint, verificare de tipuri (astro check) și Prettier
+pnpm test       # build + teste unitare (testele pentru sideform.php pornesc PHP în Docker)
+pnpm test:e2e   # teste în browser cu Playwright
 ```
 
-Deschide [localhost:3000](http://localhost:3000) în browser pentru a vedea aplicația funcționând.
+Testele din `tests/parity/` compară site-ul nou cu o copie locală a celui vechi (`_backup/live/`, care nu ajunge în git). Fără copia locală sunt sărite automat.
 
-Când serverul e pornit, orice schimbare în, spre exemplu, folder-ul `src` pe care o salvezi ar trebui să se vadă după un refresh pe pagină.
+## Cum adaugi un articol
 
-Template-ul curent e deployat ca live demo aici: [https://elderjs.pages.dev/](https://elderjs.pages.dev/)
+1. Creează un fișier `.md` în `src/content/articole/`. Numele fișierului devine adresa: `gandaci-de-bucatarie.md` apare la `/gandaci-de-bucatarie/`.
+2. Copiază antetul (front matter) dintr-un articol existent și completează-l. Build-ul se oprește cu un mesaj clar dacă lipsește un câmp.
+3. Pune imaginile în `public/images/`: `<nume>-mobile.jpg`, `<nume>-mobile.webp`, `<nume>-desktop.webp` și imaginea de Open Graph.
 
-#### Construiește proiectul pentru deploy în producție
+Articolul apare singur pe prima pagină, în „Informații utile” și în sitemap.
 
-```bash
-npm run build
-```
+## Structura de foldere
 
-După ce se termină build-ul, el va pune toate fișierele care trebuiesc deployate în folder-ul `./public`.
-
-## Structura de foldere și fișiere root
-
-```bash
-.
-├── _backup             # folder exclus în .gitignore cu fișiere de care am nevoie just in case
-├── _static             # folder cu fișierele statice la care am lucrat inițial (HTML, CSS, resurse)
-│   ├── images          # folder cu imagini statice pentru design-ul site-ului
-│   ├── readme-images   # folder cu imagini statice folosite în readme.md
-│   └── resources       # folder cu CSS, font-uri, SVG-uri și JS-uri
-├── .vscode             # folder exclus în .gitignore cu date de conectare la SFTP din VSCode
-├── assets              # folder cu resurse statice copiate în root-ul site-ului deployat
-│   ├── images          # folder cu imagini statice pentru design-ul site-ului
-│   └── resources       # folder cu CSS, font-uri și JS-uri statice
-├── node_modules        # folder autogenerat exclus în .gitignore cu toate dependințele din NPM
-├── public              # folder autogenerat exclus în .gitignore cu fișierele compilate pentru deploy
-├── src                 # folder cu sursele SVELTE ale proiectului
-│   ├── components      # folder cu componentele reutilizabile de tip Svelte din proiect
-│   ├── layouts         # folder cu layout-urile de tip Svelte folosite în proiect
-│   └── routes          # folder cu rutele (paginile) de tip Svelte + JS folosite în proiect
-│       ├── confidentialitate
-│       ├── contact
-│       ├── cookies
-│       ├── home
-│       ├── informatii-utile
-│       └── termeni-si-conditii
-├── .editorconfig       # fișier cu configurări de editor, în speță de VSCode
-├── .env                # fișier exclus în .gitignore cu useri și parole critice
-├── .eslintignore       # fișier cu configurări de ESLint (ce fișiere să ignore ESLint-ul)
-├── .eslintrc.js        # fișier cu configurări de ESLint
-├── .gitignore          # fișier cu configurări de GIT (ce fișiere să ignore GIT-ul?)
-├── .prettierrc         # fișier cu configurări de Prettier
-├── elder.config.js     # fișier cu configurări de ElderJS
-├── LICENSE             # fișier cu licența folosită de proiect
-├── netlify.toml        # fișier cu configurări de Netlify pentru deploy
-├── package-lock.json   # fișier autogenerat de lockfile pentru pachete
-├── package.json        # fișier cu definiția pachetelor și funcțiilor de Node
-├── README.md           # fișier cu detalii despre proiect
-├── rollup.config.js    # fișier cu configurări de Rollup
-└── svelte.config.js    # fișier cu configurări de Svelte
-```
+| Folder                            | Ce conține                                                              |
+| --------------------------------- | ----------------------------------------------------------------------- |
+| `src/pages/`                      | Paginile site-ului                                                      |
+| `src/layouts/`, `src/components/` | Layout-ul comun, header, footer, cardul de articol                      |
+| `src/content/articole/`           | Articolele în Markdown                                                  |
+| `src/scripts/`                    | JavaScript-ul din browser (meniu, dark mode, formular, analytics)       |
+| `src/lib/`                        | Funcții ajutătoare (date, timp de citire)                               |
+| `src/styles/`                     | CSS-ul site-ului                                                        |
+| `public/`                         | Fișiere copiate ca atare: imagini, fonturi, `.htaccess`, `sideform.php` |
+| `tests/`                          | Teste unitare, de browser și de paritate cu site-ul vechi               |
+| `openspec/`, `docs/`, `AGENTS.md` | Specificații și instrucțiuni pentru lucrul cu agenți AI                 |

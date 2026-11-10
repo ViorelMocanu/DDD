@@ -1,14 +1,18 @@
-/___ELDER___/
-/node_modules/
-/public/
-/build/
-.DS_Store
-env.php
+node_modules/
+dist/
+.astro/
+playwright-report/
+test-results/
+
+# Secrets and server-only files
 .env
-/assets/.env
+.env.*
+env.php
 sftp.json
-/.vscode/
-/_backup/
-/_backup
-.vscode
-_backup
+
+# Local copies and scratch
+_backup/
+.worktrees/
+.vscode/
+.DS_Store
+tests/parity/*-snapshots/
