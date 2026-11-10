@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 // A PHP warning printed into the reply would corrupt the JSON and reveal server paths. Problems go to the error log instead.
 ini_set('display_errors', '0');
+// Stored leads and the emails show Romanian time, whatever the server's own clock setting is.
+date_default_timezone_set('Europe/Bucharest');
 
 const OFFICE_EMAIL = 'office@dedede.ro';
 const FROM_EMAIL = 'no-reply@dedede.ro';

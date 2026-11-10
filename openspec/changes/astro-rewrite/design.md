@@ -37,7 +37,7 @@ Not visible to a visitor:
 - `formularEroare` is pushed to the data layer once per failed reply. The legacy script pushed it twice.
 - The request no longer carries `tech: "ajax"`; neither endpoint ever read it.
 - The email pattern in the form accepts the same addresses as before but can no longer freeze the page on a long malformed one.
-- Stored leads: `data` is set by PHP's clock (the legacy query used MySQL's `NOW()`), and `ip` holds only the connecting address (the legacy value appended `X-Forwarded-For`).
+- Stored leads: `data` is set by PHP's clock, pinned to Romanian time (the legacy query used MySQL's `NOW()`); the time in the emails is Romanian time too, and `ip` holds only the connecting address (the legacy value appended `X-Forwarded-For`).
 - The server validates more strictly than the legacy endpoint: problem type from a fixed list, email checked by PHP's validator, message cut at 5000 characters, email at 150, request body at 20 kB.
 - At most 5 accepted submissions per address in 10 minutes. The visitor confirmation is limited further (2 per recipient, 30 in total per 10 minutes); the office notification never is.
 - A failed or skipped visitor confirmation is logged and does not change the reply. The legacy endpoint reported it as an error although the lead had arrived.

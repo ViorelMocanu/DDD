@@ -149,6 +149,11 @@ describe.skipIf(!dockerRuns)("sideform.php", () => {
 		const stored = (await leads()).at(-1);
 		expect(stored).toMatchObject({ side_name: "Ion Popescu", side_email: "ion@example.com", side_telephone: "0744885566", side_tip: "dezinsectie", side_mesaj: "Am gândaci.", side_url: "https://dedede.ro/contact/" });
 
+		// Times are Romanian time whatever the server's own clock setting is (this test server runs on UTC).
+		const inRomania = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Bucharest", dateStyle: "short", timeStyle: "medium" }).format(new Date());
+		const asNumber = (time: string): number => Date.parse(`${time.replace(" ", "T")}Z`);
+		expect(Math.abs(asNumber(stored?.["data"] ?? "") - asNumber(inRomania))).toBeLessThan(120_000);
+
 		const sent = mails().slice(before);
 		expect(sent).toHaveLength(2);
 		const [office, visitor] = sent;
