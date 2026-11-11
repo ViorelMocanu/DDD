@@ -2,6 +2,18 @@
 
 Milestones, retrospectives and `/simplify` runs. Newest first.
 
+## 2026-11-11: Astro rewrite live
+
+Deployed with the manual workflow (dry run, then the real run), checked with `pnpm verify:live`, confirmed by one real form submission from the owner. OpenSpec change archived as `2026-11-11-astro-rewrite`; its requirements are now the main specs.
+
+### Retrospective
+
+- **Worked well:** the dry run. Its delete list (the old mail library, an example file, three style sources) could be read and approved before anything changed on the server.
+- **Worked well:** protecting `_elderjs/` and `resources/script.js` in the deploy, so pages cached before the switch kept working.
+- **Surprise:** SiteGround's page cache kept serving the old site after the upload, so the first live check failed on 8 points that were all correct on the server. Flush the cache after every deploy.
+- **Surprise:** static files are served by SiteGround's nginx, not Apache, so cache headers set for them in `.htaccess` do not arrive. The live check now accepts nginx's one-year `max-age`.
+- **Watch next time:** local previews cannot run PHP. Testing the form locally needs the Docker PHP copy.
+
 ## 2026-11-10: Astro rewrite (OpenSpec change `astro-rewrite`)
 
 Rebuilt the site 1:1 in Astro on top of commit `0e426f0`, as one uncommitted working tree for the owner to commit.

@@ -30,7 +30,9 @@ check(home.headers.get("cache-control") === "no-cache", "pages revalidate (Cache
 check(["gzip", "br", "zstd"].includes(home.headers.get("content-encoding")), "pages are sent compressed");
 
 const stylesheet = /href="(\/_astro\/[^"]+\.css)"/.exec(html)?.[1];
-check(stylesheet !== undefined && (await get(stylesheet)).headers.get("cache-control")?.includes("immutable") === true, "hashed assets are cached long-term");
+// SiteGround's nginx serves static files itself and sets its own one-year max-age, so the `immutable` from .htaccess never arrives.
+const assetMaxAge = stylesheet === undefined ? 0 : Number(/max-age=(\d+)/.exec((await get(stylesheet)).headers.get("cache-control") ?? "")?.[1] ?? 0);
+check(assetMaxAge >= 31_536_000, "hashed assets are cached for a year");
 
 for (const path of MUST_NOT_SERVE) {
 	const response = await get(path);

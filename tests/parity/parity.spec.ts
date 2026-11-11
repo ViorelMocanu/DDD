@@ -1,5 +1,5 @@
 // Migration oracle: compares the rebuilt site with the local copy of the live site.
-// Deliberate differences are listed in openspec/changes/astro-rewrite/design.md and masked here.
+// Deliberate differences are listed in openspec/changes/archive/2026-11-11-astro-rewrite/design.md and masked here.
 import { type Page, expect, test } from "@playwright/test";
 import { HAS_LEGACY_COPY, LEGACY_URL as LEGACY, REBUILD_URL } from "../../playwright.config";
 import { LEGACY_ROUTES } from "./routes";

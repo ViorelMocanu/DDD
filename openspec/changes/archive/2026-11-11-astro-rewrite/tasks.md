@@ -46,4 +46,4 @@ Every milestone ends with `pnpm verify`, the test suites, a `/simplify` pass log
 
 - [x] 8.1 Full gate green; regression scan of adjacent files
 - [x] 8.2 `DEPLOY.md`, README, retrospective, commit message checked with commitlint
-- [ ] 8.3 Specs synced; owner commits, pushes and deploys
+- [x] 8.3 Specs synced; owner commits, pushes and deploys
