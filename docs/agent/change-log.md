@@ -14,6 +14,12 @@ Deployed with the manual workflow (dry run, then the real run), checked with `pn
 - **Surprise:** static files are served by SiteGround's nginx, not Apache, so cache headers set for them in `.htaccess` do not arrive. The live check now accepts nginx's one-year `max-age`.
 - **Watch next time:** local previews cannot run PHP. Testing the form locally needs the Docker PHP copy.
 
+### /simplify runs
+
+| Date       | Base      | End point                             | Notes                                                                                                                                                                                                                                                                                                         |
+| ---------- | --------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-11 | `e74b585` | `76f27dd` + working tree, uncommitted | Small diff (timezone line, two endpoint test changes, Dependabot config, the live-check change), reviewed inline without subagents. Fixed: the asset cache check in `scripts/verify-live.mjs` split into a fetch and a comparison. Nothing skipped. The next run starts from the owner's commit of this work. |
+
 ## 2026-11-10: Astro rewrite (OpenSpec change `astro-rewrite`)
 
 Rebuilt the site 1:1 in Astro on top of commit `0e426f0`, as one uncommitted working tree for the owner to commit.

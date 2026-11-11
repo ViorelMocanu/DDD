@@ -67,6 +67,32 @@ test("the same Tag Manager container and Ads tag are loaded", async ({ page }) =
 	expect(await dataLayer(page)).toEqual(expect.arrayContaining(["gtm.js", "gtag:config:AW-10780123066"]));
 });
 
+test("contact links report the visitor's intent, other links do not", async ({ page }) => {
+	await page.goto("/termeni-si-conditii/");
+	// The links are kept from navigating, so the page (and its data layer) stays put.
+	await page.evaluate(() => {
+		document.addEventListener("click", (click) => {
+			click.preventDefault();
+		});
+		const other = document.createElement("a");
+		other.href = "mailto:altcineva@example.com";
+		other.id = "alta-adresa";
+		other.textContent = "altă adresă";
+		document.body.append(other);
+	});
+	const contactEvents = async (): Promise<string[]> => (await dataLayer(page)).filter((event) => event.startsWith("contact"));
+
+	await page.locator('a.FooterButton[href^="tel:"]').click();
+	expect(await contactEvents()).toEqual(["contactTelefon"]);
+	await page.locator('a.FooterButton[href*="wa.me"]').click();
+	await page.locator('a.FooterButton[href="mailto:contact@dedede.ro"]').click();
+	expect(await contactEvents()).toEqual(["contactTelefon", "contactWhatsapp", "contactEmail"]);
+
+	await page.locator("#alta-adresa").click();
+	await page.locator('a[href="/contact/"]').last().click();
+	expect(await contactEvents()).toHaveLength(3);
+});
+
 test.describe("contact form", () => {
 	test("an invalid phone number blocks sending and marks the field", async ({ page }) => {
 		let sent = false;
@@ -131,6 +157,9 @@ test.describe("contact form", () => {
 		expect(payload["side_url"]).toContain("/contact/");
 		const expected = ["formularInitializat", "formularTrimis", "gtag:event:conversion", "conversieAcceptata"];
 		expect((await dataLayer(page)).filter((event) => expected.includes(event))).toEqual(expected);
+		// The problem type travels with the success event; nothing personal does.
+		const sent = await page.evaluate(() => (window.dataLayer as { event?: string }[]).find((entry) => entry.event === "formularTrimis"));
+		expect(sent).toEqual({ event: "formularTrimis", tip_problema: "dezinsectie" });
 	});
 
 	test("a refused submission shows the reasons and records no conversion", async ({ page }) => {

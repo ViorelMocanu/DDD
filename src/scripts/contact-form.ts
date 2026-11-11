@@ -18,8 +18,8 @@ interface Raspuns {
 	errors?: { text?: string }[];
 }
 
-function eveniment(nume: string): void {
-	window.dataLayer.push({ event: nume });
+function eveniment(nume: string, date: Record<string, string> = {}): void {
+	window.dataLayer.push({ event: nume, ...date });
 }
 
 function eInvalid(camp: Camp): boolean {
@@ -85,7 +85,8 @@ function porneste(form: HTMLFormElement): void {
 		}
 
 		if (raspuns) raspuns.textContent = rezultat.message ?? "";
-		eveniment("formularTrimis");
+		// The problem type is one of the fixed options, so it can feed audiences without carrying personal data.
+		eveniment("formularTrimis", { tip_problema: date["side_tip"] ?? "" });
 		window.gtag("event", "conversion", { send_to: ADS_CONVERSIE });
 		stare("Success", "Formularul a fost trimis!");
 		eveniment("conversieAcceptata");

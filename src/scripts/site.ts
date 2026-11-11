@@ -34,3 +34,16 @@ if (salvat === "enabled" || salvat === "disabled") seteazaDarkMode(salvat === "e
 document.getElementById("darkMode")?.addEventListener("click", () => seteazaDarkMode(localStorage.getItem(CHEIE_DARK_MODE) !== "enabled"));
 
 pornesteAnalytics();
+
+// Contact intent for Analytics and Ads audiences: a tap on a phone, WhatsApp or company email link, anywhere on the page.
+// Only the event name is pushed; Tag Manager decides what to send, under the visitor's consent choice.
+const CONTACTE: [prefix: string, eveniment: string][] = [
+	["tel:", "contactTelefon"],
+	["https://wa.me/", "contactWhatsapp"],
+	["mailto:contact@dedede.ro", "contactEmail"],
+];
+document.addEventListener("click", (clic) => {
+	const adresa = (clic.target as Element).closest("a")?.getAttribute("href") ?? "";
+	const eveniment = CONTACTE.find(([prefix]) => adresa.startsWith(prefix))?.[1];
+	if (eveniment) window.dataLayer.push({ event: eveniment });
+});

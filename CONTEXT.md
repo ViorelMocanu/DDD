@@ -40,7 +40,7 @@ Articles are served at the root, not under `/informatii-utile/`. Every URL ends 
 
 ## Things that must stay as they are
 
-- Tag Manager container `GTM-NGTSNLX`, Ads tag `AW-10780123066`, and the `dataLayer` event names `formularInitializat`, `formularTrimis`, `formularEroare`, `conversieAcceptata`. Google Ads reporting depends on them.
+- Tag Manager container `GTM-NGTSNLX`, Ads tag `AW-10780123066`, and the `dataLayer` event names `formularInitializat`, `formularTrimis` (with `tip_problema`), `formularEroare`, `conversieAcceptata`, and the contact link events `contactTelefon`, `contactWhatsapp`, `contactEmail`. Google Ads and Analytics reporting depend on them. Consent is handled by Cookiebot inside the Tag Manager container, not in this repo.
 - Form field names (`side_name`, `side_email`, `side_telephone`, `side_tip`, `side_mesaj`) and the JSON reply shape of the endpoint: `{ error: "true" | "false", succes?: "true", message, errors?: [{ text }] }`.
 - The MySQL table `dedede_contact` and its columns. The endpoint only inserts.
 - Image file names in `public/images/`: search engines and social previews link to them.
