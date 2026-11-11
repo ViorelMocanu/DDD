@@ -4,7 +4,7 @@ Living file. Overwritten after every completed step so a cut-off session can be 
 
 ## Task
 
-OpenSpec change `contact-intent-events` (analytics option A, chosen by the owner on 2026-11-11): contact link clicks push `contactTelefon`, `contactWhatsapp`, `contactEmail`; `formularTrimis` carries `tip_problema`. Built and tested, not committed, not deployed, not archived.
+OpenSpec change `contact-intent-events` (analytics option A, chosen by the owner on 2026-11-11): contact link clicks push `contactTelefon`, `contactWhatsapp`, `contactEmail`; `formularTrimis` carries `tip_problema`. Built, tested and committed (`ed4d7ea`); not deployed, not archived.
 
 The Astro rewrite is live since 2026-11-11 and archived (`openspec/changes/archive/2026-11-11-astro-rewrite/`). Closing state of that work: `docs/state/2026-11-11-1130-astro-rewrite-live.md`.
 
@@ -30,4 +30,4 @@ Waiting for the owner. Open items, all theirs:
 
 ## /simplify bookkeeping
 
-The last run (2026-11-11) covered `e74b585` to `76f27dd` plus the working tree of that moment; most of it became commit `a235dfd`. The next run starts from `a235dfd` and covers everything after it, committed or not (that includes the `contact-intent-events` code, which has not been through a run). Runs are logged in `docs/agent/change-log.md`.
+The last run (2026-11-11, second of the day) covered `a235dfd` to `ed4d7ea` plus the working tree. The next run starts from the owner's commit of that work and covers everything after it, committed or not. Runs are logged in `docs/agent/change-log.md`.

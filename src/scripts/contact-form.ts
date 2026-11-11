@@ -86,7 +86,7 @@ function porneste(form: HTMLFormElement): void {
 
 		if (raspuns) raspuns.textContent = rezultat.message ?? "";
 		// The problem type is one of the fixed options, so it can feed audiences without carrying personal data.
-		eveniment("formularTrimis", { tip_problema: date["side_tip"] ?? "" });
+		eveniment("formularTrimis", { tip_problema: valoare("side_tip") });
 		window.gtag("event", "conversion", { send_to: ADS_CONVERSIE });
 		stare("Success", "Formularul a fost trimis!");
 		eveniment("conversieAcceptata");
