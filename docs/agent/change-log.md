@@ -2,6 +2,16 @@
 
 Milestones, retrospectives and `/simplify` runs. Newest first.
 
+## 2026-11-11: Contact intent events (OpenSpec change `contact-intent-events`)
+
+Contact link clicks and the problem type now reach `dataLayer`; the owner wired them to GA4 in Tag Manager the same day. Archived as `2026-11-11-contact-intent-events`.
+
+### Retrospective
+
+- **Worked well:** probing the live site in a throwaway browser before building. It showed the Cookiebot banner already sets all four consent signals, so no banner work was needed.
+- **Surprise:** the Tag Manager container holds an older set of tags (prefix WZC) that the repo cannot show: its own click events, a second Ads account, and a conversion tag that fires on form submit instead of on success. Ask for a look at the container before planning analytics work.
+- **Watch next time:** Google's admin screens had moved (key events are a tab under Events). Written click paths for Google tools need a screenshot check.
+
 ## 2026-11-11: Astro rewrite live
 
 Deployed with the manual workflow (dry run, then the real run), checked with `pnpm verify:live`, confirmed by one real form submission from the owner. OpenSpec change archived as `2026-11-11-astro-rewrite`; its requirements are now the main specs.

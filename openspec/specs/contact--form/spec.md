@@ -81,3 +81,13 @@ The endpoint SHALL never execute, interpolate into SQL, or place unescaped into 
 - **GIVEN** more submissions from one address than the allowed burst
 - **WHEN** the next one arrives inside the window
 - **THEN** it is refused with an error reply
+
+### Requirement: The success event carries the problem type
+
+The `formularTrimis` event SHALL carry the problem type the visitor chose, and no personal data.
+
+#### Scenario: Accepted submission
+
+- **GIVEN** a valid form with problem type `dezinsectie`
+- **WHEN** the endpoint accepts it
+- **THEN** the `formularTrimis` entry in `dataLayer` has `tip_problema` equal to `dezinsectie` and no other keys besides `event`

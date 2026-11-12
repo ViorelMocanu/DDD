@@ -75,7 +75,8 @@ If a check cannot run, say which one and why. Do not describe unverified work as
 
 - Explain decisions and trade-offs, more for backend, hosting and tooling than for front-end work.
 - Present two or more options as a comparison, recommended option first.
-- No emojis in replies. Windows is the development machine: PowerShell is the primary shell, paths use `G:\_Projects\DDD`.
+- Emojis are welcome in chat and allowed in internal docs (agent, planning, state and decision files). Never in user-facing content (site copy, emails, reports, product UI) unless Viorel explicitly approves it.
+- Windows is the development machine: PowerShell is the primary shell, paths use `G:\_Projects\DDD`.
 - Suggested commit messages follow Conventional Commits and contain no double quotes or backticks.
 
 ## Pointers
